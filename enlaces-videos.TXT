@@ -1,0 +1,3 @@
+Repositorio GitHub - https://github.com/lrivasvilla/SimpsonsRank.git
+Video Aplicación - https://drive.google.com/file/d/1fhYWUYTyWqDG1R_Jtc1mGJlTeO-U1fXk/view?usp=sharing
+Video Mongo - https://drive.google.com/file/d/1GqGq7BTc3iK-APWlhEGe-44hDf5xCGB2/view?usp=sharing
