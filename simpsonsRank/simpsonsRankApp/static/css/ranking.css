@@ -1,0 +1,198 @@
+/* =========================
+   DRAG (Sortable)
+========================= */
+.sortable-ghost { opacity: .35; }
+.drag-handle { cursor: grab; user-select: none; font-weight:900; opacity:.7; width:26px; text-align:center; }
+body.dragging .drag-handle { cursor: grabbing; }
+
+/* =========================
+   TABS
+========================= */
+.tabs{
+  display:flex;
+  gap:10px;
+  margin-top:36px;
+  flex-wrap:wrap;
+}
+
+.tab-btn{
+  padding:10px 16px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.10);
+  background:#fff;
+  font-weight:900;
+  cursor:pointer;
+  color:#64748b;
+}
+
+.tab-btn.active{
+  background:#f2c100; /* amarillo */
+  color:#111;
+  border-color: rgba(0,0,0,.0);
+}
+
+/* =========================
+   PANELS
+========================= */
+.tab-panel{ display:none; margin-top:20px; }
+.tab-panel.active{ display:block; }
+
+/* =========================
+   CARDS
+========================= */
+.rank-card{ text-align:left; }
+
+/* actions centradas */
+.rank-card .actions{
+  display:flex;
+  justify-content:flex-start;
+  margin-top:14px;
+}
+
+.rank-card .actions.center{
+  justify-content:center;
+}
+
+/* =========================
+   BOTÓN AMARILLO (igual al Create ranking)
+========================= */
+.btn-yellow{
+  appearance:none;
+  -webkit-appearance:none;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#f2c100;
+  color:#000;
+  border:0;
+  border-radius:16px;
+
+  padding:10px 18px;
+  font-weight:900;
+  font-size:14px;
+
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(242,193,0,.25);
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.btn-yellow:hover{
+  background:#ffd633;
+  transform:translateY(-1px);
+  box-shadow:0 14px 26px rgba(242,193,0,.35);
+}
+
+.btn-yellow:active{
+  transform:translateY(0);
+  box-shadow:0 8px 16px rgba(242,193,0,.28);
+}
+
+/* =========================
+   MODAL HEADER / TITLE
+========================= */
+.modal-title-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  width:100%;
+}
+
+#itemsModalTitle{
+  font-size:22px;
+  font-weight:950;
+  margin:0;
+}
+
+/* label del input */
+.input-label{
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.3px;
+  text-transform:uppercase;
+  opacity:.65;
+  margin-top:-2px;
+}
+
+/* input */
+#rankingTitleInput{
+  width:100%;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.12);
+  padding:10px 12px;
+  outline:none;
+  font-weight:800;
+  background:#fff;
+}
+
+#rankingTitleInput:focus{
+  border-color: rgba(242,193,0,.8);
+  box-shadow: 0 0 0 4px rgba(242,193,0,.18);
+}
+
+/* hint footer */
+#itemsHint{
+  font-size:13px;
+  opacity:.7;
+}
+
+.muted{ opacity:.7; }
+
+/* =========================
+   LIST ITEMS in modal
+========================= */
+#itemsList .card{
+  padding:14px;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.08);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* CHIP AMARILLO — ultra específico para que NO haya duda */
+.rank-card .actions .chip.chip-amarillo,
+.rank-card .chips .chip.chip-amarillo{
+  background-color:#f2c100 !important;
+  border:1px solid rgba(0,0,0,.08) !important;
+  color:#111 !important;
+
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  padding:6px 14px !important;
+  border-radius:999px !important;
+
+  font-weight:900 !important;
+  font-size:13px !important;
+
+  cursor:pointer !important;
+}
+
+.rank-card .actions .chip.chip-amarillo:hover,
+.rank-card .chips .chip.chip-amarillo:hover{
+  background-color:#ffd633 !important;
+}
+
+.rank-card .actions .chip.chip-amarillo:active,
+.rank-card .chips .chip.chip-amarillo:active{
+  background-color:#e6b800 !important;
+}
+
+.tab-panel{ display:none !important; }
+.tab-panel.active{ display:block !important; }
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px){
+  .layout{ grid-template-columns:1fr; }
+}

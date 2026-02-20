@@ -1,0 +1,1043 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/ranking.css' %}">
+
+<style>
+  /* =========================
+     Chips seleccionados estilo Create
+  ========================= */
+  .sel-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid rgba(0,0,0,.12);
+    font-weight:700;
+    font-size:13px;
+    box-shadow:0 6px 16px rgba(0,0,0,.05);
+  }
+  .sel-chip .badge{
+    width:18px;
+    height:18px;
+    border-radius:6px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    font-weight:900;
+    background:rgba(0,0,0,.08);
+  }
+  .sel-chip .x{
+    border:0;
+    background:transparent;
+    font-weight:900;
+    opacity:.7;
+    cursor:pointer;
+    padding:0;
+    line-height:1;
+  }
+  .sel-chip .x:hover{ opacity:1; }
+
+  /* =========================
+     Cards resultados (bonitas)
+  ========================= */
+  .attach-card{
+    background:#fff;
+    border:1px solid rgba(0,0,0,.10);
+    border-radius:16px;
+    padding:12px;
+    box-shadow:0 10px 22px rgba(0,0,0,.06);
+  }
+  .attach-card img{
+    width:100%;
+    height:110px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:8px;
+  }
+  .attach-card h6{
+    margin:0;
+    font-size:14px;
+    font-weight:900;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .attach-card .sub{
+    margin-top:2px;
+    font-size:12px;
+    opacity:.7;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .attach-card .add-btn{
+    margin-top:8px;
+    width:100%;
+    border-radius:999px;
+    font-weight:900;
+  }
+
+  /* =========================
+     Admin controls (cards categories)
+  ========================= */
+  .admin-actions{
+    display:flex;
+    gap:10px;
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px dashed rgba(0,0,0,.12);
+  }
+
+  .admin-btn{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:10px 12px;
+    border-radius:14px;
+    font-weight:800;
+    font-size:13px;
+    border:1px solid rgba(0,0,0,.12);
+    background:#fff;
+    color:#111;
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+    transition:transform 120ms ease, box-shadow 120ms ease, background 120ms ease, border-color 120ms ease;
+  }
+  .admin-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 10px 22px rgba(0,0,0,.10);
+    border-color:rgba(0,0,0,.18);
+  }
+  .admin-btn:active{
+    transform:translateY(0);
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
+  }
+  .admin-btn--edit{
+    background:rgba(13,110,253,.06);
+    border-color:rgba(13,110,253,.22);
+    color:#0d6efd;
+  }
+  .admin-btn--toggle[data-active="1"]{
+    background:rgba(220,53,69,.07);
+    border-color:rgba(220,53,69,.25);
+    color:#dc3545;
+  }
+  .admin-btn--toggle[data-active="0"]{
+    background:rgba(25,135,84,.08);
+    border-color:rgba(25,135,84,.25);
+    color:#198754;
+  }
+</style>
+{% endblock %}
+
+{% block title %}Rankings{% endblock %}
+
+{% block body %}
+<main id="rankingsPage" class="container">
+
+  <h1>Rankings & Categories</h1>
+  <p class="subtitle">Crea y explora rankings de la comunidad.</p>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="categories" type="button">Categories</button>
+    <button class="tab-btn" data-tab="mine" type="button">Your rankings</button>
+    <button class="tab-btn" data-tab="public" type="button">Public rankings</button>
+  </div>
+
+  <!-- Toolbar -->
+  <section class="toolbar" style="margin-top:18px;">
+    <input id="rankingSearchInput" type="text" placeholder="Buscar...">
+
+    <select id="sortSelect">
+      <option value="recent">Más recientes</option>
+      <option value="items">Más elementos</option>
+    </select>
+
+  </section>
+
+  <div class="layout" style="margin-top:26px;">
+    <section>
+
+      <!-- CATEGORIES -->
+      <div class="tab-panel active" id="tab-categories">
+
+        <div class="cards">
+          {% for c in categories_cards %}
+            <article class="card rank-card open-items"
+                     role="button"
+                     tabindex="0"
+                     data-type="category"
+                     data-slug="{{ c.slug }}"
+                     data-name="{{ c.name }}"
+                     data-search="{{ c.name|lower }} {{ c.description|default:''|lower }}">
+
+              {% if c.cover_img %}
+                <img src="{{ c.cover_img }}"
+                     style="width:100%; height:160px; object-fit:cover; border-radius:14px; margin-bottom:12px;">
+              {% endif %}
+
+              <h3>{{ c.name }}</h3>
+              <p class="role">{{ c.description|default:"Sin descripción" }}</p>
+
+              <div class="chips">
+                {% if c.is_active %}
+                  <span class="chip alive">Activa</span>
+                {% else %}
+                  <span class="chip-dead">Inactiva</span>
+                {% endif %}
+              </div>
+
+              <div class="actions center">
+                <span class="chip chip-amarillo" style="background-color:#ffd633; color:black;">
+                  Crear Ranking
+                </span>
+              </div>
+
+              {% if user.is_authenticated and user.is_staff %}
+                  <div class="admin-actions">
+                
+                    <button type="button"
+                            class="admin-btn admin-btn--edit admin-edit-cat"
+                            data-slug="{{ c.slug }}">
+                      ✏️ Editar
+                    </button>
+                
+                    <button type="button"
+                            class="admin-btn admin-btn--toggle admin-toggle-cat"
+                            data-slug="{{ c.slug }}"
+                            data-active="{% if c.is_active %}1{% else %}0{% endif %}">
+                      {% if c.is_active %}🚫 Desactivar{% else %}✅ Activar{% endif %}
+                    </button>
+                
+                  </div>
+                {% endif %}
+
+
+            </article>
+          {% empty %}
+            <p class="muted">No hay categorías creadas.</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- MY RANKINGS -->
+      <div class="tab-panel" id="tab-mine" hidden>
+        <div class="cards">
+          {% for r in my_rankings %}
+            <article class="card rank-card open-items"
+                     role="button"
+                     tabindex="0"
+                     data-type="ranking"
+                     data-id="{{ r.id }}"
+                     data-name="{{ r.title }}"
+                     data-search="{{ r.title|lower }} {{ r.categoria_nombre|lower }} {{ r.top3|lower }}">
+
+              {% if r.first_img %}
+                <img src="{{ r.first_img }}"
+                     style="width:100%; height:160px; object-fit:cover; border-radius:14px; margin-bottom:12px;">
+              {% endif %}
+
+              <h3>{{ r.title }}</h3>
+              <p class="role">{{ r.categoria_nombre }} · {{ r.num_items }} elementos</p>
+              <p class="quote">Top 3: {{ r.top3 }}</p>
+            {% if user.is_authenticated %}
+              <div class="admin-actions" style="margin-top:12px;">
+                <button type="button"
+                        class="admin-btn admin-btn--toggle ranking-delete-btn"
+                        data-id="{{ r.id }}"
+                        data-active="1">
+                  🗑️ Eliminar
+                </button>
+                </div>
+        {% endif %}
+
+            </article>
+          {% empty %}
+            <p class="muted">Aún no has creado rankings.</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- PUBLIC RANKINGS -->
+      <div class="tab-panel" id="tab-public" hidden>
+        <div class="cards">
+          {% for r in public_rankings %}
+            <article class="card rank-card open-items"
+                     role="button"
+                     tabindex="0"
+                     data-type="ranking"
+                     data-id="{{ r.id }}"
+                     data-name="{{ r.title }}"
+                     data-search="{{ r.title|lower }} {{ r.user|lower }} {{ r.top3|lower }}">
+
+              {% if r.first_img %}
+                <img src="{{ r.first_img }}"
+                     style="width:100%; height:160px; object-fit:cover; border-radius:14px; margin-bottom:12px;">
+              {% endif %}
+
+              <h3>{{ r.title }}</h3>
+              <p class="role">Por {{ r.user }} · {{ r.num_items }} elementos</p>
+              <p class="quote">Top 3: {{ r.top3 }}</p>
+            </article>
+          {% empty %}
+            <p class="muted">No hay rankings públicos aún.</p>
+          {% endfor %}
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Sidebar -->
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="panel">
+    <div class="panel-title">
+      <span>🔥</span>
+      <h4>Top 5 Categorías</h4>
+    </div>
+
+    {% if top5_categories and top5_categories|length %}
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+        {% for t in top5_categories %}
+          <a href="#"
+             style="text-decoration:none; color:inherit;">
+            <div class="card"
+                 style="padding:10px; display:flex; gap:10px; align-items:center; border-radius:14px;">
+              {% if t.img %}
+                <img src="{{ t.img }}"
+                     alt="{{ t.name }}"
+                     style="width:44px;height:44px;border-radius:12px; object-fit:cover;">
+              {% else %}
+                <div style="width:44px;height:44px;border-radius:12px; background:rgba(0,0,0,.06); display:flex; align-items:center; justify-content:center;">
+                  🏆
+                </div>
+              {% endif %}
+
+              <div style="flex:1; min-width:0;">
+                <div style="font-weight:900; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                  {{ t.name }}
+                </div>
+                <div class="muted" style="font-size:12px;">
+                  {{ t.count }} rankings
+                </div>
+              </div>
+
+              <span class="chip"
+                    style="border-radius:999px; font-weight:900;">
+                #{{ forloop.counter }}
+              </span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted">Aún no hay rankings.</p>
+    {% endif %}
+  </div>
+</aside>
+
+
+  </div>
+
+  <!-- Modal Items -->
+  <div class="modal fade" id="itemsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <h5 class="modal-title" id="itemsModalTitle"></h5>
+
+            <div id="titleBlock" style="display:none;">
+              <div class="input-label">Título</div>
+              <input id="rankingTitleInput"
+                     type="text"
+                     autocomplete="off"
+                     placeholder="Mi top de …"
+                     style="border-radius:15px; margin-left:5px; width:100%">
+            </div>
+          </div>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <ul id="itemsList"
+              style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+          </ul>
+        </div>
+
+        <div class="modal-footer">
+          <div class="me-auto muted" id="itemsHint"></div>
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-warning" id="saveRankingBtn" style="display:none; font-weight:bold">
+            Guardar ranking
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  {% if user.is_authenticated and user.is_staff %}
+  <!-- Modal Edit Category (UI como Create) -->
+  <div class="modal fade" id="editCategoryModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content" style="border-radius:18px;">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Editar categoría</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body" style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+
+          <!-- LEFT -->
+          <div>
+            <input type="hidden" id="editCatOldSlug">
+
+            <label class="input-label">Nombre</label>
+            <input id="editCatName" class="form-control" autocomplete="off">
+
+            <small class="muted">Evita nombres duplicados (si ya existe, puedes renombrarla).</small>
+
+            <label class="input-label" style="margin-top:12px;">Slug (opcional)</label>
+            <input id="editCatSlugInput" class="form-control" autocomplete="off">
+
+            <label style="display:flex; gap:10px; align-items:center; margin-top:12px;">
+              <input type="checkbox" id="editCatActive">
+              <span>Activa (visible para usuarios)</span>
+            </label>
+
+            <label class="input-label" style="margin-top:12px;">Descripción (opcional)</label>
+            <textarea id="editCatDesc" class="form-control" rows="6"></textarea>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="attach-box" style="border:1px solid rgba(0,0,0,.12); border-radius:18px; padding:16px; background:#fafafa;">
+            <h6 style="margin:0 0 10px 0;">Adjuntar contenido</h6>
+
+            <!-- Tabs -->
+            <div style="display:flex; gap:10px; margin-bottom:10px;">
+              <button type="button" class="tab-btn active" data-edit-tab="character">Personajes</button>
+              <button type="button" class="tab-btn" data-edit-tab="location">Lugares</button>
+              <button type="button" class="tab-btn" data-edit-tab="episode">Episodios</button>
+            </div>
+
+            <!-- Search -->
+            <div style="display:flex; gap:10px; align-items:center; margin-bottom:10px;">
+              <input id="editAttachSearch" type="text" class="form-control" placeholder="Buscar..." autocomplete="off">
+              <button type="button" class="btn btn-outline-secondary" id="editAttachClearSearch">Limpiar</button>
+            </div>
+
+            <div class="muted" id="editAttachHint" style="margin:0 0 10px 0;">Escribe para buscar…</div>
+
+            <!-- Results -->
+            <div id="editAttachResults"
+                 style="display:grid; grid-template-columns:1fr 1fr; gap:12px; max-height:260px; overflow:auto; padding-right:6px;">
+            </div>
+
+            <div style="margin-top:12px; display:flex; justify-content:space-between; align-items:center;">
+              <strong>Seleccionados</strong>
+              <button type="button" class="btn btn-outline-secondary btn-sm" id="editAttachClearAll">Limpiar</button>
+            </div>
+
+            <div id="editSelectedChips" style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;">
+              <span class="muted">Cargando…</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-warning" id="saveEditCategoryBtn" style="font-weight:800;">
+            Guardar
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (!document.getElementById("rankingsPage")) return;
+
+  const DELETE_RANKING_URL = "{% url 'delete_ranking' 'RID_REPLACE' %}";
+  const CATEGORY_ITEMS_URL = "{% url 'category_items' 'SLUG_REPLACE' %}";
+  const RANKING_ITEMS_URL  = "{% url 'ranking_items' 'RID_REPLACE' %}";
+  const CREATE_RANKING_URL = "{% url 'create_ranking' %}";
+
+  // Admin endpoints
+  const ADMIN_GET_CAT_URL    = "{% url 'admin_get_category' 'SLUG_REPLACE' %}";
+  const ADMIN_UPDATE_CAT_URL = "{% url 'admin_update_category' 'SLUG_REPLACE' %}";
+  const ADMIN_TOGGLE_CAT_URL = "{% url 'admin_toggle_category' 'SLUG_REPLACE' %}";
+  const SEARCH_ATTACHABLES_URL = "{% url 'search_attachables' %}";
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+
+  /* ===== Tabs ===== */
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const panels = {
+    categories: document.getElementById("tab-categories"),
+    mine: document.getElementById("tab-mine"),
+    public: document.getElementById("tab-public"),
+  };
+
+  const searchInput = document.getElementById("rankingSearchInput");
+
+  function resetHiddenCards() {
+    document.querySelectorAll(".tab-panel [data-search]").forEach(card => (card.hidden = false));
+  }
+
+  function applySearch() {
+    const q = (searchInput?.value || "").trim().toLowerCase();
+    const activePanel = document.querySelector(".tab-panel.active");
+    if (!activePanel) return;
+
+    activePanel.querySelectorAll("[data-search]").forEach(card => {
+      const hay = (card.dataset.search || "").toLowerCase();
+      card.hidden = !!(q && !hay.includes(q));
+    });
+  }
+
+  function setActiveTab(tabKey) {
+    tabButtons.forEach(btn => btn.classList.toggle("active", btn.dataset.tab === tabKey));
+    Object.entries(panels).forEach(([key, panel]) => {
+      const active = key === tabKey;
+      panel.hidden = !active;
+      panel.classList.toggle("active", active);
+    });
+    resetHiddenCards();
+    applySearch();
+  }
+
+  tabButtons.forEach(btn => btn.addEventListener("click", () => setActiveTab(btn.dataset.tab)));
+  searchInput?.addEventListener("input", applySearch);
+
+  /* ===== Stop propagation ===== */
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".chip-amarillo")) e.stopPropagation();
+    if (e.target.closest(".admin-edit-cat, .admin-toggle-cat")) e.stopPropagation();
+  });
+
+  /* ===== Items Modal + Sortable ===== */
+  const modalEl = document.getElementById("itemsModal");
+  if (!modalEl) return;
+  const modal = new bootstrap.Modal(modalEl);
+
+  const titleEl = document.getElementById("itemsModalTitle");
+  const titleBlock = document.getElementById("titleBlock");
+  const titleInput = document.getElementById("rankingTitleInput");
+  const listEl  = document.getElementById("itemsList");
+  const saveBtn = document.getElementById("saveRankingBtn");
+  const hintEl  = document.getElementById("itemsHint");
+
+  let sortable = null;
+  let currentMode = null;
+  let currentCategorySlug = null;
+
+  function destroySortable() {
+    if (sortable) { sortable.destroy(); sortable = null; }
+  }
+
+  function initSortable() {
+    destroySortable();
+    sortable = new Sortable(listEl, {
+      animation: 150,
+      handle: ".drag-handle",
+      ghostClass: "sortable-ghost",
+    });
+  }
+
+  function setMode(mode) {
+    currentMode = mode;
+    if (mode === "category") {
+      titleBlock.style.display = "";
+      saveBtn.style.display = "";
+      hintEl.textContent = "Arrastra para reordenar y guarda tu ranking.";
+    } else {
+      titleBlock.style.display = "none";
+      saveBtn.style.display = "none";
+      hintEl.textContent = "";
+    }
+  }
+
+  async function loadItems(url, title, mode) {
+    setMode(mode);
+    titleEl.textContent = title;
+    listEl.innerHTML = "<p class='muted'>Cargando...</p>";
+    if (mode === "category") titleInput.value = `Mi top de ${title}`;
+    modal.show();
+
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+
+      listEl.innerHTML = "";
+      (data.results || []).forEach((it, idx) => {
+        const li = document.createElement("li");
+        li.dataset.type = it.type;
+        li.dataset.id = it.id;
+
+        li.innerHTML = `
+          <div class="card">
+            <div style="display:flex; gap:12px; align-items:center;">
+              ${mode === "category" ? `<div class="drag-handle">☰</div>` : ""}
+              ${it.img ? `<img src="${it.img}" style="width:56px;height:56px;border-radius:12px;">` : ""}
+              <strong>${idx + 1}. ${it.label}</strong>
+            </div>
+          </div>
+        `;
+        listEl.appendChild(li);
+      });
+
+      mode === "category" ? initSortable() : destroySortable();
+    } catch (e) {
+      console.error(e);
+      listEl.innerHTML = "<p class='text-danger'>Error cargando items</p>";
+      destroySortable();
+    }
+  }
+
+  document.querySelectorAll(".open-items").forEach(card => {
+    card.addEventListener("click", () => {
+      if (card.dataset.type === "category") {
+        currentCategorySlug = card.dataset.slug;
+        loadItems(
+          CATEGORY_ITEMS_URL.replace("SLUG_REPLACE", encodeURIComponent(currentCategorySlug)),
+          card.dataset.name,
+          "category"
+        );
+      }
+      if (card.dataset.type === "ranking") {
+        loadItems(
+          RANKING_ITEMS_URL.replace("RID_REPLACE", encodeURIComponent(card.dataset.id)),
+          card.dataset.name,
+          "ranking"
+        );
+      }
+    });
+  });
+
+  saveBtn.addEventListener("click", async () => {
+    if (currentMode !== "category") return;
+
+    const items = [...listEl.querySelectorAll("li")].map(li => ({
+      type: li.dataset.type,
+      id: li.dataset.id,
+    }));
+
+    if (items.length < 3) return alert("Añade al menos 3 elementos.");
+
+    const title = titleInput.value.trim();
+    if (title.length < 3) return alert("Título demasiado corto.");
+
+    const form = new FormData();
+    form.append("category", currentCategorySlug);
+    form.append("title", title);
+    form.append("items_json", JSON.stringify(items));
+
+    saveBtn.disabled = true;
+    const old = saveBtn.textContent;
+    saveBtn.textContent = "Guardando...";
+
+    try {
+      const res = await fetch(CREATE_RANKING_URL, {
+        method: "POST",
+        headers: { "X-CSRFToken": getCookie("csrftoken") },
+        body: form,
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      location.reload();
+    } catch (e) {
+      console.error(e);
+      alert("Error guardando ranking");
+      saveBtn.disabled = false;
+      saveBtn.textContent = old;
+    }
+  });
+
+  modalEl.addEventListener("hidden.bs.modal", () => {
+    destroySortable();
+    listEl.innerHTML = "";
+    titleInput.value = "";
+    titleBlock.style.display = "none";
+    saveBtn.style.display = "none";
+    hintEl.textContent = "";
+    currentMode = null;
+    currentCategorySlug = null;
+  });
+
+  /* =========================
+     ADMIN: TOGGLE CATEGORY
+  ========================= */
+  document.querySelectorAll(".admin-toggle-cat").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      if (!confirm("¿Seguro que quieres cambiar el estado visible de esta categoría?")) return;
+
+      try {
+        const url = ADMIN_TOGGLE_CAT_URL.replace("SLUG_REPLACE", encodeURIComponent(btn.dataset.slug));
+        const res = await fetch(url, {
+          method: "POST",
+          headers: { "X-CSRFToken": getCookie("csrftoken") },
+          body: new FormData()
+        });
+        const data = await res.json().catch(()=> ({}));
+        if (!res.ok || data.ok === false) throw new Error(data.error || ("HTTP " + res.status));
+        location.reload();
+      } catch (e) {
+        console.error(e);
+        alert("Error cambiando estado");
+      }
+    });
+  });
+
+  /* =========================
+     ADMIN: EDIT CATEGORY (UI como Create)
+  ========================= */
+  const editModalEl = document.getElementById("editCategoryModal");
+  const editModal = editModalEl ? new bootstrap.Modal(editModalEl) : null;
+
+  const editCatOldSlug   = document.getElementById("editCatOldSlug");
+  const editCatName      = document.getElementById("editCatName");
+  const editCatSlugInput = document.getElementById("editCatSlugInput");
+  const editCatDesc      = document.getElementById("editCatDesc");
+  const editCatActive    = document.getElementById("editCatActive");
+
+  const editAttachSearch      = document.getElementById("editAttachSearch");
+  const editAttachClearSearch = document.getElementById("editAttachClearSearch");
+  const editAttachHint        = document.getElementById("editAttachHint");
+  const editAttachResults     = document.getElementById("editAttachResults");
+  const editAttachClearAll    = document.getElementById("editAttachClearAll");
+  const editSelectedChips     = document.getElementById("editSelectedChips");
+  const saveEditCategoryBtn   = document.getElementById("saveEditCategoryBtn");
+
+  let editTab = "character"; // character | location | episode
+  let editSelected = { character: [], location: [], episode: [] }; // {id,title,subtitle,image}
+
+  function normId(x){ return String(parseInt(x, 10)); }
+
+ function typeToTab(type){
+  type = String(type || "").toLowerCase().trim();
+
+  // acepta varias formas
+  if (["character", "characters", "personaje", "personajes"].includes(type)) return "character";
+  if (["location", "locations", "lugar", "lugares"].includes(type)) return "location";
+  if (["episode", "episodes", "episodio", "episodios"].includes(type)) return "episode";
+
+  // fallback por seguridad
+  return "episode";
+}
+
+  function isSelected(tab, id){
+    id = normId(id);
+    return editSelected[tab].some(it => normId(it.id) === id);
+  }
+
+  function setEditTab(tab){
+    editTab = tab;
+
+    document.querySelectorAll("[data-edit-tab]").forEach(b=>{
+      b.classList.toggle("active", b.dataset.editTab === tab);
+    });
+
+    const label = tab === "character" ? "personajes" : tab === "location" ? "lugares" : "episodios";
+    if (editAttachHint) editAttachHint.textContent = `Escribe para buscar ${label}…`;
+
+    if (editAttachSearch) editAttachSearch.value = "";
+    if (editAttachResults) editAttachResults.innerHTML = "";
+    renderSelectedChips();
+  }
+
+  document.querySelectorAll("[data-edit-tab]").forEach(btn=>{
+    btn.addEventListener("click", (e)=>{
+      e.stopPropagation();
+      setEditTab(btn.dataset.editTab);
+    });
+  });
+
+  function renderSelectedChips(){
+    if (!editSelectedChips) return;
+
+    const list = editSelected[editTab] || [];
+    editSelectedChips.innerHTML = "";
+
+    if (!list.length){
+      editSelectedChips.innerHTML = `<span class="muted">No has seleccionado nada.</span>`;
+      return;
+    }
+
+    list.forEach(it=>{
+      const chip = document.createElement("span");
+      chip.className = "sel-chip";
+      chip.innerHTML = `
+        <span class="badge">${editTab === "character" ? "P" : editTab === "location" ? "L" : "E"}</span>
+        <span style="max-width:180px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+          ${it.title || ""}
+        </span>
+        <button type="button" class="x" title="Quitar">×</button>
+      `;
+
+      chip.querySelector(".x").addEventListener("click", (e)=>{
+        e.stopPropagation();
+        editSelected[editTab] = editSelected[editTab].filter(x => normId(x.id) !== normId(it.id));
+        renderSelectedChips();
+        if (editAttachSearch?.value?.trim()) searchAttachables(editAttachSearch.value.trim());
+      });
+
+      editSelectedChips.appendChild(chip);
+    });
+  }
+
+  function renderResults(rows){
+    if (!editAttachResults) return;
+    editAttachResults.innerHTML = "";
+
+    if (!rows.length){
+      editAttachResults.innerHTML = `<div class="muted">No hay resultados.</div>`;
+      return;
+    }
+
+    rows.forEach(r=>{
+      const selected = isSelected(editTab, r.id);
+
+      const card = document.createElement("div");
+      card.className = "attach-card";
+      card.innerHTML = `
+        ${r.image ? `<img src="${r.image}" alt="">` : ""}
+        <h6>${r.title || ""}</h6>
+        <div class="sub">${r.subtitle || ""}</div>
+
+        <button type="button"
+                class="btn ${selected ? "btn-secondary" : "btn-warning"} btn-sm add-btn"
+                ${selected ? "disabled" : ""}>
+          ${selected ? "Añadido" : "Añadir"}
+        </button>
+      `;
+
+      card.querySelector("button").addEventListener("click", (e)=>{
+        e.stopPropagation();
+        if (isSelected(editTab, r.id)) return;
+
+        editSelected[editTab].push({
+          id: normId(r.id),
+          title: r.title || "",
+          subtitle: r.subtitle || "",
+          image: r.image || ""
+        });
+
+        renderSelectedChips();
+        renderResults(rows);
+      });
+
+      editAttachResults.appendChild(card);
+    });
+  }
+
+  let searchTimer = null;
+
+  async function searchAttachables(q){
+    q = (q || "").trim();
+    if (!q || q.length < 2){
+      if (editAttachResults) editAttachResults.innerHTML = "";
+      return;
+    }
+
+    const url = `${SEARCH_ATTACHABLES_URL}?type=${encodeURIComponent(editTab)}&q=${encodeURIComponent(q)}`;
+    const res = await fetch(url);
+    const data = await res.json().catch(() => ({}));
+    renderResults(data.results || []);
+  }
+
+  editAttachSearch?.addEventListener("input", ()=>{
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(()=> searchAttachables(editAttachSearch.value), 200);
+  });
+
+  editAttachClearSearch?.addEventListener("click", ()=>{
+    if (editAttachSearch) editAttachSearch.value = "";
+    if (editAttachResults) editAttachResults.innerHTML = "";
+  });
+
+  editAttachClearAll?.addEventListener("click", ()=>{
+    editSelected[editTab] = [];
+    renderSelectedChips();
+    if (editAttachSearch?.value?.trim()) searchAttachables(editAttachSearch.value.trim());
+  });
+
+  async function adminFetchCategory(slug){
+    const url = ADMIN_GET_CAT_URL.replace("SLUG_REPLACE", encodeURIComponent(slug));
+    const res = await fetch(url);
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.ok === false) throw new Error(data.error || ("HTTP " + res.status));
+    return data.category;
+  }
+
+  document.querySelectorAll(".admin-edit-cat").forEach(btn=>{
+    btn.addEventListener("click", async (e)=>{
+      e.stopPropagation();
+      if (!editModal) return;
+
+      const slug = btn.dataset.slug;
+
+      // reset state
+      editSelected = { character: [], location: [], episode: [] };
+      setEditTab("character");
+      if (editSelectedChips) editSelectedChips.innerHTML = `<span class="muted">Cargando…</span>`;
+
+      try{
+        // 1) datos base
+        const cat = await adminFetchCategory(slug);
+
+        editCatOldSlug.value = slug;
+        editCatName.value = cat.name || "";
+        editCatSlugInput.value = cat.slug || slug;
+        editCatDesc.value = cat.description || "";
+        editCatActive.checked = !!cat.is_active;
+
+        // 2) precargar attach con label/img via category_items
+        const itemsUrl = CATEGORY_ITEMS_URL.replace("SLUG_REPLACE", encodeURIComponent(slug));
+        const itemsRes = await fetch(itemsUrl);
+        const itemsData = await itemsRes.json().catch(()=> ({}));
+        const items = itemsData.results || [];
+
+        items.forEach(it=>{
+          const tab = typeToTab(it.type);
+          editSelected[tab].push({
+            id: normId(it.id),
+            title: it.label || "",
+            subtitle: it.subtitle || "",
+            image: it.img || ""
+          });
+        });
+
+        renderSelectedChips();
+        editModal.show();
+      }catch(err){
+        console.error(err);
+        alert("Error cargando categoría para editar");
+      }
+    });
+  });
+
+  saveEditCategoryBtn?.addEventListener("click", async ()=>{
+    try{
+      const payload = {
+        old_slug: editCatOldSlug.value,
+        name: (editCatName.value || "").trim(),
+        slug: (editCatSlugInput.value || "").trim(),
+        description: (editCatDesc.value || "").trim(),
+        is_active: !!editCatActive.checked,
+        character_ids: editSelected.character.map(x => normId(x.id)),
+        location_ids: editSelected.location.map(x => normId(x.id)),
+        episode_ids: editSelected.episode.map(x => normId(x.id)),
+      };
+
+      if (payload.name.length < 3){
+        alert("El nombre debe tener al menos 3 caracteres.");
+        return;
+      }
+
+      const url = ADMIN_UPDATE_CAT_URL.replace("SLUG_REPLACE", encodeURIComponent(payload.old_slug));
+      const form = new FormData();
+      form.append("name", payload.name);
+      form.append("slug", payload.slug);
+      form.append("description", payload.description);
+      if (payload.is_active) form.append("is_active", "on");
+
+      payload.character_ids.forEach(x => form.append("character_ids[]", x));
+      payload.location_ids.forEach(x => form.append("location_ids[]", x));
+      payload.episode_ids.forEach(x => form.append("episode_ids[]", x));
+
+      saveEditCategoryBtn.disabled = true;
+      const old = saveEditCategoryBtn.textContent;
+      saveEditCategoryBtn.textContent = "Guardando...";
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {"X-CSRFToken": getCookie("csrftoken")},
+        body: form
+      });
+
+      const data = await res.json().catch(()=> ({}));
+      if (!res.ok || data.ok === false) throw new Error(data.error || ("HTTP " + res.status));
+
+      location.reload();
+    }catch(err){
+      console.error(err);
+      alert("Error guardando cambios");
+    }finally{
+      if (saveEditCategoryBtn){
+        saveEditCategoryBtn.disabled = false;
+        saveEditCategoryBtn.textContent = "Guardar";
+      }
+    }
+  });
+
+  editModalEl?.addEventListener("hidden.bs.modal", ()=>{
+    editSelected = { character: [], location: [], episode: [] };
+    if (editAttachSearch) editAttachSearch.value = "";
+    if (editAttachResults) editAttachResults.innerHTML = "";
+    if (editSelectedChips) editSelectedChips.innerHTML = "";
+    setEditTab("character");
+  });
+
+  // default tab
+  setActiveTab("categories");
+
+  document.addEventListener("click", (e) => {
+  if (e.target.closest(".ranking-delete-btn")) e.stopPropagation();
+});
+
+document.querySelectorAll(".ranking-delete-btn").forEach(btn => {
+  btn.addEventListener("click", async () => {
+    const rid = btn.dataset.id;
+    if (!rid) return;
+
+    if (!confirm("¿Seguro que quieres eliminar este ranking?")) return;
+
+    try{
+      const url = DELETE_RANKING_URL.replace("RID_REPLACE", encodeURIComponent(rid));
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {"X-CSRFToken": getCookie("csrftoken")},
+        body: new FormData(),
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) throw new Error(data.error || ("HTTP " + res.status));
+
+      location.reload();
+
+    }catch(err){
+      console.error(err);
+      alert("Error eliminando ranking");
+    }
+  });
+});
+
+});
+</script>
+{% endblock %}

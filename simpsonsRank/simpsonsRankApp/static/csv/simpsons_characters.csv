@@ -1,0 +1,1183 @@
+id,age,birthdate,gender,name,occupation,portrait_path,phrases,status
+1,39,1956-05-12,Male,Homer Simpson,Safety Inspector,/character/1.webp,"['Doh!', 'Why you little...!', 'Woo-hoo!', 'Mmm... (food)... *drooling*', 'Stupid Flanders!', 'Shut up Flanders!', 'AAAAGHH!', 'Lisa, knock off that racket!', 'Uh oh, the boss.', 'Lets all go out for frosty chocolate milkshakes!', 'Whatever, Ill be at Moes.', 'I am evil Ho-mer! I am evil Ho-mer! I am evil Ho-mer!', 'Better them than me.', 'Better them than me... Oh wait, that was me.', 'Marge, my face hurts again!']",Alive
+2,39,,Female,Marge Simpson,Unemployed,/character/2.webp,"['Hrmmm...', 'Now its Marges time to shine!', 'Oh!', 'Oh, Homie!', 'Its true. Women arent very good drivers.']",Alive
+3,10,1980-02-23,Male,Bart Simpson,Student at Springfield Elementary School,/character/3.webp,"['¡Ay Caramba!', 'Eat my shorts!', 'I didnt do it!', 'Dont have a cow, man.', 'I’m Bart Simpson, who the hell are you?', 'Aah! Sideshow Bob!', 'Nobody better lay a finger on my Butterfinger!', 'I didnt think it was physically possible, but this both sucks and blows.']",Alive
+4,8,1982-05-09,Female,Lisa Simpson,"Student at Springfield Elementary School, CTU Agent, Hall-monitor, Member of PETA",/character/4.webp,"['Well, I wish you wouldnt. Because, aside from the fact that he has the same frailties as all human beings, hes the only father I have. Therefore, he is my model of manhood, and my estimation of him will govern the prospects of my adult relationships. So I hope you bear in mind that any knock at him is a knock at me. And I am far too young to defend myself against such onslaughts.', 'Bart!', 'If anyone wants me, Ill be in my room.', 'Quit it, Bart!', 'BAAAAART!!', 'Mommy.', 'David Hasselhoff.', 'Homer.', 'Having never received encouragement, Im not sure how it should sound, but here goes: I believe in you.', 'Shut up, Meg.', 'The truth must be told.', 'I hope these are recyclable.', 'Yeah, Bart!']",Alive
+5,1,1990-11-07,Female,Maggie Simpson,Unknown,/character/5.webp,"['*suck-suck*', 'Good night.', 'Daddy.']",Alive
+6,,,Male,Abe Simpson II,Retired,/character/6.webp,"['Ahh!', 'Im Santa? Oh, now Ill never die!', 'Hi, David, Im Grampa!', 'They pay me $800 a week to tell a cat and mouse what to do!']",Alive
+7,,,Female,Patty Bouvier,Springfield DMV Employee,/character/7.webp,"['Some days at the DMV, we dont let the line move at all. We call those weekdays.', 'Hell no! I like girls!']",Alive
+8,,,Female,Selma Bouvier,Employee of Department of Motor Vehicles,/character/8.webp,"['Hows my blubber in-law?', 'Drivers License is on me!']",Alive
+9,60,,Male,Ned Flanders,The Leftorium (formerly),/character/9.webp,"['Howdily-doodily, neighborino!', 'Hi-diddly-ho!']",Alive
+10,,,Female,Maude Flanders,Housewife (former),/character/10.webp,"['I dont judge Homer or Marge. Thats for vengeful God to do.', 'Neddy doesnt believe in insurance. He considers it a form of gambling.', 'I know. They make you uncomfortable.', 'In many ways, Maude Flanders was a supporting player in our lives. She didnt grab our attention with memorable catchphrases, or comical accents. But, whether you noticed her or not, Maude was always there but then she was still alive in episode 6', 'Excuse me, Edna. I dont think were talking about love here. Were talking about S-E-X in front of the C-H-I-L-D-R-E-N.']",Deceased
+11,,,Male,Rod Flanders,Student at Springfield Elementary School,/character/11.webp,"['Yay!!', 'What does gay mean??']",Alive
+12,,,Male,Todd Flanders,Student at Springfield Elementary SchoolStudent at a religious private school (formerly),/character/12.webp,['I said I dont want any damn vegetables!'],Alive
+13,1381,1886-09-15,Male,Charles Montgomery Burns,Owner & Director of the Springfield Nuclear Power Plant,/character/13.webp,"['Excellent!', 'Release the hounds!', 'Smithers!', 'Smithers, who is this ?', 'Simpson, eh?', 'Youre fired!', 'Oh, Fiddlesticks!']",Alive
+14,,,Male,"Waylon Smithers, Jr.",Assistant to Mr. Burns,/character/14.webp,"['Yes, sir?', 'Thats Homer Simpson, sir - one of your [put-down]s from Sector 7G.', 'Actually, I value every second were together: from the moment I squeeze his orange juice in the morning, till I... tuck him in at night. Hes not just my boss, hes my best friend, too.', 'All right, thats it. You know, I used to wonder why Mr. Burns hated humanity. Now I know. You open your heart and they mock your very decency.']",Alive
+15,,,Male,Krusty the Clown,Television personality,/character/15.webp,"['Hey hey, kids!', 'Hoohoohoohahaha!', 'Why you little!', 'Im Krusty The Clown! And I Love you!']",Alive
+16,,,Male,Moe Szyslak,Bartender and Owner of Moe's Tavern,/character/16.webp,"['How ya doing?', 'Whaaaaaaat?', 'Whats-a-matter, Homer?', 'When I get a hold of you, Ill (insert threat here)', 'Hi ya, Midge.', 'Mike Rotch', 'Im a stupid moron with an ugly  face, and a big butt, and my butt smells, and I like to kiss my own butt.']",Alive
+17,47,,Male,Apu Nahasapeemapetilon,Owner of the Kwik-E-Mart,/character/17.webp,"['Thank you! Come again.', 'That is a great dishonor to my ancestors and my God, but okay.', 'Okay, whatever.', 'Alright.', 'I cant believe you dont shut up!', '(Referring to Homer) He slept, he stole, he was rude to the customers. Still, there goes the best-damned employee a convenience store ever had.']",Alive
+18,57,1953-07-08,Male,Seymour Skinner,Principal of Springfield Elementary School,/character/18.webp,[],Alive
+19,,1945-03-31,Male,Gary Chalmers,Superintendent of Springfield Elementary School,/character/19.webp,"['SKINNERRRRRR!', 'Aurora Borealis? At this time of year, at this time of day, in this part of the country, localized ENTIRELY within your kitchen..?']",Alive
+20,,,Female,Edna Krabappel,Fourth grade teacher at Springfield Elementary School (formerly),/character/20.webp,"['Ha!', 'These tests will have no effect on your grades. They merely determine your future social status and financial success. If any.', 'Do what I mean, not what I say.', 'No matter what youve done, I always thought there was a spark of decency in you, Bart Simpson, but I was wrong. I never thought Id say this to a child, but you are bad on the inside.', 'Remember: if you can teach one kid one thing, then today will be a success...']",Deceased
+21,32,1963-01-18,Male,Otto Mann,School bus driver,/character/21.webp,[],Alive
+22,10,,Male,Milhouse Van Houten,Student at Springfield Elementary,/character/22.webp,"['Sorry, Bart.', 'Get a load of that quote / unquote Santa!', 'The House always wins.', 'Hey, Bart, want to trade lunches?', 'My Glasses!', 'Everythings comin up Milhouse!', 'What a Rad!', 'Whazzup!!!', 'Stupid! Stupid! Stupid!', 'MOOOOOM! BARTS SWEARING!']",Alive
+23,44,,Female,Luann Van Houten,Housewife,/character/23.webp,"['From now on, forget everything you thought you knew about Luann Van Houten. ']",Alive
+24,,,Male,Kirk Van Houten,Unemployed,/character/24.webp,['I dont like the idea of Milhouse having two spaghetti meals in one day.'],Alive
+25,8,1982-02-10,Male,Ralph Wiggum,Student at Springfield Elementary School,/character/25.webp,['Shes touching my special area!'],Alive
+26,39,1954-04-20,Male,Barney Gumble,Helicopter pilot,/character/26.webp,"['BURRRRRRPPPP!', 'Dont cry for me, Im already dead.', 'Is that a new kind of Mace? Its really painful!']",Alive
+27,,1955-04-13,Male,Carl Carlson,Safety Operations Supervisor at the Springfield Nuclear Power Plant,/character/27.webp,"['See, statements like that are why people think were gay.']",Alive
+28,37,1955-04-20,Male,Lenny Leonard,Technical Supervisor at the Springfield Nuclear Power Plant,/character/28.webp,[],Alive
+29,40,,Male,Clancy Wiggum,Chief of the Springfield Police Department,/character/29.webp,"['If anything goes wrong, just dial 911. Unless its an emergency.', 'It was only two days till he retired.', 'Cuff em, Lou.', 'Lets roll, boys!', 'Take em away, boys.', 'Book em, Lou.', 'Oh, dont worry, Im the pief of cholice. I mean, Im, uh, the beef with no cheese.']",Alive
+30,,,Female,Sarah Wiggum,Housewife,/character/30.webp,"['Clancy!', 'Clancy! Use the remote!', 'I love you, Poppin Fresh, Aw Clancy!', 'Homer, can you make me look Fancy?']",Alive
+31,,,Male,Julius Hibbert,Doctor at Springfield General Hospital,/character/31.webp,"['A-heh-heh-heh.', 'Have a wowwipop.', 'This man is dead.']",Alive
+32,30,,Male,Lou,Police Sergeant,/character/32.webp,['Sweet.Uh... Chief?'],Alive
+33,,,Male,"Jonathan Frink, Jr.",Professor,/character/33.webp,['Frink out'],Alive
+34,,,Male,Professor Frink's son,Professor Frink's Inventions,/character/34.webp,[],Alive
+35,31,1957-02-25,Male,Robert Terwilliger,Criminal Mastermind,/character/35.webp,"['Hello, Bart.', 'No! Thats German... for The Bart, The.']",Alive
+36,,,Male,"Martin Prince, Jr.",Student at Springfield Elementary School.,/character/36.webp,"['Pick me, teacher, Im ever so smart!Dickety! Highly dubious.']",Alive
+37,101,,Male,Nelson Muntz,Student and Bully at Springfield Elementary,/character/37.webp,['Ha Ha!'],Alive
+38,15,,Male,Jimbo Jones,School Bully,/character/38.webp,"['Bite me.', 'Yeah, I love Grimby']",Alive
+39,,,Male,Kearney Zzyzwicz,School student,/character/39.webp,"['First person to blink is a dead man.', 'Shut up.', 'Fixing the church should be our top priority! I say this as a teenager, and the parent of a teenager.']",Alive
+40,15,,Male,Dolph Starbeam,School bully,/character/40.webp,[],Alive
+41,,,Male,Stu Discothèque,Owner of Stu's DiscoSea Captain (formerly),/character/41.webp,"['Disco Stu wishes hed gone as Marilyn McCoo.', 'Disco Shrew can still boogaloo.', 'Big Band Stu says its 23 skidoo.']",Alive
+42,,,Male,Joe Quimby,Mayor of Springfield,/character/42.webp,['Vote Quimby!'],Alive
+43,60,,Male,Fat Tony,Mob boss,/character/43.webp,"['I dont get mad, I get stabby.', 'Whats a truck?', 'I prefer the cat. He hates Mondays, we can all relate.', 'I am not so much disappointed as I am blinded with rage.', 'You are listing my broken dreams.', 'Hey, wait a minute!', 'Why was I born a man?', 'Im afraid I must insist. You see, my wife, she has been most vocal on the subject of the pretzel monies. Wheres the money?, When are you going to get the money?, Why arent you getting the money now?, and so on. So please, the money.', 'I aint cried like this since I paid to see Godfather III.', 'Get your hand off my car.', 'How could you, Nicky? I wouldve given you everything. In the strip club of my heart, you held the key to the champagne room. I loved you, man!']",Deceased
+44,,,Male,Louie (mafia),Mobster,/character/44.webp,"['You got it, boss.', 'I broke out of jail for this?', 'Whoa! Where did that come from?! Whoa!', 'Youre all talk, Hamill. You never even finished Jedi school.']",Alive
+45,45,,Male,Melvin Van Horne,Children's entertainer,/character/45.webp,"['They say any publicity is good publicity.', 'I am Melvin Van Horne, and this is my associate, Herschel Krustofsky.', 'Everyones always kissing your ass. Well, Im not afraid to tell you youre a (*bleep*)!']",Alive
+46,,,Male,Comic Book Guy,Owner of The Android's Dungeon & Baseball Card Shop,/character/46.webp,"['Worst. (Insert Noun). Ever!', 'Best (or greatest)  ever!', 'Ooh, loneliness and cheeseburgers are a dangerous mix!', 'Oh customers, how I hate them!']",Alive
+47,,,Male,Kent Brockman,Channel 6 anchorman,/character/47.webp,"['Ive said it before and Ill say it again, democracy simply doesnt workNow, at the risk of being unpopular, this reporter places the blame for all of this SQUARELY on YOU, the viewers.']",Alive
+48,,,Male,Groundskeeper Willie,Groundskeeper and Janitor at Springfield Elementary School,/character/48.webp,"['THEN GREASE ME UP, WOMAN!!!', 'Save yer strength, lad! Theres a whole field for you to resod yet!', 'Ach! Sounds like that gopher I caught in me lawnmower!', 'Guess theres some stones in your leaf bag, after all.', 'Save me from the wee turtles! They were too quick for me!', 'Uh-oh. The little fat boy and his family are in trouble.', 'Willie hears ya, Willie dont care.', 'Brothers and sisters are natural enemies, like Englishmen and Scots! Or Welshmen and Scots! Or Japanese and Scots! Or Scots and  Scots! Damn Scots! They ruined Scotland!']",Alive
+49,39,,Male,Cletus Spuckler,Farmer,/character/49.webp,[],Alive
+50,36,,Female,Brandine Spuckler,Farmer,/character/50.webp,['Dang Cletus!'],Alive
+51,,,Male,Dr. Nick,Fraudulent Doctor,/character/51.webp,"['Hi, everybody!']",Alive
+52,,,Female,Elizabeth Hoover,Teacher at Springfield Elementary School,/character/52.webp,[],Alive
+53,85,,Female,Mona Simpson,Political activist (Formerly),/character/53.webp,"['You awful, awful man, get out of my sons grave!', 'It wasnt your fault, sweetie.']",Deceased
+54,3540,,Male,Troy McClure,Actor,/character/54.webp,"['Hi! Im Troy McClure! You may remember me from such [films, TV shows, dates] as...']",Alive
+55,,,Male,Timothy Lovejoy Jr.,Reverend of the First Church of Springfield,/character/55.webp,"['Hello, Ned.Damn Flanders.']",Alive
+56,,,Female,Helen Lovejoy,Housewife,/character/56.webp,"['Wont somebody please think of the children?', 'Ned Flanders is on the phone.']",Alive
+57,,,Female,Jessica Lovejoy,Student,/character/57.webp,"['Youre bad, and I like it.']",Alive
+58,,,Male,Snake Jailbird,Criminal,/character/58.webp,"['...Bye!', 'See ya, cops!', 'Hoa!', 'Dude!']",Alive
+59,,,Male,Eddie,Police officer,/character/59.webp,[],Alive
+60,1000000,,Female,Kodos,Interstellar invader,/character/60.webp,[],Alive
+61,,,Male,Duffman,Mascot for Duff Beer,/character/61.webp,"['Oh, yeah!', 'Duffman!', 'Duffman is here to refill your beer!']",Alive
+62,,,Female,Sherri and Terri,Students at Springfield Elementary School,/character/62.webp,"['Im Sherri. Shes Terri. (Double balloon)', 'You must be nice to them - they could surround you!']",Alive
+63,,,Male,Jasper Beardsley,Retired,/character/63.webp,"['Thats a paddlin.', 'You sunk my battleship!']",Alive
+64,80,,Female,Jacqueline Bouvier,Retired,/character/64.webp,"['I have laryngitis and it hurts to talk. So Ill say one thing. You never do anything right.', 'You ruined my nap, just like you ruined my daughter’s life.']",Alive
+65,55,,Male,Gil Gunderson,Various,/character/65.webp,[],Alive
+66,47,,Male,Herman Hermann,Owner of Herman's Military Antiques,/character/66.webp,"['The key to Springfield was always Elm Street. The Greeks knew it. The Carthaginians knew it. Now know it.', 'God closes a door, he opens a gunshop!', 'Looks like the spider caught himself a couple of flies!']",Alive
+67,,,Male,Artie Ziff,Owner of Ziffcorp (former),/character/67.webp,"['I thought we killed him!', 'Ach-hem!', 'Fellow Classmates. Instead of voting for some athletic superhero or a pretty boy, you elected me, your intellectual superior, as your king. Good for you!', 'You cant spell party without Artie! (Unless you spell party wrong... or Artie)']",Alive
+68,34,,Male,Lionel Hutz,LawyerRealtorEstate ExecutorShoe Repairer,/character/68.webp,"['HEY, YOU! GET OUT OF MY OFFICE!', 'Mr. Simpson, this is the most blatant case of fraudulent advertising since my suit against the movie, The Neverending Story!', 'Youre one of a kind, Marge, and nobody deserves this more than you.']",Alive
+69,,,Male,Jeremy Freedman,Various,/character/69.webp,[],Alive
+70,,,Female,Mindy Simmons,Employee at SNPP (Fired),/character/70.webp,"['I wanna sneak in a quick nap before lunch.Cant talk. Eating.Homer you know how I feel, so its up to you. Look in your heart. I think youll see what you want.']",Alive
+71,,,Female,Lindsey Naegle,Various,/character/71.webp,[],Alive
+72,,,Female,Agnes Skinner,Retired,/character/72.webp,[],Alive
+73,42,,Male,Larry Dalrymple,Unknown,/character/73.webp,[],Deceased
+74,,,Female,Mrs. Muntz,Classy Girls Strip Club Pole Dancer,/character/74.webp,['My mom got too fat to work at Hooters!'],Alive
+75,8,,Female,Janey Powell,Student,/character/75.webp,"['Lisa said a dirty word!', 'Are you going to marry a carrot, Lisa?', 'Wed like to include you, but you just dont fit in.', 'With friends like her, who needs acquaintances?', 'If you pile up all my dolls, itll reach the moon!']",Alive
+76,,,Male,Kyle Williams,Student,/character/76.webp,['Mmya!'],Alive
+77,88,,Male,Hans Moleman,Various,/character/77.webp,"['My name is Hans. Drinking has ruined my life. Im 31 years old!', 'Hello, this is Moleman in the Morning. Good Moleman to you. Today, part four of our series of the agonizing pain in which I live every daaaay.', 'A poem by Hans Moleman. I think that I shall never see, my cataracts are blinding me.', 'No ones gay for Moleman.', 'I was saying Boo-urns.']",Alive
+78,55,,Male,Marvin Monroe,Psychologist,/character/78.webp,[],Alive
+79,,1980-05-14,Female,Jenda,High school student,/character/79.webp,[],Alive
+80,,,Male,Pedro Chespirito,Actor/TV Personality,/character/80.webp,"['Ay, ay, ay!']",Alive
+81,,,Male,Rainier Wolfcastle,Actor,/character/81.webp,[],Alive
+82,35,,Male,Frank Grimes,Nuclear Power Plant employee (Sector 7-G) (formerly),/character/82.webp,"['Im not your buddy, Simpson. I dont like you. In fact, I HATE you! Stay the hell away from me, because from now on, were enemies.', 'Im saying  whats wrong with America, Simpson. You coast through life, you do as little as possible, and you leech off of decent, hardworking people like me. Heh, if you lived in any other country in the world, youd have starved to death long ago. Youre a fraud, a total fraud.', 'I cant stand it any longer. This whole plant is insane. Insane, I tell you! (stammers, screams)', 'Whats this? Extremely high voltage. Well, I dont need safety gloves, because Im Homer Simp-!', 'We wanted to do an episode where the thinking was What if a real life, normal person had to enter Homers universe and deal with him? I know this episode is controversial and divisive, but I just love it. It really feels like what would happen if a real, somewhat humorless human had to deal with Homer. There was some talk [on NoHomers.net] about the ending—we just did that because 1. it’s really funny and shocking, 2. we like the lesson of sometimes, you just cant win—the whole Frank Grimes episode is a study in frustration and hence Homer has the last laugh and 3. we wanted to show that in real life, being Homer Simpson could be really dangerous and life threatening, as Frank Grimes sadly learned.']",Deceased
+83,,,Male,Blue-Haired Lawyer,Lawyer,/character/83.webp,[],Alive
+84,,,Male,Richard Texan,Business OwnerFormer Senator,/character/84.webp,[],Alive
+85,,,Male,Charlie (SNPP),Dangerous Emissions Supervisor at the Springfield Nuclear Power Plant.,/character/85.webp,['Im Charlie! Everyones favorite Dangerous Emissions Supervisor of Sector 7G!'],Alive
+86,,,Female,Manjula Nahasapeemapetilon,HousewifePart-time Kwik-E-Mart employee,/character/86.webp,[],Alive
+87,10,,Male,Wendell Borton,Fourth grade student at Springfield Elementary School,/character/87.webp,[],Alive
+88,13,,Female,Laura Powers,Babysitter,/character/88.webp,"['You know, if you were only old enough to grow a bad teenaged moustache, Id go out with you in a second.']",Alive
+89,,,Male,Grandpa Van Houten,Retired,/character/89.webp,['Me and the new wife travel the country searching for adventure.'],Alive
+90,,,Female,Eleanor Abernathy,"Taking care of cats, Doctor (formerly), Lawyer (formerly)",/character/90.webp,['Arrrriairar!!'],Alive
+91,34,,Female,Lurleen Lumpkin,Country MusicianBarmaid,/character/91.webp,"['I used to play the field, I used to be a roamerBut the seasons turning round for me now,I finally bagged me a Homer!']",Alive
+92,,,Male,Jesus Christ,Son of God,/character/92.webp,[],Alive
+93,,,Male,Rex Banner,Replacement Chief of PoliceUnited States Treasury Agent,/character/93.webp,['Are you the Beer Baron?'],Unknown
+94,,,Male,Wally Kogen,Travel Agent,/character/94.webp,[],Unknown
+95,,,Male,L.T. Smash,LieutenantManager of the Party PosseNavy recruiter,/character/95.webp,[],Alive
+96,,,Male,Vittorio DiMaggio,Mob boss,/character/96.webp,['My Apologies!'],Alive
+97,1000000,,Male,Kang,Interstellar invader,/character/97.webp,[],Alive
+98,10,,Male,Richard,Student,/character/98.webp,"['This gets uglier every year, any sign of Bart and Milhouse?', 'Were never gonna get anything past Principal Skinner.']",Alive
+99,,,Male,Harlan Dondelinger,Principal of Springfield High School,/character/99.webp,[],Alive
+100,,,Female,Alice Glick,Church Organist,/character/100.webp,[],Deceased
+101,,,Male,Chester J. Lampwick,Cartoonist,/character/101.webp,['Eight-hundred billion dollars.'],Alive
+102,10,,Female,Terri Mackleberry,Student,/character/102.webp,"['Isnt it amazing the same day you got a pool is the same day we realized we liked you?', 'The timing worked out great. Dont you think?', 'You ruined our undefeated season. You ruined everything, ruiner. ...My sister likes you.']",Alive
+103,10,1980-04-30,Female,Sherri Mackleberry,Unknown,/character/103.webp,"['Isnt it amazing the same day you got a pool is the same day we realized we liked you?', 'The timing worked out great. Dont you think?', 'You ruined our undefeated season. You ruined everything, ruiner. ...My sister likes you.']",Alive
+104,,,Female,Ruth Powers,Home-maker,/character/104.webp,[],Alive
+105,,,Female,Stacy Lovell,EntrepreneurCreator of Malibu Stacy,/character/105.webp,"['Kudos, kudos']",Alive
+106,,,Female,Beatrice Simmons,Retired,/character/106.webp,[],Deceased
+107,,,Male,Chuck Berger,2nd Grade Student at Springfield Elementary School,/character/107.webp,[],Alive
+108,10,,Male,Lewis Clark,Student,/character/108.webp,"['(Referring to Bart) Sometimes that kid just goes too far.', 'Hes Wendell, Im Lewis.']",Alive
+109,,,Female,Alaska Nebraska,Singer/Actress,/character/109.webp,[],Alive
+110,,,Female,Sophie Krustofsky,Student,/character/110.webp,[],Alive
+111,10,,Female,Nikki McKenna,Student,/character/111.webp,"['Hey, vampires are cool outsiders who love girls who hate cheerleaders!']",Alive
+112,,,Male,Sam (barfly),Target store employee,/character/112.webp,"['Okay, okay.']",Alive
+113,,,Female,Martha Quimby,La Maison Derrière (Former),/character/113.webp,['Joseph!'],Alive
+114,,,Male,Johnny Tightlips,Mobster,/character/114.webp,"['I aint sayin nothin!', 'Tell him to suck a lemon.', 'YOU are a hybrid; Half idiot, half moron.']",Alive
+115,,,Male,Eddie Muntz,Former Circus Attraction,/character/115.webp,[],Alive
+116,,,Female,Shauna Chalmers,Manager at Smart TykesKrusty Burger employee (formerly)Mother Hubbard's Sandwich Cupboard employee (formerly)Marijuana DealerStudent of Springfield High School,/character/116.webp,"['Im ShaunaAll seeing? Yeah, whens that last time you saw your feet?', 'Either the duck suffers or the kid does, or none of yous getting nothing from Shauna. Im Shauna.']",Alive
+117,,,Female,Rachel Jordan,Lead singer of Kovenant,/character/117.webp,[],Alive
+118,,,Male,Gerald Samson,Unknown,/character/118.webp,[],Alive
+119,,,Male,Michael D'Amico,Student,/character/119.webp,[],Alive
+120,48,,Female,Bernice Hibbert,Housewife,/character/120.webp,"['Ooh, Marge.']",Alive
+121,,,Female,Cookie Kwan,Realtor,/character/121.webp,['Stay off the west side!'],Alive
+122,,,Male,Richard Nixon,U.S. President (former),/character/122.webp,[],Deceased
+123,,,Male,Roger Meyers Jr.,Chairman of I&S Studios,/character/123.webp,"['Hey, great, mail it to last week—. Ive got cartoons to make.']",Alive
+124,,,Male,Seymour Skinner (real),Sergeant during the Vietnam War,/character/124.webp,[],Alive
+125,,,Male,Doug (nerd),College Student,/character/125.webp,[],Alive
+126,,,Male,Üter Zörker,Student at Springfield Elementary School,/character/126.webp,[],Alive
+127,,,Male,George Washington,Former U.S. President and Former Surveyor,/character/127.webp,[],Deceased
+128,,,Male,Kevin (Stealing First Base),4th Grade Student at Springfield Elementary School,/character/128.webp,[],Alive
+129,,,Male,Jebediah Springfield,Founder of Springfield/Pirate/Murderer,/character/129.webp,['A noble spirit embiggens the smallest man!'],Deceased
+130,,,Male,Matt Groening,Creator of Futurama & Life in Hell,/character/130.webp,['Your creator is TVs most beloved animation visionary.'],Alive
+131,,,Female,Lucille Botzcowski,Criminal,/character/131.webp,[],Alive
+132,,,Male,Bill Clinton,Former President of the United States,/character/132.webp,"['I am Clin-ton. As overlord, all will kneel trembling before me and obey my brutal command. End communication.']",Alive
+133,53,1954-10-23,Male,Dewey Largo,"Music Teacher,Worker at Starving Teachers Moving Co.",/character/133.webp,"['Nobody likes Milhouse!', 'Simpson, do you find something funny about the word ¨TromBONER¨?!']",Alive
+134,8,,Female,Allison Taylor,Student,/character/134.webp,[],Alive
+135,,,Female,Darcy,High school student,/character/135.webp,"['I need strawberries right now.', 'Dad, lay off the Bartman.']",Alive
+136,,,Male,Hank Scorpio,Owner of Globex Corporation/Supervillain,/character/136.webp,"['Scorpio! Hell sting you with his dreams of power and wealth. Beware of Scorpio! His twisted twin obsessions are his plot to rule the world, and his employees health. Hell welcome you into his lair, like the nobleman welcomes his guest... with free dental care and a stock plan that helps you invest! But beware of his generous pensions, plus three weeks paid vacation each year... and on Fridays, the lunchroom serves hot dogs and burgers and beer! He loves German beer!', 'I am here to welcome you on behalf of the President of the Globex Corporation. Me!', 'On your way out, if you wanna kill somebody, it would help me a lot.', 'It was either this or a Porsche!']",Alive
+137,,,Male,Sanjay Nahasapeemapetilon,Sales Clerk at the Kwik-E-Mart,/character/137.webp,[],Alive
+138,,,Male,"Nedward Flanders, Sr.",Retired,/character/138.webp,"['Oh man! Ned spilt ink over my poems! He is a real flat tire, I mean a cube man! Hes putting us on a trip to Squaresville, Mona!']",Alive
+139,,,Unknown,Bartman (character),Unknown,/character/139.webp,['Do the Bartman!'],Unknown
+140,10,,Male,Hugo Simpson II,Student,/character/140.webp,['I made a Pigeon-rat.'],Alive
+141,,,Male,Horatio McCallister,EntrepreneurPeriscope operator,/character/141.webp,[],Alive
+142,2,,Male,Gino Terwilliger,Murderer,/character/142.webp,"['Bart Simpson! Bart Simpson! Bart Simpson! I make like-a my daddy! I CUT CUT!!!', 'VENDETTA! VENDETTA!', 'FARFALLA! VENDETTA!']",Alive
+143,,,Female,Librarian,Second grade teacher,/character/143.webp,[],Alive
+144,,,Unknown,Snowball V,Unknown,/character/144.webp,[],Alive
+145,,,Male,Black hole aliens,Unknown,/character/145.webp,[],Alive
+146,,,Male,Remus Krupp,Unknown,/character/146.webp,[],Alive
+147,,,Female,Helen Feesh,Organ player for the First Church of Springfield,/character/147.webp,[],Alive
+148,,,Female,Jeremy's Girlfriend (couch gag),Unknown,/character/148.webp,[],Alive
+149,,,Male,Wainwright Montgomery Burns,Plantation Slave Owner during the Antebellum South. (1860 - 1865),/character/149.webp,[],Deceased
+150,,,Female,Crystal Meth Spuckler,Former star of The Krusty the Clown Show,/character/150.webp,['♪And feast on road kill♪'],Alive
+151,,,Unknown,Pie Man,Superhero,/character/151.webp,"['Whatever injustice shows its ugly face, I will be there, for I am the Pie Man.']",Unknown
+152,,,Unknown,Anastasia,Unknown,/character/152.webp,[],Deceased
+153,,,Male,Mexican Duffman,Advertiser for Duff Beer,/character/153.webp,[],Alive
+154,,,Male,Anoop Nahasapeemapetilon,Unknown,/character/154.webp,['Daddy.'],Alive
+155,,,Male,Gloria's Husband,Unknown,/character/155.webp,[],Alive
+156,,,Male,Clancy Bouvier,Navy sailor (formerly),/character/156.webp,"['When that Simpson boy showed up, it took years off my life!', 'Dont look at me! DONT LOOK AT ME!']",Deceased
+157,,,Male,Jeremy (network executive),Network executive (formerly),/character/157.webp,['You can kill me but two more will take my place!'],Alive
+158,,,Male,Jimmy the Snitch,Mafia associate unknown undercover,/character/158.webp,[],Unknown
+159,,,Unknown,Springfield bears,Unknown,/character/159.webp,[],Unknown
+160,,,Male,Dr. Zitsofsky,Unknown,/character/160.webp,[],Unknown
+161,,,Male,Mike's Student 3,5th Grade student at Springfield Elementary School,/character/161.webp,[],Alive
+162,,,Male,Prius Albertson,Unknown,/character/162.webp,[],Alive
+163,,,Female,Lady Gaga,Singer,/character/163.webp,[],Alive
+164,,,Male,Strongman Homer,Unknown,/character/164.webp,[],Unknown
+165,,,Male,Mr. Burns' Security Guards,Security guards,/character/165.webp,[],Alive
+166,,,Male,Mr. Mitchell,Unknown,/character/166.webp,[],Alive
+167,,,Female,Maw Spuckler,Unknown,/character/167.webp,[],Alive
+168,,,Unknown,Stretch Dude,Unknown,/character/168.webp,['I must only use this power to annoy!'],Unknown
+169,,,Male,"Nelson Muntz, Jr.",Grade School Student,/character/169.webp,[],Alive
+170,,,Male,Cayman Islands banker,Banker,/character/170.webp,[],Alive
+171,,,Female,Renee,Florist,/character/171.webp,[],Alive
+172,,,Male,Ralph (Moaning Lisa),Student at Springfield Elementary School,/character/172.webp,[],Alive
+173,,,Female,Ginger Flanders,Waitress,/character/173.webp,[],Alive
+174,,,Female,Old Lady Unnamed with Pink dress,Unknown,/character/174.webp,[],Alive
+175,,,Female,Paris Texan,Unknown,/character/175.webp,[],Alive
+176,,,Unknown,Scratchy,Unknown,/character/176.webp,[],Fictional
+177,,,Male,Chet Simpson,Owner of an unsuccessful shrimp company,/character/177.webp,[],Alive
+178,,,Female,Francine Rhenquist,Student at Springfield Elementary School,/character/178.webp,"['Suck fist, Dr. Dork!']",Alive
+179,,,Female,Female Brown have a Ring and Light Green Dress,History,/character/179.webp,[],Alive
+180,,,Male,Jack Lassen,Teacher (formerly)Prison Guard,/character/180.webp,[],Alive
+181,,,Unknown,John Mulaney,Unknown,/character/181.webp,[],Unknown
+182,,,Male,The Parson,Leader of the Presbylutheran faith practiced in Springfield,/character/182.webp,[],Alive
+183,,,Male,International Harvester Spuckler,Homeschooled studentFormer star of The Krusty the Clown Show,/character/183.webp,[],Alive
+184,,,Male,Garth Motherloving,CEO of Motherloving Sweets and Sugar Company,/character/184.webp,[],Alive
+185,,,Male,Michael Moore ,Filmmaker,/character/185.webp,[],Alive
+186,,,Unknown,The MudSlinger,Unknown,/character/186.webp,[],Unknown
+187,,,Male,Ref,Non-playable boxing referee in Super Slugfest,/character/187.webp,[],Unknown
+188,,,Female,Whitney Spuckler,Unknown,/character/188.webp,[],Alive
+189,,,Male,The Devil,Ruler of Hell,/character/189.webp,['Silence sinner! Prepare for an eternity of horrible pain!'],Alive
+190,,,Male,Grand Pumpkin,The Grand (Halloween) Pumpkin,/character/190.webp,[],Deceased
+191,,,Unknown,Plopper,Unknown,/character/191.webp,"['Spider Pig! Spider Pig! Does whatever a spider pig does!', 'Hes not Spider Pig anymore, hes Harry Plopper.', 'No, Plopper. If you push that, Daddy will die!']",Alive
+192,,,Male,Constance Harm,Judge,/character/192.webp,['Im going to lock you up until frogs do fractions!'],Alive
+193,,,Male,Professor X,Leader of the X-Men,/character/193.webp,[],Fictional
+194,,,Male,Professor Hubert J. Farnsworth,Unknown,/character/194.webp,"['Good news, everyone.']",Alive
+195,,,Female,Richard's Mother,Unknown,/character/195.webp,[],Alive
+196,,,Male,Baron Von Kiss-A-Lot,Baron,/character/196.webp,[],Alive
+197,,,Male,Incest Spuckler,Homeschooled studentFormer star of The Krusty the Clown Show,/character/197.webp,[],Alive
+198,,,Male,Audrey McConnell's Student 2,Student at Springfield Elementary School,/character/198.webp,"['(Responding to Lewis, who asked to sit with him) Whatever!']",Alive
+199,,,Male,H.K. Duff,Owner of the Springfield IsotopesCEO of the Duff BreweryChair of Duff Industries,/character/199.webp,[],Alive
+200,,,Male,J. Loren Pryor,School District PsychologistGuidance counselor,/character/200.webp,"['Your sons a genius!', 'The point I’m trying to make here is that Bart must learn to be less of an individual and more a faceless slug.', 'Have you considered the army? Theyre always looking for angry, messed-up young men.']",Alive
+201,,,Female,Lisa The Conjurer,Unknown,/character/201.webp,[],Unknown
+202,,,Female,Barbara Lelavinsky,TV personalityActress,/character/202.webp,"['Hes got a heart as big as my booooooooobs!', 'I guess well have to agree to agree on this one.', '[After long pause] Boooooobs!']",Alive
+203,,,Male,Menthol Moose,Mascot for Laramie Cigarettes,/character/203.webp,[],Alive
+204,,,Unknown,Itchy,Unknown,/character/204.webp,[],Fictional
+205,,,Male,Barack Obama,Former President of the United States,/character/205.webp,[],Alive
+206,,,Male,Larry King,TV host,/character/206.webp,[],Deceased
+207,,,Unknown,Cupcake Kid,Unknown,/character/207.webp,[],Unknown
+208,,,Male,Dr. Brentano,Child psychologist  Marriage counselor,/character/208.webp,[],Alive
+209,,,Female,June Bellamy,Voice actress,/character/209.webp,[],Alive
+210,,,Male,Great Son,Student at Springfield Elementary School,/character/210.webp,[],Alive
+211,,,Male,George W. Bush,Former President of the United States  Former Governor of Texas,/character/211.webp,[],Alive
+212,,,Unknown,Pinchy,Unknown,/character/212.webp,"['Yeah, Pinchy? Pinchy?! PINCHY!!!!!!!']",Deceased
+213,,,Male,French Chef,ChefAssassin,/character/213.webp,[],Unknown
+214,,,Male,Bode Wright,Reverend (former)Youth Minister (former),/character/214.webp,[],Alive
+215,,,Male,Bouncer (couch gag),Nightclub Bouncer,/character/215.webp,[],Unknown
+216,,,Female,Female orange haired have a brown hat,Unknown,/character/216.webp,[],Alive
+217,,,Male,Corey Masterson,College studentSecretary of Partying DownRole model for girls,/character/217.webp,"['Your Bra Bomb better work, Nerdlinger!Hi, youve reached the Corey hotline. $4.95 a minute. Here are some words that rhyme with Corey: gory, story, allegory, Montessori...']",Alive
+218,,,Male,Unnamed boy with sandals,Student at Springfield Elementary School,/character/218.webp,[],Alive
+219,,,Female,Grandma Unnamed with gray haired and glasses,Actor,/character/219.webp,[],Alive
+220,,,Female,Wanda,Student at Springfield Elementary School,/character/220.webp,['(Disappointed) Its a mop. My husband will be a janitor'],Alive
+221,,,Female,Janet Reno,Lawyer,/character/221.webp,[],Deceased
+222,,,Male,Mervin Monroe,Tattoo artist,/character/222.webp,[],Alive
+223,,,Male,Arthur Crandall,Ventriloquist,/character/223.webp,[],Alive
+224,,,Female,Tyler (Female 3rd Grader),Student at Springfield Elementary,/character/224.webp,[],Alive
+225,,,Male,King Winter,King,/character/225.webp,[],Fictional
+226,,,Male,Hot Dog Vendor,Vendor,/character/226.webp,[],Alive
+227,,,Female,Beezee,2nd Grade Student at Springfield Elementary School,/character/227.webp,[],Alive
+228,,,Male,Zutroy,Temporary Danger Emissions SupervisorCar salesman,/character/228.webp,"['Put it in H!', 'Take her for a test drive and youll agree: Zagrevev min zlotny diev!']",Alive
+229,,,Unknown,Stampy,Unknown,/character/229.webp,[],Alive
+230,,,Male,Kyle's Father,Unknown,/character/230.webp,[],Alive
+231,,,Male,Mr. Borton,Unknown,/character/231.webp,[],Alive
+232,,,Male,Comic Book Gay,Comic book store owner,/character/232.webp,[],Alive
+233,,,Male,Estonian Dwarf,Actor Stuntman,/character/233.webp,[],Alive
+234,,,Male,Hyman Krustofsky,Rabbi at Temple Beth Springfield,/character/234.webp,['I HAVE NO SON!'],Deceased
+235,,,Male,Coward,StudentSoldier,/character/235.webp,[],Alive
+236,,,Unknown,Dixie Chicks,Unknown,/character/236.webp,[],Unknown
+237,,,Male,Frank Ormand,Owner of the Pretzel Wagon,/character/237.webp,[],Deceased
+238,,,Male,Sauna User 2 (couch gag),Unknown,/character/238.webp,[],Alive
+239,,,Male,Drummer,Drummer for The Larry Davis Experience,/character/239.webp,[],Alive
+240,,,Female,Dowager,Socialite,/character/240.webp,[],Alive
+241,,,Male,Killer Krusty Doll,Toy,/character/241.webp,[],Noncanon
+242,,,Male,Hullabalooza Fan,Unknown,/character/242.webp,[],Unknown
+243,,,Male,Richard Branson,Owner of Virgin,/character/243.webp,[],Alive
+244,,,Male,Huell Howser (character),Television personalityActor (briefly),/character/244.webp,[],Deceased
+245,,,Female,Ms. Coco,ClownHistory Teacher at Hershel Krustofsky School,/character/245.webp,[],Alive
+246,,,Female,Millicent,Horse trainer,/character/246.webp,[],Alive
+247,,,Unknown,Bigfoot,Unknown,/character/247.webp,[],Alive
+248,,,Female,President Lisa,Unknown,/character/248.webp,[],Alive
+249,,,Female,Nurse Female Brown,Nurse at Springfield Elementary School,/character/249.webp,[],Alive
+250,,,Unknown,Jub-Jub Bouvier,Unknown,/character/250.webp,[],Alive
+251,,,Unknown,Classy Pig,Unknown,/character/251.webp,[],Unknown
+252,,,Male,Declan Desmond,Documentary Filmmaker,/character/252.webp,[],Alive
+253,,,Unknown,House Boy,Unknown,/character/253.webp,[],Unknown
+254,,,Male,Gheet Nahasapeemapetilon,Baby,/character/254.webp,['Cookie!'],Alive
+255,,,Female,Pria Nahasapeemapetilon,Unknown,/character/255.webp,['You.'],Alive
+256,,,Male,Gumby,Unknown,/character/256.webp,[],Fictional
+257,,,Male,Mr. Zzyzwicz,Unknown,/character/257.webp,[],Alive
+258,,,Male,Tyler Gables,Student at Springfield Elementary,/character/258.webp,[],Alive
+259,,,Male,Al Gore,PoliticianWritterEnviromental activist,/character/259.webp,[],Alive
+260,,,Male,Ogdenville Boy,Likely a student at school,/character/260.webp,['(To the teenager on the skateboard) <Speaks Norwegian> So many meters.'],Alive
+261,,,Male,Larry (Duffman),Duffman Actor (Formerly),/character/261.webp,[],Deceased
+262,,,Female,Gummy Sue Spuckler,Unknown,/character/262.webp,[],Alive
+263,,,Male,Frog Prince,Prince,/character/263.webp,[],Alive
+264,,,Unknown,Snowball I,Unknown,/character/264.webp,[],Deceased
+265,,,Unknown,Coltrane,Unknown,/character/265.webp,[],Deceased
+266,,,Male,Bobo,Mr. Burns' teddy bear,/character/266.webp,['Dont make the same mistake that I made.'],Alive
+267,,,Male,Head of Santa School,Personnel Director of Springfield Mall,/character/267.webp,['Do you like children?'],Alive
+268,,,Male,Conrad,App for predicting consequences on posts,/character/268.webp,[],Alive
+269,,,Male,Cecil Terwilliger,Criminal MastermindChief Hydrological and Hydrodynamical Engineer,/character/269.webp,[],Alive
+270,,,Male,Ron Rabinowitz,Agent,/character/270.webp,[],Alive
+271,,,Female,Myra,Secretary,/character/271.webp,[],Alive
+272,,,Male,Neil Gaiman (character),Unknown,/character/272.webp,[],Alive
+273,,,Female,Mrs. Scratchy,Unknown,/character/273.webp,[],Fictional
+274,,,Male,Dr. Hibbert's Second Son,Student,/character/274.webp,[],Alive
+275,,,Male,Frank Sinatra,SingerActor,/character/275.webp,[],Deceased
+276,,,Male,William MacDougal II,Bar owner,/character/276.webp,[],Alive
+277,,,Male,Male Korean Artist 2 (couch gag),Cartoonist,/character/277.webp,[],Unknown
+278,,,Unknown,Lumpy,Unknown,/character/278.webp,[],Alive
+279,,,Unknown,MacGyver,Unknown,/character/279.webp,[],Unknown
+280,,,Male,Bono,ActorHumanitarianMusicianProducerSinger,/character/280.webp,[],Alive
+281,,,Unknown,Big Bird,Unknown,/character/281.webp,[],Alive
+282,,,Male,Surly Duff,Mascot for Duff Beer,/character/282.webp,[],Fictional
+283,,,Unknown,Stonecutters,Unknown,/character/283.webp,[],Unknown
+284,,,Male,State Comptroller Atkins,State Comptroller,/character/284.webp,['This grant ensures a light bulb in every classroom... and a high-definition TV for the teachers lounge.'],Alive
+285,,,Male,John Wilkes Booth,Actor,/character/285.webp,[],Deceased
+286,,,Male,Gavin,Student,/character/286.webp,[],Alive
+287,,,Male,Burly,Mascot,/character/287.webp,"['Fantasize, Marge. Fantasize about Burly.']",Fictional
+288,,,Female,Quinn Hopper,Coding teacher at Springfield ElementaryDeveloper of Conrad,/character/288.webp,[],Alive
+289,,,Female,Princess Kashmir,Exotic dancer,/character/289.webp,[],Alive
+290,,,Male,Frankie the Squealer,Mobster,/character/290.webp,"['Okay, it’s me! I cant help it! I just like squealing! It makes me feel big!', 'Did you know Fat Tonys real name is Marion?']",Alive
+291,,,Male,Bobby Peterson,Dean of Springfield University,/character/291.webp,['That lousy Dean.'],Alive
+292,,,Male,Tom Gammel,Unknown,/character/292.webp,[],Alive
+293,,,Male,Jason Voorhees,Serial Killer,/character/293.webp,[],Deceased
+294,,,Male,Alcatraaz,Rapper,/character/294.webp,[],Alive
+295,,,Unknown,King Homer (character),Unknown,/character/295.webp,[],Fictional
+296,,,Male,E-mail,Student at Springfield Elementary School,/character/296.webp,[],Alive
+297,,,Male,God,Creator of the Universe,/character/297.webp,"['He is a force bigger than Mom and Dad put together, and you owe Him big.', ' If God needs money, why doesnt he just write another Bible? The first one sold pretty well.']",Alive
+298,,,Male,Count von Count,Unknown,/character/298.webp,[],Alive
+299,,,Male,McGarnagle,Unknown,/character/299.webp,[],Fictional
+300,,,Male,Hypnotist,HypnotistMall Santa Trainer,/character/300.webp,[],Alive
+301,,,Male,Bleeding Gums Murphy,Musician,/character/301.webp,"['The Blues aint about feeling better; its about making other people feel worse.', 'Baby, you are gonna see this… Here, take this for luck.']",Deceased
+302,,,Unknown,Scratchy Jr.,Unknown,/character/302.webp,[],Fictional
+303,,,Male,Mr. Hippie,Substitute teacher,/character/303.webp,[],Alive
+304,,,Male,Justin,Student,/character/304.webp,[],Unknown
+305,,,Female,Carmen Electra (character),TV Show Co-HostActress,/character/305.webp,[],Alive
+306,,,Female,Female Korean Artist 1 (couch gag),Cartoonist,/character/306.webp,[],Unknown
+307,,,Male,Apu's Dog,Unknown,/character/307.webp,[],Alive
+308,,,Male,Colonel Klink,Colonel / Fictional character / Homer's conscience,/character/308.webp,[],Fictional
+309,,,Male,Ed McMahon,Announcer,/character/309.webp,[],Unknown
+310,,,Female,Dr. Stacey Swanson,Psychologist,/character/310.webp,[],Alive
+311,,,Female,Gina Vendetti,Unknown,/character/311.webp,"['Im Gina. Touch my fence again, and your pubertys gonna be very boring.', 'Who is this nerd?']",Alive
+312,,,Male,Red Barclay,Trucker,/character/312.webp,"['Red Barclays my name. Im a trucker, and Ive eaten steaks from coast to coast with taters and toast.']",Deceased
+313,,,Male,Robin Williams,Actor,/character/313.webp,[],Deceased
+314,,,Male,Old Jewish Man,Retired (currently)Casablanca studio executive (formerly),/character/314.webp,[],Alive
+315,,,Unknown,Miss Piggy,Unknown,/character/315.webp,[],Alive
+316,,,Unknown,Chocolate rabbits,Unknown,/character/316.webp,[],Unknown
+317,,,Male,Lionel Richie,Singer,/character/317.webp,[],Alive
+318,,,Male,Q-Bert Spuckler,Unknown,/character/318.webp,[],Alive
+319,,,Male,Fidel Castro,Ex-Cuban President,/character/319.webp,[],Deceased
+320,,,Female,Ms. Mouse,Unknown,/character/320.webp,[],Fictional
+321,,,Female,Sara (Student),Student at Springfield Elementary School,/character/321.webp,"['(Harassing Lisa) Out of the way, brain queen!']",Alive
+322,,,Male,Mike's Student 2,Fifth Grade Student at Springfield Elementary School,/character/322.webp,[],Alive
+323,,,Male,American Spy,Spy for the American Government,/character/323.webp,"['So, Sparrow, we meet again.']",Alive
+324,,,Male,Male Twin,Student at Springfield Elementary School,/character/324.webp,[],Alive
+325,,,Male,Repo Man 2 (Make Room for Lisa),Repo agent,/character/325.webp,[],Unknown
+326,,,Male,Arnold Schwarzenegger,President of the United States,/character/326.webp,"['I was elected to lead, not to read. Number 3!']",Alive
+327,,,Female,Mrs. Rhenquist,Unknown,/character/327.webp,[],Alive
+328,,,Male,"""Where the Redfern Grows"" 5th grader",Student,/character/328.webp,[],Alive
+329,,,Male,Ezekiel,Student,/character/329.webp,[],Alive
+330,,,Male,Oscar the Grouch,Unknown,/character/330.webp,[],Alive
+331,,,Male,Evan Conover,Undersecretary for International Protocol,/character/331.webp,[],Alive
+332,,,Male,Fritz,Businessman,/character/332.webp,[],Alive
+333,,,Female,Poor Violet,Sympathy Orphan,/character/333.webp,[],Alive
+334,,,Male,Audrey McConnell's Student 1,Student at Springfield Elementary School,/character/334.webp,"['(Agreeing with Bart, who suggested waiting for shine) Definitely shine.']",Alive
+335,,,Male,Bill (KBBL DJ),Radio DJ,/character/335.webp,[],Alive
+336,,,Male,Benedict Arnold,Soldier,/character/336.webp,[],Deceased
+337,,,Male,Sandeep Nahasapeemapetilon,Unknown,/character/337.webp,['Come.'],Alive
+338,,,Male,Howard (Moaning Lisa),Student,/character/338.webp,"['You got yourself a deal, fido.']",Alive
+339,,,Male,Male Club Hopper (couch gag),Unknown,/character/339.webp,[],Unknown
+340,,,Female,Aunt Hortense,Unknown,/character/340.webp,[],Deceased
+341,,,Male,Abraham Lincoln,16th President of the United States,/character/341.webp,[],Deceased
+342,,,Male,The Warden,Warden,/character/342.webp,[],Unknown
+343,,,Male,Dalai Lama,High lama,/character/343.webp,[],Alive
+344,,,Male,Corporal Punishment,Enforcer on Krusty's show,/character/344.webp,[],Alive
+345,,,Male,José Canseco (character),Baseball player,/character/345.webp,[],Alive
+346,,,Male,Sakatumi,Professional sumo wrestler at the Sumo Stadium,/character/346.webp,[],Alive
+347,,,Male,Joey,Mobster,/character/347.webp,[],Alive
+348,,,Male,Horst,Businessman,/character/348.webp,"['All right, Mr. Burns, you win. But beware, we Germans arent all smiles und sunshine.']",Alive
+349,,,Male,Mr. Zörker,Unknown,/character/349.webp,[],Alive
+350,,,Male,Stuart,Unknown,/character/350.webp,[],Alive
+351,,,Male,Benjamin Franklin,Inventor,/character/351.webp,['Its time you all learned that heaven can be a hell of a place!'],Deceased
+352,,,Female,Summer Romance girl,Student (possible),/character/352.webp,[],Alive
+353,,,Male,Akira,Waiter/Chef at The Happy SumoKarate teacher at Springfield Martial Arts Academy,/character/353.webp,"['You can if you believe you can.', 'No, you just got pain.', 'Technique. Ha ha!']",Alive
+354,,,Male,Adam,Being one of God's people,/character/354.webp,[],Noncanon Deceased
+355,,,Unknown,Captain Kwik,Unknown,/character/355.webp,"['Captain Kwik Must Respectfully Disagree, Malefactor!']",Unknown
+356,,,Unknown,Blinky,Unknown,/character/356.webp,[],Deceased
+357,,,Male,Rod Runtledge,Radioactive Man's sidekick Fallout Boy,/character/357.webp,[],Unknown
+358,,,Male,Tiago,Samba School teacher,/character/358.webp,[],Alive
+359,,,Male,Sadruddin Mahbaradad,Unknown,/character/359.webp,[],Unknown
+360,,,Female,Judge Julie,Judge at the Springfield County Court House,/character/360.webp,[],Alive
+361,,,Unknown,Cutout Foot,Unknown,/character/361.webp,[],Unknown
+362,,,Female,Girl with glasses,Student,/character/362.webp,[],Alive
+363,,,Unknown,Sharks (couch gag),Unknown,/character/363.webp,[],Unknown
+364,,,Male,Neil,Spokesman for Powersauce,/character/364.webp,[],Alive
+365,,,Male,Sherri and Terri's unnamed sons,Unknown,/character/365.webp,[],Noncanon
+366,,,Female,Tyler's Sister,Student at Springfield Elementary,/character/366.webp,[],Alive
+367,,,Male,Golem of Prague,Slave,/character/367.webp,[],Alive
+368,,,Male,SpongeBob SquarePants,Fry cook,/character/368.webp,[],Alive
+369,,,Female,Alex Whitney,Student at Springfield Elementary School,/character/369.webp,"['Oh, yeah, like Id be seen with a Discover card.']",Alive
+370,,,Male,Woody Allen,ActorAuthorComedianDirectorMusicianPlaywrightScreenwriter,/character/370.webp,[],Alive
+371,,,Male,Angelo,Employee at Luigi'sSub-contractor,/character/371.webp,['I like to chew.'],Alive
+372,,,Male,The District Attorney,Springfield District Attorney,/character/372.webp,[],Alive
+373,,,Male,Primo,Mobster,/character/373.webp,[],Deceased
+374,,,Male,Alec Baldwin (character),Actor,/character/374.webp,[],Alive
+375,,,Unknown,Rosa Barks,Unknown,/character/375.webp,[],Alive
+376,,,Female,Little Debbie Dimples,Clown,/character/376.webp,[],Alive
+377,,,Male,Brown-haired boy,Student,/character/377.webp,[],Alive
+378,,,Male,The Grumple,Thief of Holiday Cheer,/character/378.webp,"['Grumply-grumply-groo, were here to share Christmas with you!']",Fictional
+379,,,Female,Sashi Nahasapeemapetilon,Unknown,/character/379.webp,['Will.'],Alive
+380,,,Male,Munchie,Owner of Groovy Grove Juice Corporation,/character/380.webp,[],Alive
+381,,,Unknown,The Ingestible Bulk,Unknown,/character/381.webp,['Bulk Gnash!!HOMER MAD! HOMER SMASH! GET REVENGE ON WORLD!'],Unknown
+382,,,Unknown,Laddie,Unknown,/character/382.webp,[],Alive
+383,,,Male,Ernest Hemingway,AuthorJournalist,/character/383.webp,[],Deceased
+384,,,Male,Roscoe,Ajax Steel Mill manager,/character/384.webp,[],Alive
+385,,,Male,Dakota (Orange),Student at Springfield Elementary,/character/385.webp,[],Alive
+386,,,Female,Cheery,Fictional character,/character/386.webp,[],Unknown
+387,,,Female,Evelyn Peters,Socialite,/character/387.webp,"['Oh, Marge, youve come a long way from the girl I knew nothing about in high school.']",Alive
+388,,,Male,Cowboy Bob,RV Salesman,/character/388.webp,[],Alive
+389,,,Female,Noah's Mother,Unknown,/character/389.webp,['Hes  of you!...Noah’s hot mom.'],Alive
+390,,,Female,Gunter's Wife,Unknown,/character/390.webp,[],Alive
+391,,,Female,Pahusacheta Nahasapeemapetilon,Unknown,/character/391.webp,"['Father! Uncle Apu! A teacher was in the closet with the principal and he had as many arms as Vishnu and they were all very busy.', 'I am Pahusacheta Nahasapeemapetilon and tonight I will be playing MacArthur Park on the tabla.']",Alive
+392,,,Male,Irish Policeman,Policeman,/character/392.webp,[],Alive
+393,,,Male,Stark Richdale,Writer  Teacher,/character/393.webp,[],Alive
+394,,,Male,Joey Jo-Jo Junior Shabadoo,Unknown,/character/394.webp,[],Alive
+395,,,Female,Valley Mercer,Student,/character/395.webp,[],Alive
+396,,,Female,Ms. Phipps,Springfield Elementary School Nurse,/character/396.webp,[],Alive
+397,,,Female,Ice Cream Lady,Waitress,/character/397.webp,[],Unknown
+398,,,Male,Sandwich Delivery Guy,Sandwich delivery,/character/398.webp,[],Alive
+399,,,Female,Nina Skalka,Student,/character/399.webp,['It totally works.Boys are gross! Everything is gross!'],Alive
+400,,,Unknown,Toucan Sam,Unknown,/character/400.webp,[],Deceased
+401,,,Male,Kearney's Other Son,Unknown,/character/401.webp,[],Alive
+402,,,Male,Master Sushi Chef,Sushi Chef at The Happy Sumo,/character/402.webp,[],Alive
+403,,,Male,Lester,Fourth Grade Student,/character/403.webp,[],Alive
+404,,,Female,Penelope Owsley,Former coaster on Krusty the Clown's show,/character/404.webp,[],Alive
+405,,,Female,Gypsy,Fortuneteller in Gypsy's Shop,/character/405.webp,[],Alive
+406,,,Male,Cthulhu,Unknown,/character/406.webp,[],Alive
+407,,,Female,Puppy Goo-Goo,Milhouse’s toy dog,/character/407.webp,['Oh puppy goo-goo fetch me a dream'],Alive
+408,,,Male,Johnny Carson,Television host,/character/408.webp,[],Deceased
+409,,,Female,Tabitha Shingle,Podcast host,/character/409.webp,[],Alive
+410,,,Female,Ellen DeGeneres (character),"Comedian, Actress",/character/410.webp,[],Alive
+411,,,Female,Brown-haired girl,Student at Springfield Elementary School,/character/411.webp,[],Alive
+412,,,Female,Dorothy,Unknown,/character/412.webp,[],Alive
+413,,,Female,Ballet Teacher,Ballet teacher at Springfield Elementary School,/character/413.webp,[],Alive
+414,,,Male,Capital City Goofball,Capital City baseball team mascot; state legislator,/character/414.webp,[],Alive
+415,,,Female,Courtney Love,SingerGuitaristActress,/character/415.webp,[],Alive
+416,,,Male,Bing Crosby,Unknown,/character/416.webp,[],Deceased
+417,,,Unknown,Conformco,Unknown,/character/417.webp,[],Unknown
+418,,,Female,Popular Girl 1,Student at Springfield Elementary School,/character/418.webp,"['(Speaking to Lisa) No, go ahead, take it. Take it way over there.']",Alive
+419,,,Unknown,The Incredible Hulk,Unknown,/character/419.webp,[],Unknown
+420,,,Male,The Collider,Super Villain,/character/420.webp,[],Fictional
+421,,,Unknown,The Android's Dungeon & Baseball Card Shop,Unknown,/character/421.webp,[],Unknown
+422,,,Female,Mrs. Smithers,Unknown,/character/422.webp,[],Alive
+423,,,Female,Becky Shorter,Springfield Elementary School Student,/character/423.webp,['Ill take...dare!'],Alive
+424,,,Male,Space Mutants,Movie mutants,/character/424.webp,[],Alive
+425,,,Male,Mike Scioscia (character),Baseball player,/character/425.webp,[],Alive
+426,,,Male,Contractor,Contractor,/character/426.webp,[],Alive
+427,,,Male,Jack Crowley,CriminalPainter,/character/427.webp,"['Puma pride! Puma pride! Catch the fever, Skinner!']",Alive
+428,,,Male,Duff Beer Advertiser,Actor,/character/428.webp,[],Alive
+429,,,Male,Robot (Lost in Space),Robot,/character/429.webp,[],Unknown
+430,,,Unknown,Patricia,Socialite,/character/430.webp,[],Unknown
+431,,,Unknown,The Larry Davis Experience,Unknown,/character/431.webp,[],Unknown
+432,,,Male,Jimmy Carter,Former President,/character/432.webp,[],Alive
+433,,,Male,Fireman 2 (couch gag),Fireman,/character/433.webp,[],Alive
+434,,,Male,Roy,Unknown,/character/434.webp,[],Alive
+435,,,Female,Shary Bobbins,Nanny for The Simpson family (Former),/character/435.webp,['Ive been singing you songs all day; Im not a bloody jukebox!'],Deceased
+436,,,Male,Ron Howard (character),Film Director,/character/436.webp,[],Alive
+437,,,Female,Heather Spuckler,Singer/Child,/character/437.webp,[],Alive
+438,,,Female,Sara Sloane,Movie StarCelebrity,/character/438.webp,[],Alive
+439,,,Male,Clifford Burns,Unknown,/character/439.webp,['You should be out in the fresh air kickin dogs!'],Deceased
+440,,,Male,Sheldon Skinner,Radio operator,/character/440.webp,[],Deceased
+441,,,Male,Captain Tenille,US Naval submarine captain,/character/441.webp,['Dont fire the torpedoes!'],Deceased
+442,,,Male,Number 51,Former Stonecutter,/character/442.webp,[],Alive
+443,,,Female,Xena the Warrior Princess,Super hero,/character/443.webp,[],Alive
+444,,,Male,Cosine Tangent,Student,/character/444.webp,[],Alive
+445,,,Unknown,Fruit Bat Man,Unknown,/character/445.webp,['Feel the weightless tickle of justice!'],Unknown
+446,,,Female,Groundskeeper Wilma,Groundskeeper at Shelbyville Elementary School,/character/446.webp,"['Slow down, ya sidewalk-surfin cube gleamers!']",Alive
+447,,,Male,Fit-Fat Tony,Mob boss,/character/447.webp,"['If the boy wants to smoosh, the boy will smoosh.', 'And theres no better exercise than killing and disemboweling a big fat snitch.', 'Disgusting! And you give the Kiss of Death with those lips?', 'I like you. I dont know whether or not to knock you on your kisser or kiss you on your knockers.', 'Freakin millennials.', 'The three of us, we are not so different.']",Alive
+448,,,Female,Teenage Babysitter,StudentBabysitter,/character/448.webp,[],Alive
+449,,,Male,Waverly Hills Boy 1,Student at Waverly Hills Elementary School,/character/449.webp,[],Alive
+450,,,Male,Lucius Sweet,Boxing manager,/character/450.webp,[],Alive
+451,,,Female,Isabel Gutiérrez,Student at Springfield Elementary School,/character/451.webp,"['If you haven’t guessed, I’m a Republican!']",Alive
+452,,,Male,Aristotle Amadopolis,Owner of Shelbyville Nuclear Power Plant,/character/452.webp,[],Alive
+453,,,Female,Mrs. Nahasapeemapetilon,Unknown,/character/453.webp,[],Alive
+454,,,Male,Sebastian Cobb,Scientist,/character/454.webp,"['Lanley hired me to build his monorail. He cut corners everywhere; bad wiring, faulty brakes, and the celebrity on the maiden voyage was Gallagher.']",Unknown
+455,,,Male,Birthday Spuckler,Homeschooled studentFormer star of The Krusty the Clown Show,/character/455.webp,[],Alive
+456,,,Male,Nigel (Moho House),Unknown,/character/456.webp,[],Alive
+457,,,Female,Nana Sophie Mussolini,Retired,/character/457.webp,[],Alive
+458,,,Male,Paul McCartney (character),Musician,/character/458.webp,[],Alive
+459,,,Female,Amber Dempsey,Little Miss Springfield,/character/459.webp,[],Alive
+460,,,Female,Retirement Castle administrator (Bart the General),Administrator at the Springfield Retirement Castle,/character/460.webp,[],Alive
+461,,,Female,Maria Quimby,Actress,/character/461.webp,[],Alive
+462,,,Male,Hunter (couch gag),Hunter,/character/462.webp,[],Unknown
+463,,,Female,Mrs. Shorter,Unknown,/character/463.webp,[],Unknown
+464,,,Male,Bait Shop Owner,Catfish Lake Bait Store Owner,/character/464.webp,[],Unknown
+465,,,Male,Professor Huntington,Professor at Swigmore University,/character/465.webp,[],Deceased
+466,,,Male,David Crosby (character),SingerSongwriter,/character/466.webp,[],Deceased
+467,,,Female,Grandma Flanders,Retired,/character/467.webp,"['Hello, Joe.']",Deceased
+468,,,Male,Brody McKenna,Federal Prosecutor,/character/468.webp,[],Alive
+469,,,Female,Barbara Bush,Former First Lady of the United States (1989-1993),/character/469.webp,[],Deceased
+470,,,Female,Sherri and Terri's Great-Aunt,Unknown (Probably retired),/character/470.webp,[],Alive
+471,,,Male,Jerry Mackleberry,Student,/character/471.webp,[],Noncanon
+472,,,Male,Dave Shutton,Investigative journalist,/character/472.webp,[],Alive
+473,99,1876-11-30,Male,Orville Simpson,Disciplinarian,/character/473.webp,"['See, son, thats where were going to live... maybe not today, maybe not tomorra. But someday. ', 'Homer! Get over here! Youre due for a salutary whipping!']",Unknown
+474,,,Male,Jiff Simpson,Unknown,/character/474.webp,"['It smells like dog, but theres no dog!']",Alive
+475,,,Male,Bob Dole,Presidential candidate,/character/475.webp,[],Deceased
+476,,,Male,Mr. Sparkle (mascot),Mascot for a Japanese detergent company,/character/476.webp,[],Fictional
+477,,,Male,"Frank Grimes, Jr.",Mechanic,/character/477.webp,['Dont you remember? Your ape-like incompetence drove my father insane!'],Alive
+478,,,Female,Kathy,Personnel for Charles Montgomery Burns at the Springfield Nuclear Power Plant,/character/478.webp,[],Alive
+479,,,Unknown,Mothra,Unknown,/character/479.webp,[],Alive
+480,,,Female,Gloria's Daughter,Unknown,/character/480.webp,[],Alive
+481,,,Male,Pyro,American Gladiator,/character/481.webp,[],Alive
+482,,,Male,Hank Hill,Assistant Manager of Strickland Propane,/character/482.webp,[],Alive
+483,,,Female,Rubella Scabies Spuckler,Unknown,/character/483.webp,[],Alive
+484,,,Male,Marty (KBBL DJ),KBBL radio DJ,/character/484.webp,[],Alive
+485,,,Male,Don Castellaneta,Mafia boss,/character/485.webp,[],Alive
+486,,,Female,Female Club Hopper 2 (couch gag),Unknown,/character/486.webp,[],Unknown
+487,,,Female,Cyndi Lauper,Actress,/character/487.webp,[],Alive
+488,,,Male,Yendor,Fictional Character,/character/488.webp,[],Unknown
+489,,,Female,Afro Girl,Student,/character/489.webp,[],Unknown
+490,,,Female,Diane (network executive),Network executive,/character/490.webp,"['Youre not doing this fast enough. Youre fired, too!']",Alive
+491,,,Female,Ashley (3rd Grader),Student at Springfield Elementary,/character/491.webp,[],Alive
+492,,,Male,Johnny Unitas (character),Football Player,/character/492.webp,[],Deceased
+493,,,Male,Giant Handed Man,Employee at Springfield Nuclear Power Plant,/character/493.webp,[],Alive
+494,,,Male,Ugolin,Wine MakerMayorLeather makerExpert on mustardPoetRobber,/character/494.webp,"['Hes right, you know.', 'It will have a fine home, as a belt around the waist of a well dressed woman.']",Alive
+495,4050,,Male,B.F. Sherwood,Psychiatrist,/character/495.webp,[],Alive
+496,,,Female,Mrs. Zörker,Unknown,/character/496.webp,[],Alive
+497,,,Female,Poodle Lady,Unknown,/character/497.webp,"['If youre that babys daddy, where you been at?']",Deceased
+498,,,Female,Señora Bumblebee Man,Unknown,/character/498.webp,[],Alive
+499,,,Male,Jaffee Ziswhisky,4th Grade Student at Springfield Elementary School,/character/499.webp,[],Alive
+500,,,Male,Jay Sherman,Critic,/character/500.webp,['It stinks!'],Alive
+501,,,Female,Princess Opal (Character),Fortune TellerShop Owner,/character/501.webp,[],Alive
+502,,,Female,Evelyn,Unknown,/character/502.webp,[],Alive
+503,,,Male,Donald Trump,45th President of the United States of America.,/character/503.webp,[],Alive
+504,,,Male,Elvis Presley,MusicianActor,/character/504.webp,[],Deceased
+505,,,Male,Gary Coleman (character),Security guard at Kid First Industries,/character/505.webp,[],Deceased
+506,,,Male,Rex (Bart of Darkness),Student,/character/506.webp,[],Alive
+507,,,Female,Lisa's Classmate 6's Sister,Student at Springfield Elementary School,/character/507.webp,[],Deceased
+508,,,Male,Joseph Stalin,Dictator of the Soviet Union,/character/508.webp,[],Deceased
+509,,,Female,Female Korean Artist 2 (couch gag),Cartoonist,/character/509.webp,[],Unknown
+510,,,Male,Mort Krupp,Farmer,/character/510.webp,[],Alive
+511,,,Female,Mrs. Frink,Unknown,/character/511.webp,[],Alive
+512,,,Male,Larry Kidkill,Owner of Springfield City Zoo,/character/512.webp,[],Alive
+513,,,Female,Martha Stewart (character),AuthorTV presenter,/character/513.webp,[],Alive
+514,,,Male,Shotgun Pete,Unknown,/character/514.webp,[],Alive
+515,,,Male,Ham,Student,/character/515.webp,[],Alive
+516,,,Male,Audrey McConnell's Student 4,Student,/character/516.webp,['(Speaking to Bart) Its a Japanese card game based on a cartoon based on an ancient religion based on a candy bar.'],Alive
+517,,,Male,Dr. Crab,Unknown,/character/517.webp,[],Alive
+518,,,Male,Mahatma Gandhi,Unknown,/character/518.webp,[],Deceased
+519,,,Female,Queen Elizabeth I,Queen of England (1558-1603),/character/519.webp,[],Noncanon
+520,,,Female,Marge Ziff,Mayor of Springfield,/character/520.webp,[],Noncanon
+521,,,Female,Bryce Dallas Howard,Actress,/character/521.webp,[],Alive
+522,,,Female,Lois Griffin,Piano TeacherChurch Organist (Family Guy Season 5+),/character/522.webp,"['Oh, for Petes sake']",Alive
+523,,,Male,William Wallace,Scottish Warrior,/character/523.webp,[],Unknown
+524,,,Unknown,Freedom,Unknown,/character/524.webp,[],Alive
+525,,,Female,Judith Underdunk,Shakespearean Actress,/character/525.webp,[],Alive
+526,,,Male,Chief Inspector,Nuclear inspector at the Springfield Nuclear Power PlantDesigner at Powell MotorsResearch scientist at Tipsy McStagger's Good-Time Drinking and Eating Emporium,/character/526.webp,[],Alive
+527,,,Female,Miss Goodthighs,Employee at Globex Corporation,/character/527.webp,[],Unknown
+528,,,Female,Popular Girl 3,Student at Springfield Elementary School,/character/528.webp,"['(Speaking to Lisa) Lisa, you want to come skip rope?']",Alive
+529,,,Unknown,Bluella,Unknown,/character/529.webp,[],Deceased
+530,,,Male,Al Gumble,Owner of Barney's Bowlarama,/character/530.webp,[],Alive
+531,,,Male,Albert,Protester,/character/531.webp,"['That’s right! I don’t need this scooter! All of you, follow me to the future!', 'What Albert taught us is that all people have pride and no group should ever be insulted. He knew what was important was how you lived your life every day. Till he was taken from us too soon, at the age of... TWENTY-THREE?!? PEOPLE, FOR GOD’S SAKE, JOIN A GYM!']",Deceased
+532,,,Male,Petroleus Rex,Supervillain,/character/532.webp,[],Fictional
+533,,,Male,Millionaire Actor,Actor,/character/533.webp,[],Alive
+534,,,Male,Charles Bronson,Actor,/character/534.webp,[],Deceased
+535,,,Male,Mr. T,Actor,/character/535.webp,[],Alive
+536,,,Male,Freddy Krueger,Murderer in dreams,/character/536.webp,[],Alive
+537,,,Male,Jeremy Jailbird,Unknown,/character/537.webp,[],Alive
+538,,,Female,Gavin and Katelyn's Mother,Unknown,/character/538.webp,[],Alive
+539,,,Unknown,The Thing,Unknown,/character/539.webp,[],Unknown
+540,,,Male,Stephen Hawking (character),Theoretical physicist,/character/540.webp,[],Deceased
+541,,,Male,Teller,Comedian  Illusionist  Writer,/character/541.webp,[],Alive
+542,,,Male,Rusty The Clown,Clown,/character/542.webp,[],Alive
+543,,,Male,Cracker executive,Executive at Southern Cracker,/character/543.webp,[],Alive
+544,,,Female,Carol Berrera,Army Sergeant (retired)Fourth Grade Teacher at Springfield Elementary (formerly),/character/544.webp,[],Alive
+545,,,Male,Before They Were Famous Host,Television host,/character/545.webp,[],Unknown
+546,,,Male,Jim-Jam Bonks,Character in Cosmic Wars,/character/546.webp,[],Fictional
+547,,,Male,Dylan Spuckler,Unknown,/character/547.webp,[],Alive
+548,,,Unknown,The Raccoon Family,Unknown,/character/548.webp,[],Unknown
+549,,,Female,Hazel,Retired,/character/549.webp,[],Alive
+550,,,Female,Nell Nicholson,Student at Springfield Elementary School,/character/550.webp,[],Alive
+551,,,Male,Benevenstanciano,Magazine salesman,/character/551.webp,[],Alive
+552,,,Male,Cregg Demon,Magician,/character/552.webp,[],Alive
+553,,,Male,Morty Szyslak,Unknown,/character/553.webp,[],Alive
+554,,,Male,Armando (Barber),Hairdresser,/character/554.webp,[],Alive
+555,,,Female,Danica Patrick,Race car driver,/character/555.webp,[],Alive
+556,,,Unknown,Gummi Venus de Milo,Unknown,/character/556.webp,[],Unknown
+557,,,Male,Shelbyville Manhattan,TravelerFounder of Shelbyville,/character/557.webp,[],Deceased
+558,,,Male,Fox Mulder,FBI Special Agent,/character/558.webp,[],Alive
+559,,,Male,Richie Sakai,Anesthesiologist,/character/559.webp,[],Unknown
+560,,,Male,Frankie (Health Inspector),Health Inspector,/character/560.webp,['Food hygienically stored... only one way to find out.'],Deceased
+561,,,Male,Bud Armstrong,Pro Football Commissioner,/character/561.webp,[],Unknown
+562,,,Male,Langdon Alger,Student at Springfield Elementary School,/character/562.webp,[],Alive
+563,,,Unknown,Vampiredna,Unknown,/character/563.webp,"['Do not strugle, mortal! You cannot resist Vampiredna']",Unknown
+564,,,Female,Dr. Zweig,Psychiatrist,/character/564.webp,[],Unknown
+565,,,Male,Bender Bending Rodríguez,"Formerly: Girder-bender, Soldier",/character/565.webp,['Bite my shiny metal ass!A robot! With a catchphrase!Kill all humans.Start with Flanders.'],Unknown
+566,,,Male,Tyler's Brother,Student at Springfield Elementary,/character/566.webp,[],Alive
+567,,,Male,Irving Zitsofsky,Tattoo Removal Specialist at Dr. Zitsofsky's Dermatology ClinicOwner of Dr. Zitsofsky's Dermatology Clinic,/character/567.webp,[],Alive
+568,,,Female,Minnie Szyslak,Mattress saleswomanFood critic,/character/568.webp,[],Alive
+569,,,Male,Scott Christian,Co-Anchor for Channel 6 News,/character/569.webp,[],Alive
+570,,,Female,Wizard Twins,Wizards,/character/570.webp,[],Alive
+571,,,Female,Belle,Owner of La Maison Derrière,/character/571.webp,[],Alive
+572,,,Male,Dr. Octopus,Supervillian,/character/572.webp,[],Alive
+573,,,Male,Christopher Columbus,Explorer  Navigator  Colonizer,/character/573.webp,[],Deceased
+574,,,Unknown,Two-nicorn,Unknown,/character/574.webp,[],Fictional
+575,,,Male,Lisa's Classmate 5,Student,/character/575.webp,[],Alive
+576,,,Female,Karen (socialite),Socialite,/character/576.webp,[],Alive
+577,,,Male,Der Zip Zorp,Electronica artist,/character/577.webp,[],Alive
+578,,,Female,Xoxchitla,Host of TeleboobiesActress,/character/578.webp,[],Alive
+579,122,,Female,Daphne Burns,Retired,/character/579.webp,['Mr. Burns has a mother? She must be a hundred million years old!'],Unknown
+580,,,Unknown,Batman,Superhero,/character/580.webp,[],Unknown
+581,,,Male,C.H.U.M.,"Robot, Traveler (Non-canon)",/character/581.webp,[],Alive
+582,,,Male,Jimbo Jr.,Student at Springfield Elementary School,/character/582.webp,['This cream corn tastes like cream crap!'],Alive
+583,,,Male,Jack Larson,President of Laramie Cigarettes,/character/583.webp,[],Alive
+584,,,Male,Zachary Vaughn,Former teacher at Springfield Elementary School,/character/584.webp,"['hair............HAIR!!!!!!!!!!!Every class is a joke. English a joke, homeroom a joke. Free period a joke. Nutritious lunch a joke! Only alcohol can make life bearable. You must drink! Always drink!']",Alive
+585,,,Male,Guitarist,Guitarist for The Larry Davis Experience,/character/585.webp,[],Alive
+586,,,Unknown,Bart Junior (frog),Unknown,/character/586.webp,[],Alive
+587,,,Male,Guy Incognito,Unknown,/character/587.webp,"['Greetings, good man. Might I trouble you for a drink?', 'Homer? Who is Homer?']",Alive
+588,,,Male,Pope John Paul II,Catholic Pope,/character/588.webp,[],Deceased
+589,,,Male,Cheesy McMayor,Fast-Food Mascot,/character/589.webp,[],Alive
+590,,,Female,Retirement Castle Nurse,Nurse,/character/590.webp,[],Alive
+591,,,Female,Grandma Van Houten,Retired,/character/591.webp,[],Alive
+592,,,Male,Hugs Bunny,Referee at Mayor's Easter Egg Hunt,/character/592.webp,[],Alive
+593,,,Female,Brittany Brockman,Student at Springfield Preparatory School,/character/593.webp,[],Alive
+594,,,Male,Justin's father,Unknown,/character/594.webp,[],Alive
+595,,,Male,Abraham Simpson I,Unknown,/character/595.webp,[],Deceased
+596,,,Female,Joshua and Amber's Mom,Unknown,/character/596.webp,[],Alive
+597,,,Male,James L. Brooks (character),Writer,/character/597.webp,[],Unknown
+598,,,Male,Mayor Quimby's Bodyguards,Bodyguards,/character/598.webp,[],Alive
+599,,,Male,Black Weasel,Student,/character/599.webp,[],Alive
+600,,,Male,Lisa's Classmate 2,Student at Springfield Elementary School,/character/600.webp,[],Alive
+601,,,Female,Sherri and Terri's sister,Unknown,/character/601.webp,[],Alive
+602,,,Male,Gabriel,Social worker,/character/602.webp,[],Alive
+603,,,Female,Della,Lionel Hutz's secretaryEmployee at Shotgun Pete's (formerly),/character/603.webp,"['Calls?...Oh, Calls. The Supreme Court called again. They need your help in some freedom thing.']",Alive
+604,,,Male,Drederick Tatum,Celebrity boxer,/character/604.webp,[],Alive
+605,,,Female,Gloria S.,Unknown,/character/605.webp,[],Alive
+606,,,Unknown,Giuseppe,Unknown,/character/606.webp,[],Alive
+607,,,Male,McBain,Cop (Former)Transport Pilot,/character/607.webp,['Ice to see you!'],Fictional
+608,,,Male,Graphic Novel Kid,Unknown,/character/608.webp,[],Deceased
+609,,,Male,John S.,Unknown,/character/609.webp,[],Alive
+610,,,Male,Postage Stamp Fellow,Stamp collector,/character/610.webp,[],Alive
+611,,,Male,Royce McCutcheon,Salesman,/character/611.webp,[],Alive
+612,,,Male,Nabendu Nahasapeemapetilon,Baby,/character/612.webp,['Back.'],Alive
+613,,,Unknown,Funzo,Toy,/character/613.webp,[],Unknown
+614,,,Male,Vincent Price,Actor,/character/614.webp,[],Deceased
+615,,,Female,Tiffany Spuckler,Unknown,/character/615.webp,[],Alive
+616,,,Unknown,Scary Vultures,Unknown,/character/616.webp,[],Unknown
+617,,,Male,Sardonicus,Prisoner,/character/617.webp,[],Alive
+618,,,Male,Khlav Kalash vendor,Vendor,/character/618.webp,[],Alive
+619,,,Male,William Shakespeare,"Playwright, poet, actor",/character/619.webp,[],Deceased
+620,,,Male,Cap'n Crunch,Mascot,/character/620.webp,[],Fictional
+621,,,Male,John Travolta,Actor  Bartender  Pilot,/character/621.webp,[],Alive
+622,,,Male,The Great Raymondo,Magician,/character/622.webp,[],Alive
+623,,,Male,Jay Leno,"Comedian, television host, car collector",/character/623.webp,[],Alive
+624,,,Male,Chucky,Unknown,/character/624.webp,[],Fictional
+625,,,Male,Tribal Chief,Manager of Caesar's Pow-Wow Casino,/character/625.webp,[],Noncanon
+626,,,Male,Seth,Owner of Groovy Grove Juice Corporation,/character/626.webp,[],Alive
+627,,,Male,Tony Bennett (character),Actor,/character/627.webp,[],Deceased
+628,,,Unknown,Kermit the Frog,Unknown,/character/628.webp,[],Fictional
+629,,,Male,Justin Timberlake,Singer,/character/629.webp,[],Alive
+630,,,Female,Mrs. Dexter,Housewife,/character/630.webp,[],Alive
+631,,,Male,Robby the Automaton,Promoting Springfield Knowledgeum,/character/631.webp,[],Unknown
+632,,,Female,Ms. Finch,Employee at the Springfield Nuclear Power Plant,/character/632.webp,[],Alive
+633,,,Male,Hurt Leg Simpson Relative,Unknown,/character/633.webp,['My legs hurt.'],Alive
+634,,,Female,Mrs. Szyslak,Unknown,/character/634.webp,[],Deceased
+635,,,Male,Marge's Dream Lover,Pirate,/character/635.webp,[],Alive
+636,,,Male,Benjamin,College Student,/character/636.webp,[],Alive
+637,,,Male,Birch Barlow,Talk Show Host,/character/637.webp,[],Alive
+638,,,Male,Milo,Owner of Coolsville Comics & Toys,/character/638.webp,"['Now I hope you all like Korean Pop Covers of Tom Jones songs, cause theyre about to be blasted!']",Alive
+639,,,Unknown,Snowball II,Unknown,/character/639.webp,[],Deceased
+640,11,,Female,Mary Spuckler,Unknown,/character/640.webp,[],Alive
+641,,,Female,Woman Interviewer,News reporter,/character/641.webp,[],Alive
+642,,,Unknown,Singapore,Unknown,/character/642.webp,[],Unknown
+643,,,Male,Burglar 2 (couch gag),Thief,/character/643.webp,[],Alive
+644,,,Male,Tito Puente (character),Jazz MusicianBandleader,/character/644.webp,[],Deceased
+645,,,Female,Richard's Grandmother,Unknown,/character/645.webp,[],Alive
+646,,,Male,Adrian Belew,Springfield Elementary Student,/character/646.webp,"['Over here, Mr. President.']",Alive
+647,,,Unknown,Wile E. Coyote,Unknown,/character/647.webp,[],Fictional
+648,,,Male,ClownFace,Supervillain,/character/648.webp,[],Fictional
+649,,,Female,Great Mom,Unknown,/character/649.webp,[],Alive
+650,,,Male,The Happy Little Elves,Unknown,/character/650.webp,[],Fictional
+651,,,Male,Fallout Boy,Unknown,/character/651.webp,['Jiminy jillickers!'],Fictional
+652,,,Male,Rupert Murdoch (character),Owner of FOX,/character/652.webp,[],Alive
+653,,,Unknown,Angry Mob,Unknown,/character/653.webp,"['Ah, theres no justice like angry mob justice.']",Unknown
+654,,,Female,Miss Springfield,Miss SpringfieldMayor (for 3 seconds),/character/654.webp,[],Alive
+655,,,Male,Russ Cargill,Head of the EPA (Formerly)Evil Mastermind,/character/655.webp,[],Alive
+656,,,Male,Gort,Robot,/character/656.webp,[],Alive
+657,,,Male,Ishmael,Student,/character/657.webp,[],Alive
+658,,,Male,Raphael,Various,/character/658.webp,"['Mmm-hmm...Ey, pal-ey.']",Alive
+659,,,Male,George H. W. Bush,Former Vice President and President of the United States  Member of the Stonecutters World Council,/character/659.webp,[],Deceased
+660,,,Female,Lilly Ellison,Students at Springfield Elementary School,/character/660.webp,[],Alive
+661,,,Male,Les Moore,Greyhound Racer,/character/661.webp,"['NaturallyCan I offer you a drink to throw at my face?There you are, old pal.']",Alive
+662,,,Female,Willie's Mother,Starbucks employee,/character/662.webp,[],Alive
+663,,,Male,Player 1,Video-game character used by the first player in Super Slugfest,/character/663.webp,[],Unknown
+664,8,,Female,Tumi,Student,/character/664.webp,[],Alive
+665,,,Unknown,Baz,Unknown,/character/665.webp,[],Alive
+666,,,Male,Bashir bin Laden,Student at Springfield Elementary School,/character/666.webp,[],Alive
+667,,,Male,FBI agent (Donnie Fatso),FBI agent,/character/667.webp,[],Alive
+668,,,Male,Iggy Wiggum,Soldier,/character/668.webp,[],Deceased
+669,,,Male,Male Korean Artist 3 (couch gag),Cartoonist,/character/669.webp,[],Unknown
+670,,,Male,Mike (Homer's Night Out),Unknown,/character/670.webp,[],Alive
+671,,,Unknown,Nibbles,Unknown,/character/671.webp,[],Deceased
+672,,,Female,Carol Jones,Prostitute,/character/672.webp,[],Alive
+673,,,Male,Leprechaun,Unknown,/character/673.webp,[],Alive
+674,,,Male,Ian (Very Tall Man),Writer for The Itchy & Scratchy Show,/character/674.webp,['Do you find something comical about my appearance when I am driving my automobile?'],Alive
+675,,,Unknown,Parasite,Unknown,/character/675.webp,[],Fictional
+676,,,Male,David Copperfield,Illusionist,/character/676.webp,[],Unknown
+677,,,Male,Dexter Colt,Private Detective,/character/677.webp,[],Alive
+678,,,Male,Coach Krupt,Gym Teacher,/character/678.webp,"['Today were going to play a game as old as pain itself, bombardment.DUCK OR DIE!BOMBARDMENT!']",Alive
+679,,,Male,Ramrod,BikerHell's Satans member,/character/679.webp,[],Alive
+680,,,Male,Mr. Rhenquist,Unknown,/character/680.webp,[],Alive
+681,,,Male,Geoffrey,Unknown,/character/681.webp,[],Alive
+682,,,Male,Albert Dershman,Lawyer,/character/682.webp,[],Alive
+683,,,Male,Darryl,Student at Springfield Elementary,/character/683.webp,[],Alive
+684,10,,Male,Freddy,Student at Springfield Elementary School,/character/684.webp,[],Alive
+685,,,Male,Leopold,Assistant Superintendent,/character/685.webp,[],Alive
+686,,,Unknown,Snowball III,Unknown,/character/686.webp,[],Deceased
+687,,,Unknown,Gill-man,Unknown,/character/687.webp,[],Unknown
+688,,,Male,Joe Frazier,Boxing,/character/688.webp,[],Deceased
+689,,,Male,John (Homer's Phobia),Owner of Cockamamie's Collectibles Shop,/character/689.webp,"['No, ultrasuede is a miracle. This is just good timing.', 'Zap']",Alive
+690,,,Female,Miss Wyoming,Model,/character/690.webp,[],Unknown
+691,,,Male,Dr. Colossus,Supervillain,/character/691.webp,[],Alive
+692,,,Female,Long-haired girl,Student,/character/692.webp,[],Alive
+693,,,Female,Roberta,Socialite,/character/693.webp,[],Alive
+694,,,Male,Mutant Rabbit,Unknown,/character/694.webp,[],Noncanon
+695,,,Female,Ms. Mancuso-Gluckman,Therapist,/character/695.webp,[],Noncanon Deceased
+696,,,Female,Eliza,Second Grade Student,/character/696.webp,[],Alive
+697,,,Female,Kim,Student at Springfield High School (in the past)Protester,/character/697.webp,[],Alive
+698,,,Male,Bob Hope (character),Comedian / Actor,/character/698.webp,[],Deceased
+699,,,Female,Brunella Pommelhorst,Springfield Elementary Gym TeacherEmployee at Starving Teachers Moving Co.,/character/699.webp,[],Alive
+700,,,Male,Chuck Ellis,Regional Director of the IRS,/character/700.webp,[],Unknown
+701,,,Unknown,Mojo,Unknown,/character/701.webp,[],Unknown
+702,,,Female,Sylvia Winfield,Retired,/character/702.webp,[],Alive
+703,,,Male,Elmo,Character on Sesame Street,/character/703.webp,[],Alive
+704,,,Male,Meathook,Biker,/character/704.webp,[],Alive
+705,,,Female,Uma Nahasapeemapetilon,Unknown,/character/705.webp,['Let.'],Alive
+706,,,Male,Phil (reporter),TV reporter,/character/706.webp,[],Alive
+707,,,Male,Mason Fairbanks,Lifeguard,/character/707.webp,[],Alive
+708,,,Male,Mario,Game Character/Plumber,/character/708.webp,[],Fictional
+709,,,Male,Cool kid,Student,/character/709.webp,['You got a fresh sound. Itll play well at this school.'],Alive
+710,,,Female,Annie Dubinsky,Veteran agent,/character/710.webp,[],Deceased
+711,,,Male,Bort (boy),Unknown,/character/711.webp,"['Mommy, mommy! Buy me a license plate!']",Alive
+712,,,Unknown,Mr. Movie Phone,Movie phone line speaker,/character/712.webp,[],Alive
+713,,,Male,Retirement Castle administrator,Administrator of the Retirement Castle,/character/713.webp,[],Unknown
+714,,,Male,Mr. Costington,Store owner of Costington's,/character/714.webp,"['Youre Fireeeeeeeeeeeed!', 'Youre Hireeeeeeeeeeeed!']",Alive
+715,8,,Female,Jamie,2nd Grade Student at Springfield Elementary School,/character/715.webp,[],Alive
+716,,,Male,Hippie,Operator at Uriah's Heap Recycling Center,/character/716.webp,[],Alive
+717,,,Male,Old King Coal,Supervillain,/character/717.webp,[],Fictional
+718,,,Male,Nigel (manager),ManagerManager of The Be Sharps (Former),/character/718.webp,[],Unknown
+719,,,Male,Chris Griffin,High school studentPaper boy (formerly)Employee at the Quahog Mini-Mart (formerly),/character/719.webp,['Yay! A crossover always brings out the best in each show! It certainly doesnt smack of desperation. The priorities are always creative and not driven by marketing...'],Alive
+720,,,Female,Ashley,Student at Springfield Elementary,/character/720.webp,[],Alive
+721,,,Male,Brandt,Bartender at Moho House,/character/721.webp,[],Alive
+722,,,Unknown,Lovejoy's sheepdog,Unknown,/character/722.webp,[],Alive
+723,,,Male,The California Raisins,Musicians,/character/723.webp,[],Fictional
+724,,,Female,Nina Sprungfeld,Founder of Springfield Pirate Murderer and Head of the Springfield Historical Society,/character/724.webp,[],Alive
+725,,,Male,Gary (nerd),College Student,/character/725.webp,[],Alive
+726,,,Unknown,Zombies,Eat brains,/character/726.webp,[],Deceased
+727,,,Male,Mr. Hoxha,Unknown,/character/727.webp,[],Alive
+728,,,Male,Sailor Kid,Student at Springfield Elementary SchoolSailor (possibly),/character/728.webp,[],Alive
+729,,,Unknown,Curious Bear Cub,Unknown,/character/729.webp,[],Fictional
+730,,,Female,Tina Ballerina,ActressDancer,/character/730.webp,[],Alive
+731,,,Male,Harry Potter (character),Student,/character/731.webp,[],Alive
+732,,,Male,Tom Hanks,Actor,/character/732.webp,[],Alive
+733,,,Female,Popular Girl 2,Student at Springfield Elementary School,/character/733.webp,"['(Speaking to Lisa on the Seesaw) Ever since you got that bad grade, you seem a lot cooler.']",Alive
+734,,,Male,Gardener (couch gag),Gardener,/character/734.webp,[],Unknown
+735,,,Female,Teacher Female with Purple Clothes and Brown Hair,Artist at Springfield Elementary School,/character/735.webp,[],Alive
+736,,,Male,Colonel Sanders,Founder of Kentucky Fried Chicken,/character/736.webp,[],Deceased
+737,,,Male,"Roger Meyers, Sr.",Founder of I&S Studios,/character/737.webp,[],Deceased
+738,,,Female,Mrs. Borton,Unknown,/character/738.webp,[],Alive
+739,,,Male,Mr. Taylor,Professor,/character/739.webp,"['Mm-hmm, well, thats...very good...for a first try. You know what? I have a ball. (Pulls one from his pocket) Perhaps youd like to bounce it?']",Alive
+740,,,Male,Ronald Reagan,Former President of the United States,/character/740.webp,[],Deceased
+741,,,Male,St. Peter,Guaridan of the gates of Heaven,/character/741.webp,[],Alive
+742,,,Female,Audrey McConnell,3rd Grade Teacher at Springfield Elementary School4th Grade Teacher,/character/742.webp,[],Alive
+743,,,Female,Kyle's Mother,Unknown,/character/743.webp,[],Alive
+744,,,Unknown,Toaster Bot,Transformer robot,/character/744.webp,"['Marge! The dolls trying to kill me, and the toasters been laughin at me!']",Unknown
+745,,,Male,Amid bin Laden,Building demolition worker,/character/745.webp,[],Alive
+746,,,Male,Barry Mackleberry,Homer's former supervisor in Sector 7G,/character/746.webp,[],Alive
+747,,,Female,Francesca Terwilliger,CriminalHousewife,/character/747.webp,[],Alive
+748,,,Male,Jacques,Bowling Instructor (Formerly),/character/748.webp,[],Alive
+749,,,Male,The Yes Guy,Various,/character/749.webp,['E-Yeeeeeessss?'],Alive
+750,,,Unknown,Monster Couch (couch gag),Unknown,/character/750.webp,[],Unknown
+751,,,Male,Gerald Ford,Former U.S. President,/character/751.webp,[],Deceased
+752,,,Male,Luke Perry,Krusty's former assistant,/character/752.webp,[],Deceased
+753,,,Male,Stan Lee (character),Comic book writer,/character/753.webp,[],Deceased
+754,,,Male,Stan Taylor,Springfield Atoms football player,/character/754.webp,[],Alive
+755,,,Male,Ben Schatz (character),Unknown,/character/755.webp,[],Unknown
+756,,,Unknown,Mr. Teeny,Unknown,/character/756.webp,[],Alive
+757,,,Male,Pinhead (Hellraiser),Leader of the cenobites,/character/757.webp,[],Alive
+758,,,Unknown,Pokey,Unknown,/character/758.webp,[],Alive
+759,,,Male,Male with green shirt,Unknown,/character/759.webp,[],Alive
+760,,,Male,Max (Ice Cream Man),Ice cream man,/character/760.webp,[],Deceased
+761,,,Male,The Mad Hatter,Unknown,/character/761.webp,[],Alive
+762,,,Male,Sven Golly,Hypnotist,/character/762.webp,[],Alive
+763,,,Female,Sophie Jensen,Student,/character/763.webp,['Ew! Its the kid who ate the dead frog!'],Alive
+764,,,Male,Luigi Risotto,"Chef, Hollywood's foreign press",/character/764.webp,[],Alive
+765,38,,Female,Amber Simpson,Cocktail WaitressProstitute (Implied),/character/765.webp,[],Deceased
+766,,,Male,Jay Nahasapeemapetilon,Kwik-E-Mart Clerk,/character/766.webp,"['How I have waited for this day.', 'Swipe left on that accusation. Epic swipe left!']",Alive
+767,,,Female,The Lisa Impostor,ActressModel,/character/767.webp,[],Alive
+768,,,Male,Woody Schedeen,Unknown,/character/768.webp,[],Unknown
+769,,,Male,Dubya Spuckler,Homeschooled studentFormer star of The Krusty the Clown Show,/character/769.webp,['I wish I had a tail what to swap away flies. Mine just hangs there.'],Alive
+770,,,Unknown,Rhinos,Unknown,/character/770.webp,[],Unknown
+771,,,Male,Adam West (character),Actor,/character/771.webp,[],Deceased
+772,,,Male,Chazz Busby,Ballet teacher,/character/772.webp,[],Alive
+773,,,Female,Female Unnamed with Brown Haired and Red Shirt,Bank,/character/773.webp,[],Alive
+774,,,Male,Bill Gates,Chairman of Microsoft (formerly),/character/774.webp,[],Alive
+775,,,Male,Male with gray haired blue sticker,Unknown,/character/775.webp,[],Alive
+776,,,Male,Moses,Sheppard,/character/776.webp,[],Unknown
+777,,,Male,Lisa's Classmate 2’s Grandfather,Former soldier,/character/777.webp,[],Deceased
+778,,,Unknown,Sonic the Hedgehog,Unknown,/character/778.webp,"['Hey Bart. Remember, if you see a gold brick lying around just take it! Take it! Take it! Take it!... Take it!']",Fictional
+779,,,Male,Mesmerino,Hypnotist,/character/779.webp,[],Alive
+780,,,Male,Mr. Blackheart,Ivory DealerFormer whale-hunterFormer seal-clubberFormer FOX President,/character/780.webp,[],Unknown
+781,,,Female,Truth-Anne,Student,/character/781.webp,[],Alive
+782,,,Unknown,Alien (couch gag),Unknown,/character/782.webp,[],Unknown
+783,,,Male,Mr. Powell,Unknown,/character/783.webp,[],Alive
+784,,,Male,Mr. Becker,Teacher,/character/784.webp,['Yeeeah! Where my dils at?'],Alive
+785,,,Unknown,Spirit Guide,Unknown,/character/785.webp,[],Fictional
+786,,,Female,Carmen,Leader of Bossy Riot,/character/786.webp,[],Alive
+787,,,Male,Dirk Richter,Actor,/character/787.webp,[],Deceased
+788,,,Female,Queen Elizabeth II,"Constitutional monarch of the United Kingdom, British Overseas Territories and several members of the Commonwealth of Nations",/character/788.webp,[],Deceased
+789,,,Male,Lance Murdock,Stunt Devil,/character/789.webp,"['Bones heal, chicks dig stars, and the United States of America has the best doctor to daredevil ratio in the world!']",Alive
+790,,,Male,African-American Teacher,Teacher at Springfield Elementary,/character/790.webp,[],Alive
+791,,,Male,House of Evil Shopkeeper,Shopkeeper at House of Evil,/character/791.webp,"['We sell forbidden objects from places men fear to tread. We also sell frozen yogurt, which I call Frogurt!']",Alive
+792,50,,Male,Lard Lad,Advertiser for Lard Lad Donuts,/character/792.webp,[],Unknown
+793,,,Male,Charlton Heston,Actor,/character/793.webp,[],Deceased
+794,,,Male,Jer,Former Owner of King Toot's Music Store,/character/794.webp,[],Alive
+795,,,Male,El Barto,Graffiti tagger,/character/795.webp,[],Alive
+796,,,Male,Pikachu,Pokémon,/character/796.webp,[],Fictional
+797,,,Male,Burglar 1 (couch gag),Thief/Burglar,/character/797.webp,[],Alive
+798,,,Male,Mr. Gammel,Employee at the Springfield Nuclear Power Plant,/character/798.webp,[],Alive
+799,,,Male,Larry Mackleberry,Student,/character/799.webp,[],Noncanon
+800,,,Female,Gerald Samson's Mother,Unknown,/character/800.webp,[],Alive
+801,,,Male,Legs,Mobster,/character/801.webp,"['Im walking here.', 'Shut up-a your face!', 'Im gonna whack ya in the labonza!', 'You’re a made man, my friend!', 'We brought someone to spring ya.']",Alive
+802,,,Female,"Maggie Simpson, Jr.",Baby,/character/802.webp,[],Alive
+803,,,Male,Marcus Le Marquez,Jazz Musician,/character/803.webp,[],Alive
+804,,,Male,Ice Cream Man,Ice cream truck driver,/character/804.webp,"['Ice Cream, Ice Cream, Im all out of Ice Cream!']",Alive
+805,,,Male,News Reporter (Call of the Simpsons),Channel 6 News Reporter,/character/805.webp,[],Alive
+806,,,Male,Dr. Foster,Psychologist,/character/806.webp,[],Alive
+807,,,Female,Mary Bailey,Governor of Springfield's StateFormer Mayor of Springfield,/character/807.webp,[],Alive
+808,,,Female,Barbara Van Horne,Unknown,/character/808.webp,[],Alive
+809,,,Male,Old Dad,Unknown,/character/809.webp,[],Alive
+810,,,Male,Collectible Pants Dude,Clothing store owner,/character/810.webp,['Zoinks! I see you know pants.'],Alive
+811,,,Male,Brad,Spokesman for Powersauce,/character/811.webp,[],Alive
+812,,,Male,Senator Mendoza,Senator (Secretly runs a drug-cartel),/character/812.webp,[],Deceased
+813,,,Female,White-Haired Girl,Student at Springfield Elementary School,/character/813.webp,[],Alive
+814,,,Male,Mike Wegman,Counterfeit SalesmanFormerly: SNPP InternMike's Slices Owner,/character/814.webp,['Nobody disrespects Homer Jay Simpson!!!'],Alive
+815,,,Male,Billy the Kid,CowboyCriminalMurdererGang Member,/character/815.webp,[],Deceased
+816,,,Unknown,Santa's Little Helper,Unknown,/character/816.webp,[],Alive
+817,,,Male,Report Card,Student,/character/817.webp,[],Alive
+818,,,Male,Ronald Chaporo,Lawyer,/character/818.webp,[],Alive
+819,,,Female,Maude Flanders Ghost,Ghost,/character/819.webp,['Are you ready for tales that will shatter your spine and boil your blood!?'],Deceased
+820,,,Female,Femailman,Mail Carrier,/character/820.webp,[],Alive
+821,,,Male,The Hounds,Unknown,/character/821.webp,['Release the Hounds!'],Alive
+822,,,Female,Poonam Nahasapeemapetilon,Unknown,/character/822.webp,['Mommy.'],Alive
+823,,,Unknown,Spider-Man,Unknown,/character/823.webp,[],Unknown
+824,,,Male,Boy with freckles,Student at Springfield Elementary School,/character/824.webp,[],Alive
+825,,,Female,Popular Girl 4,Student at Springfield Elementary School,/character/825.webp,['(Speaking to Lisa) You can replace the tree.'],Alive
+826,,,Male,Hubert Wong,2nd Grade Student at Springfield Elementary School,/character/826.webp,['Only a nerdo would know that.'],Alive
+827,,,Male,Kyle (3rd Grader),Student at Springfield Elementary,/character/827.webp,[],Alive
+828,,,Female,T. R. Francis,Author,/character/828.webp,[],Fictional
+829,,,Male,Sirloin Staff,Singing waiters at The Singing Sirloin,/character/829.webp,[],Alive
+830,,,Male,Norman Van Horne,Unknown,/character/830.webp,[],Deceased
+831,,,Female,Mrs. Mann,Unknown,/character/831.webp,[],Alive
+832,,,Male,Barry White (character),Singer,/character/832.webp,[],Deceased
+833,,,Male,Yellow Weasel,Student,/character/833.webp,[],Alive
+834,,,Female,Main Office Female,Office at Springfield Elementary School,/character/834.webp,[],Alive
+835,,,Male,Christopher Walken,Actor,/character/835.webp,[],Unknown
+836,,,Male,Handsome Pete,Performer,/character/836.webp,"['Aye, thats Handsome Pete, he dances for nickels!']",Alive
+837,,,Male,Mr. Bergstrom,Substitute Teacher,/character/837.webp,"['Im Mr. Bergstrom. Feel free to make fun of my name if you want. Two suggestions are Mr. Nerdstrom and Mr. Boogerstrom.', 'Im sorry, Lisa. Its the life of the substitute teacher. Hes a fraud. Today he wears gym shorts, tomorrow hes speaking French or pretending to know how to run a band saw or God knows what.', 'Goodbye, Lisa, honey! Itll be okay. Just read the note!']",Alive
+838,,,Female,Ann Landers,Advice Columnist,/character/838.webp,[],Unknown
+839,,,Female,Lizzo,Unknown,/character/839.webp,[],Noncanon
+840,,,Female,Zia Simpson,Student,/character/840.webp,"['Gee, Im fine, Mom. Thanks for asking. (Rolls her eyes) Im going online.']",Alive
+841,,,Female,Ling Bouvier,None,/character/841.webp,"['Mama.', 'Help me.']",Alive
+842,,,Male,Stupid Sexy Flanders,Using a ski Not a job,/character/842.webp,['Feels like Im wearing nothing at all!'],Alive
+843,,,Female,Laney Fontaine,Actress,/character/843.webp,[],Alive
+844,,,Female,Mother with blonde haired and blue dress,Unknown,/character/844.webp,[],Alive
+845,10,,Female,Samantha Stankey,Elementary student,/character/845.webp,['We just moved here from Phoenix. My dad owns a home security company. He came to Springfield because of its high crime rate and lackluster police force. All my friends are back in Phoenix and this town has a weird smell that youre all probably used to... but Im not.'],Alive
+846,,,Female,Rose Quimby,Unknown,/character/846.webp,[],Alive
+847,,,Female,Tattoo Annie,Tattoo artistJailbird,/character/847.webp,[],Alive
+848,,,Unknown,Greyhound Puppies,Unknown,/character/848.webp,[],Alive
+849,,,Male,Ali Rudy Vallée,Musical automate,/character/849.webp,[],Alive
+850,,,Male,The Collector,Super villain,/character/850.webp,[],Noncanon Deceased
+851,,,Female,Kumiko Albertson,Owner of the Android's Dungeon & Baseball Card ShopManga artist,/character/851.webp,[],Alive
+852,,,Male,Lombardo,Art Teacher,/character/852.webp,[],Alive
+853,,,Male,Half-Bald Worker,Springfield Nuclear Power Plant,/character/853.webp,[],Alive
+854,,,Male,Chuck Garabedian,Unknown,/character/854.webp,[],Alive
+855,,,Male,Stanley Simpson,Airport bird shooter,/character/855.webp,"['Um, I shoot birds at the airport.']",Alive
+856,,,Female,Female Unnamed with brown haired and ring,Unknown,/character/856.webp,[],Alive
+857,,,Male,Great Dad,Employee at the Springfield Nuclear Power Plant,/character/857.webp,[],Alive
+858,,,Male,Mr. Winfield,Retired Aviator,/character/858.webp,['Why dont you get a haircut you hippie!'],Alive
+859,,,Male,Dan Castellaneta,Actor,/character/859.webp,"['Please, dont lean out the tram, sir, you might get hurt.']",Alive
+860,,,Male,Number One,Leader of the StonecuttersSecurity Guard at Star Trek Museum,/character/860.webp,"['Tonight we are here to commemorate our glorious societys 1500th anniversary, and in honor of this momentous occasion ... were having ribs!', 'You have become a member of the ancient and noble society of Stonecutters, who since ancient times have always endeavored to shatter the stone of ignorance, to bring forth the light of truth.']",Alive
+861,,,Male,Freddy Quimby,Press Secretary,/character/861.webp,"['Its chowder, say it right!']",Alive
+862,,,Male,Santa Claus,Holiday Figure,/character/862.webp,[],Alive
+863,,,Male,Sid (Duffman),"Duffman, and stripper",/character/863.webp,[],Deceased
+864,,,Unknown,Dash Dingo,Unknown,/character/864.webp,[],Fictional
+865,,,Female,Mina bin Laden,Unknown,/character/865.webp,[],Alive
+866,,,Male,The Human Fly,Daredevil (currently)Postal worker (formerly),/character/866.webp,"['Hello, Human Fly here. Come on, I spent all night dyeing my underwear!']",Alive
+867,,,Male,Lewis' lookalike,Student,/character/867.webp,[],Alive
+868,,,Male,Steve Mobbs,Founder of MappleOwner of SpringFace,/character/868.webp,"['Greetings! It is I, your insanely great leader, Steve Mobbs.']",Deceased
+869,,,Male,Don Brodka,Try-N-Save security guardEx-disciplinarian,/character/869.webp,[],Alive
+870,,,Unknown,Bambi,Unknown,/character/870.webp,[],Alive
+871,,,Male,Harry Houdini,Magician,/character/871.webp,[],Deceased
+872,,,Male,Larry Davis,Lead singer of The Larry Davis Experience,/character/872.webp,[],Alive
+873,,,Male,Fat Man (couch gag),Unknown,/character/873.webp,[],Alive
+874,,,Male,Boy with glasses,Student,/character/874.webp,['(Handing Moe a drawing) Heres you!'],Alive
+875,,,Male,Adolf Hitler,Former Chancellor of Germany,/character/875.webp,[],Deceased
+876,,,Male,Sideshow Raheem,Former Assistant to Krusty,/character/876.webp,[],Alive
+877,,,Male,Fantastic Dan,Sky-writer,/character/877.webp,[],Unknown
+878,,,Female,Vicki Valentine,Dance InstructorFormer child star,/character/878.webp,"['Tappa-tappa-tappa. Tappa-tappa-tappa.', 'Im ever so pissed!', 'Nobody upstages Little Vicki!']",Alive
+879,,,Female,Lizzie Borden,Unknown,/character/879.webp,[],Deceased
+880,,,Male,Bowl-O-Rama Clerk,Clerk at Barney's Bowlarama,/character/880.webp,[],Alive
+881,,,Female,Tanya (student),Student at Springfield Elementary School,/character/881.webp,[],Alive
+882,,,Male,Train Driver (couch gag),Unknown,/character/882.webp,[],Alive
+883,,,Male,Albert Einstein,Physicist,/character/883.webp,[],Deceased
+884,,,Unknown,Clobber Girl,Unknown,/character/884.webp,[],Unknown
+885,,,Male,Angry Ricky,Intern at Springfield Nuclear Power Plant (Formely),/character/885.webp,[],Alive
+886,,,Female,Gloria (White Christmas Blues),Unknown,/character/886.webp,[],Alive
+887,,,Male,JJ Hibbert,Student,/character/887.webp,[],Alive
+888,,,Female,"Becky (It's a Mad, Mad, Mad, Mad Marge)",Drive-through employee at Der Krazy Kraut,/character/888.webp,[],Alive
+889,,,Unknown,Everyman,Unknown,/character/889.webp,[],Unknown
+890,,,Unknown,Frink's Robot Dog,Unknown,/character/890.webp,[],Destroyed Icon
+891,,,Male,Taylor Spuckler,Unknown,/character/891.webp,[],Alive
+892,,,Male,Jimmy the Scumbag,Telemarketer,/character/892.webp,[],Alive
+893,,,Female,Female Twin,Student at Springfield Elementary School,/character/893.webp,[],Alive
+894,,,Male,"Howard, Jr.",FloristOwner of Howard's Flowers,/character/894.webp,[],Alive
+895,,,Male,Dr. Velimirovic,Plastic surgeon,/character/895.webp,[],Alive
+896,,,Male,Pete Spuckler,Retired,/character/896.webp,[],Alive
+897,,,Male,Señor Ding Dong,Owner of Señor Ding-Dong's Doorbell Fiesta,/character/897.webp,[],Alive
+898,,,Male,Arthur Fortune,Owner of Fortune Megastore department store chain.,/character/898.webp,[],Alive
+899,2030,,Female,Titania,Bartender at Juggernauts and Knockers,/character/899.webp,"['You said if I slept with you, I wouldnt have to touch the drunk!']",Alive
+900,,,Male,"""Suing"" Simpson Relative","Unemployed, stages car accidents",/character/900.webp,[],Alive
+901,,,Female,Grandma with black haired and blue Shirt,Library Springfield (Formerly),/character/901.webp,[],Alive
+902,,,Female,Gloria Jailbird,Police Officer,/character/902.webp,[],Alive
+903,,,Male,Old Lady Unnamed with Pink dress's Husband,Solider or Army,/character/903.webp,[],Deceased
+904,,,Male,LGBT Crowd,Unknown,/character/904.webp,[],Alive
+905,,,Male,Walter Hotenhoffer,Owner of Hotenhoffer Pharmaceuticals,/character/905.webp,[],Alive
+906,,,Male,Boy with bangs,Student at Springfield Elementary School,/character/906.webp,['(Responding to Bart) It makes Digimon look like Pokémon.'],Alive
+907,,,Female,Photo Girl,Student,/character/907.webp,[],Alive
+908,49,,Female,Doris Freedman,Cafeteria chef and nurse at Springfield Elementary School,/character/908.webp,"['Dont bitch to me, bossman.']",Alive
+909,,,Male,Richard's Grandfather,Unknown,/character/909.webp,[],Alive
+910,,,Female,Female Club Hopper 1 (couch gag),Unknown,/character/910.webp,[],Unknown
+911,,,Male,Llewellyn Sinclair,Stage DirectorWaiter,/character/911.webp,"['I am not an easy man to work for. When directing Hats Off to Hannukah, I reduced more than one cast member to tears. Did I expect too much from fourth graders? The review Play enjoyed by all speaks for itself.']",Alive
+912,,,Male,Ernst,Entertainer,/character/912.webp,[],Alive
+913,,,Male,Snow Monster,Unknown,/character/913.webp,[],Alive
+914,,,Male,Repo Man 2 (couch gag),Repossession,/character/914.webp,[],Unknown
+915,,,Female,Medicine Woman,HealerTherapistEskimo,/character/915.webp,[],Alive
+916,,,Female,Gillian,Socialite,/character/916.webp,[],Alive
+917,,,Male,Bubbles,Unknown,/character/917.webp,[],Unknown
+918,,,Male,Tom Brokaw,Journalist,/character/918.webp,[],Unknown
+919,,,Male,Horace Wilcox,"Congressman, (R-Springfield)",/character/919.webp,[],Deceased
+920,,,Male,Coach Clay Roberts,Wrestling coach,/character/920.webp,[],Alive
+921,,,Male,Sauna User 3 (couch gag),Unknown,/character/921.webp,[],Alive
+922,,,Male,Hans (businessman),Businessman,/character/922.webp,[],Alive
+923,,,Male,Stradivarius Cain,Spy,/character/923.webp,[],Alive
+924,,,Male,Mickey Mouse (Character),Cartoon character,/character/924.webp,[],Fictional
+925,,,Male,Male Korean Artist 1 (couch gag),Cartoonist,/character/925.webp,[],Unknown
+926,,,Female,Comic Book Girl,Unknown,/character/926.webp,"['Pardon me, but I wish to tender a serious offer for this stack of water-damaged Little Lulus.']",Alive
+927,,,Male,Sting (character),MusicianSinger-songwriterMulti-instrumentalistActivistActorPhilanthropist,/character/927.webp,[],Alive
+928,,,Male,Waiter 2,Waiter,/character/928.webp,[],Unknown
+929,,,Male,Darcy's Baby,Baby,/character/929.webp,[],Alive
+930,,,Unknown,Squawky,Unknown,/character/930.webp,[],Deceased
+931,,,Male,Maxwell Flinch,Injury lawyer,/character/931.webp,[],Alive
+932,,,Male,Manacek,Detective,/character/932.webp,[],Alive
+933,,,Male,Rodney Dangerfield (character),Unknown,/character/933.webp,[],Deceased
+934,11,,Female,Jenny,Unknown,/character/934.webp,[],Alive
+935,,,Male,Barry (Heartbreak Hotel),Unknown,/character/935.webp,[],Alive
+936,,,Male,Fat Baby,Unknown,/character/936.webp,[],Alive
+937,,,Male,Regis Philbin,TV host,/character/937.webp,[],Deceased
+938,,,Male,Herb Powell,InventorBusinessmanCEO of Powell Motors (Formerly),/character/938.webp,"['This is America, and in America, youre never finished as long as you have a brain in your head, because all a man really needs is an idea.', 'Hi, youve reached Herb Powell. Im poor again.', 'Bart, Uncle Herb sounds so formal. Do you think you can call me Unky Herb?', 'As far as Im concerned, I have NO BROTHER!!']",Alive
+939,,,Female,Coach Krupt and Mrs. Krupt's daughter,Student at Springfield Elementary School,/character/939.webp,[],Alive
+940,,,Male,Geoff Jenkins,Creator of Danger Dog(former)Nickel N' Dime Animation Studio animator (current),/character/940.webp,[],Alive
+941,,,Female,Lois Pennycandy,Krusty the Clown's personal assistant,/character/941.webp,[],Alive
+942,,,Unknown,Simpson fish,Unknown,/character/942.webp,[],Alive
+943,,,Female,Greta Wolfcastle,Student at Springfield Preparatory School,/character/943.webp,"['Sorry, guys, but you two have put me off dating for at least four years.  I think Ill just buckle down and co-produce my Dads movie.']",Alive
+944,,,Unknown,Scarlet Tanager,Unknown,/character/944.webp,[],Unknown
+945,,,Male,Ozmodiar,Unknown,/character/945.webp,[],Fictional
+946,,,Male,Count Fudge-ula,Cereal Mascot,/character/946.webp,[],Deceased
+947,,,Male,Fireman 1 (couch gag),Fireman,/character/947.webp,[],Alive
+948,,,Female,Gloria Prince,Nuclear technican,/character/948.webp,[],Alive
+949,,,Male,Veterinarian,"Veterinarian, Doctor",/character/949.webp,[],Unknown
+950,,,Male,Judge Muntz,Judge,/character/950.webp,"['No, Im not Superman; Im a judge. Why, just this morning I sentenced my 46th man to death. Oh... no, 47th.']",Alive
+951,,,Male,Gnome in your Home,Child Murderer,/character/951.webp,[],Deceased
+952,,,Female,Female bought with brown Hair,Coach Shop Bag and Cashier,/character/952.webp,[],Alive
+953,,,Female,Female with Blonde haired and white shirt blue J.M. Haggar,Judge,/character/953.webp,[],Alive
+954,,,Female,Rayshelle Peyton,4th Grade teacher at Springfield Elementary School,/character/954.webp,[],Alive
+955,,,Male,Gummy Joe,Springfield Nuclear Power Plant employee,/character/955.webp,[],Alive
+956,,,Male,Gareth Prince,Stockbroker,/character/956.webp,"['Who are those people?', 'You got greedy, Martin.Step away from those bad kids, Martin.']",Alive
+957,,,Female,Homer's high school date,Unknown,/character/957.webp,[],Unknown
+958,,,Male,Surly Joe,Construction worker for Surly Joe's Foundation Repair,/character/958.webp,[],Alive
+959,,,Female,Hillary Clinton,First LadyPresidential candidate,/character/959.webp,[],Alive
+960,,,Female,Martha (robber),Robber,/character/960.webp,[],Alive
+961,,,Male,Homer's clones,Unknown,/character/961.webp,[],Noncanon Deceased
+962,,,Female,Art teacher,Art teacher  Kent Brockman's assistant,/character/962.webp,[],Alive
+963,,,Unknown,Donkey Kong,Unknown,/character/963.webp,[],Fictional
+964,,,Male,Justin Bieber,Musician,/character/964.webp,[],Alive
+965,,,Female,Ms. Albright,Sunday school teacherOwner of the LaundromatHousewife (presumably),/character/965.webp,['Is a little blind faith too much to ask anyone?'],Alive
+966,,,Male,Jack Marley,Former: Nuclear Power Plant workerCurrent: Janitor,/character/966.webp,['Please dont make me retire. This job is what keeps me alive. I never married and my dog is dead.'],Alive
+967,,,Male,The Detonator,"Video game master, and teacher",/character/967.webp,[],Alive
+968,,,Male,Radioactive Man (character),Unknown,/character/968.webp,['Up and Atom!'],Fictional
+969,,,Female,Dr. Hibbert's Second Daughter,Unknown,/character/969.webp,[],Alive
+970,,,Female,Maya,Stage magician ,/character/970.webp,[],Alive
+971,,,Male,Security Male with Brown Haired,Security,/character/971.webp,[],Alive
+972,,,Female,Annette (therapist),Therapist-in-training,/character/972.webp,[],Alive
+973,,,Male,Beggar Relative,Beggar,/character/973.webp,[],Alive
+974,,,Male,Joey Quimby,Unknown,/character/974.webp,[],Alive
+975,,,Male,Avery Mann,Delivery manSuperhero,/character/975.webp,[],Alive
+976,,,Male,Buzz Aldrin (character),Astronaut,/character/976.webp,[],Alive
+977,,,Female,Angelica Button,Wizard,/character/977.webp,[],Fictional
+978,,,Female,Anna Maria D'Amico,Unknown,/character/978.webp,[],Deceased
+979,,,Female,Donna's friend,Student at Springfield Elementary,/character/979.webp,[],Alive
+980,,,Male,Giuseppe Granfinali,Fireworks pyrotechnic,/character/980.webp,[],Alive
+981,,,Female,Girl with ponytail,Student at Springfield Elementary School,/character/981.webp,[],Alive
+982,,,Male,Kim Jong-il,Former leader of North Korea,/character/982.webp,[],Deceased
+983,,,Male,Unnamed Male with Camera Video and Brown Haired,News Camera Video,/character/983.webp,[],Alive
+984,,,Male,Chewbacca,Co-Pilot,/character/984.webp,[],Unknown
+985,,,Male,George Meyer (character),Writer (former),/character/985.webp,[],Alive
+986,8,,Female,Susan,Student,/character/986.webp,[],Unknown
+987,,,Female,Mrs. Vanderbilt,Unknown,/character/987.webp,[],Alive
+988,,,Female,Lyla,Buddhist  Worked at a food stand years ago,/character/988.webp,[],Deceased
+989,43,,Male,Peter Griffin,Toy makerFishermanBrewery shipping clerk (current),/character/989.webp,"['You know, when I first met you, I thought Hey, this is the funniest guy Ive ever met! I love his town, I love his family, but now, I think I speak for all of us when I say, I am over the Simpsons!']",Alive
+990,,,Male,Mr. Vanderbilt,Unknown,/character/990.webp,[],Alive
+991,,,Female,Proctor Perkins,Proctor for the Department of Standardized Testing,/character/991.webp,[],Alive
+992,,,Male,The Fracker,Supervillain,/character/992.webp,[],Fictional
+993,,,Male,Northern Irish Leprechaun,Unknown,/character/993.webp,[],Alive
+994,,,Male,Jake the Barber,Barber,/character/994.webp,[],Alive
+995,,,Female,Girl playing soccer,Student  Soccer player,/character/995.webp,[],Alive
+996,,,Male,Bernie Sanders,Politician,/character/996.webp,[],Alive
+997,,,Male,Lugash,Gymnastics Instructor at Lugash's Gym,/character/997.webp,[],Alive
+998,,,Male,Kool-Aid Man,Mascot,/character/998.webp,[],Fictional
+999,,,Unknown,Tom The Turkey,Unknown,/character/999.webp,[],Alive
+1000,,,Unknown,Gamera,Unknown,/character/1000.webp,[],Alive
+1001,,,Male,Lisa's Classmate 6,Student at Springfield Elementary School,/character/1001.webp,[],Alive
+1002,,,Male,Danny,Student at Springfield Elementary School,/character/1002.webp,[],Alive
+1003,,,Male,Knifey Spooney,Unknown,/character/1003.webp,[],Alive
+1004,,,Male,Gabbo,TV personality,/character/1004.webp,['Im a bad widdle boy!'],Alive
+1005,,,Male,Thomas Pynchon,Author,/character/1005.webp,[],Unknown
+1006,,,Male,Joe Namath (Character),Quarterback,/character/1006.webp,[],Alive
+1007,,,Male,Nash Castor,TV Host,/character/1007.webp,[],Alive
+1008,,,Female,Male with blonde hair and glasses pink jet,Unknown,/character/1008.webp,[],Alive
+1009,,,Female,Opal,Talk Show Host,/character/1009.webp,[],Alive
+1010,,,Female,Emily Winthrop,Dog Trainer,/character/1010.webp,[],Alive
+1011,,,Female,Cienega,TV host,/character/1011.webp,[],Alive
+1012,,,Female,Jitney Spuckler,Homeschooled studentFormer star on The Krusty the Clown Show,/character/1012.webp,[],Alive
+1013,,,Female,Smug Girl,Student,/character/1013.webp,[],Alive
+1014,,,Male,John F. Kennedy,Former President of the United States,/character/1014.webp,[],Deceased
+1015,,,Female,Joan Bushwell,Animal Researcher,/character/1015.webp,[],Alive
+1016,,,Female,Erin,Ex-soldier,/character/1016.webp,['Stupid clown!'],Alive
+1017,,,Unknown,Unicorn Wizard,Unknown,/character/1017.webp,[],Alive
+1018,,,Unknown,Geech,Unknown,/character/1018.webp,[],Deceased
+1019,,,Male,Defonzo Palmer,Jazz Musician,/character/1019.webp,[],Alive
+1020,,,Male,"""Blow the Horn"" Kid",Unknown,/character/1020.webp,[],Alive
+1021,,,Unknown,Milhouse's Shih Tzu,Unknown,/character/1021.webp,[],Alive
+1022,,,Male,Wallace Brady,Lawyer,/character/1022.webp,[],Alive
+1023,,,Male,Darryl Peyton,Oboist,/character/1023.webp,[],Alive
+1024,,,Male,Joey Crusher,Hired goon,/character/1024.webp,[],Alive
+1025,,,Unknown,Sequelizer,Unknown,/character/1025.webp,"['I, the Sequelizer, can create an infinite number of copies of myself, although each is only 50% as powerful as the one before.']",Unknown
+1026,,,Male,Brad Goodman,Self-help guru,/character/1026.webp,[],Alive
+1027,,,Male,Count Orlok,Unknown,/character/1027.webp,[],Alive
+1028,,,Female,Annette,Squishee supplier,/character/1028.webp,[],Alive
+1029,,,Male,Gunter,Entertainer,/character/1029.webp,[],Unknown
+1030,,,Male,Ethan Foley,Student,/character/1030.webp,[],Alive
+1031,,,Male,Raoul,Unknown,/character/1031.webp,[],Alive
+1032,,,Unknown,The Beatles,Unknown,/character/1032.webp,[],Unknown
+1033,,,Male,Werewolf Flanders,Unknown,/character/1033.webp,[],Alive
+1034,,,Female,Lenny Leonard's girlfriend,Unknown,/character/1034.webp,"['Shave up, not down, you idiot!']",Alive
+1035,,,Male,Julio Franco,Photographer,/character/1035.webp,[],Alive
+1036,,,Male,Dante Calabresi Jr.,Mobster,/character/1036.webp,[],Deceased
+1037,,,Male,Grady,Unknown,/character/1037.webp,[],Alive
+1038,,,Female,Astrid Weller,Art gallery owner,/character/1038.webp,[],Alive
+1039,,,Male,Grim Reaper,Personification of death,/character/1039.webp,[],Alive
+1040,,,Male,Mountain Man,Gunman,/character/1040.webp,[],Alive
+1041,,,Male,Dr. Lionel Budgie,Veterinarian,/character/1041.webp,[],Alive
+1042,,,Male,Warrior Comic Book Guy,Computer game character  Warrior,/character/1042.webp,[],Unknown
+1043,,,Male,Gautama Buddha,Founder of Buddhism,/character/1043.webp,[],Deceased
+1044,,,Male,WALL·E,Unknown,/character/1044.webp,[],Alive
+1045,,,Male,Elton John (character),Musician,/character/1045.webp,[],Alive
+1046,,,Female,Charcoal Briquette,Supervillain,/character/1046.webp,[],Fictional
+1047,,,Male,John Lennon,Singer,/character/1047.webp,[],Deceased
+1048,,1955-04-13,Male,Karl,Homer's Personal Assistant at the Springfield Nuclear Power Plant (formerly),/character/1048.webp,"['I want you to say to yourself I deserve this, I love it, I am Natures greatest miracle!I’ll need three weeks’ vacation and moving expenses.My mother taught me never to kiss a fool!']",Alive
+1049,,,Female,Julia (Friends and Family),Unknown,/character/1049.webp,[],Alive
+1050,,,Male,Lisa's Classmate 1,Student,/character/1050.webp,[],Alive
+1051,,,Female,Jerri Mackleberry,Unknown,/character/1051.webp,"['Marge, since you’re by yourself, would you like to borrow one of my twins?']",Alive
+1052,,,Male,Ronaldo (Blame It on Lisa),Actor/Dancer on Teleboobies,/character/1052.webp,[],Alive
+1053,,,Male,Orson Welles,Director,/character/1053.webp,[],Deceased
+1054,,,Female,Donna,Student at Springfield Elementary,/character/1054.webp,[],Alive
+1055,,,Female,Mrs. Carlson,Unknown,/character/1055.webp,['This is terrible!'],Alive
+1056,,,Male,Stanley Kubrick,CinematographerEditorFilm directorProducerScreenwriter,/character/1056.webp,[],Deceased
+1057,,,Male,Leon Kompowsky,Mental patient,/character/1057.webp,[],Alive
+1058,,,Male,Mr. Bont,Secret agent/spy,/character/1058.webp,"['Scorpio, youre totally mad!']",Deceased
+1059,,,Male,Dr. Olberman,Scientist at the Springfield Nuclear Power Plant,/character/1059.webp,[],Unknown
+1060,,,Female,Cecile Shapiro,Student,/character/1060.webp,[],Alive
+1061,,,Male,Brother Faith,Faith Healer,/character/1061.webp,[],Alive
+1062,,,Male,Number 2,Leader,/character/1062.webp,['Why did you think a big balloon would stop people?'],Unknown
+1063,,,Male,Player 2,Video-game character used by the second player in Super Slugfest,/character/1063.webp,[],Unknown
+1064,,,Male,Frosty the Snowman,Snowman,/character/1064.webp,[],Alive
+1065,,,Unknown,Poochie,Unknown,/character/1065.webp,"['Catch you on the flip side, dudemeisters! NOT!', 'Hello there, Itchy. I know theres a lot of people who dont like me and wish I would go away and I think we got off on the wrong foot. I know I can come off a little proactive, and for that Im sorry. But if everyone could find a place in their hearts for the little dog nobody wanted I know we can make em laugh and cry till we grow old together.', 'Always stay in character, and no flirting with pretty moms... TO THE EXTREME! ', 'Always recycle... TO THE EXTREME! BUSTED!']",Fictional
+1066,,,Male,Bildorf,President Springfield Junipers Golf Club,/character/1066.webp,[],Alive
+1067,,,Female,Female Long Haired Brown (tall) Purple Shirt,Principal at Springfield High School,/character/1067.webp,[],Alive
+1068,,,Unknown,Princess,Unknown,/character/1068.webp,[],Alive
+1069,,,Male,Repo Man 1 (couch gag),Repossession,/character/1069.webp,[],Unknown
+1070,,,Female,Crystal,Unknown,/character/1070.webp,[],Alive
+1071,,,Male,Manjula's Father,Unknown,/character/1071.webp,[],Alive
+1072,,,Male,Grizzly Shawn,Unknown,/character/1072.webp,[],Alive
+1073,,,Male,Cheech Marin,Comedy actorFormer: Weather man,/character/1073.webp,[],Alive
+1074,,,Female,Ms. Mellon,Teacher,/character/1074.webp,['A comic book! How did this get mixed in here?'],Alive
+1075,,,Female,Ms. Norton,Librarian,/character/1075.webp,['This is not a Kwik-E-Mart!'],Alive
+1076,,,Male,Stuart (All's Fair in Oven War),Unknown,/character/1076.webp,[],Alive
+1077,,,Male,Roofi,Children's singer,/character/1077.webp,"['One, two, tie your shoe!']",Alive
+1078,,,Male,Lowblow,Hired goon,/character/1078.webp,[],Alive
+1079,,,Male,Mav,Professional surfer,/character/1079.webp,[],Alive
+1080,,,Female,Agnes Flanders,Unknown,/character/1080.webp,[],Alive
+1081,,,Male,Itchy & Scratchy robots,Robots at Itchy & Scratchy Land,/character/1081.webp,[],Destroyed Icon
+1082,,,Male,Anger Watkins,ESBN analyst,/character/1082.webp,[],Alive
+1083,,,Male,Waverly Hills Boy 3,Student at Waverly Hills Elementary School,/character/1083.webp,[],Alive
+1084,,,Female,Babysitting Lady,Receptionist for the Rubber Baby Buggy Bumpers Babysitting Service,/character/1084.webp,[],Deceased
+1085,,,Male,Aaron Aaronson,Gossiper,/character/1085.webp,[],Alive
+1086,,,Male,Cesar,Wine MakerLeather MakerPoetExpert on Mustard,/character/1086.webp,"['My name is César. This is my nephew, Ugolin. You may find life here at the chateau hard, but if you shut up and do exactly what we say, the time will pass more quickly.Do not worry. There is one surefire way to find the Americans. Marco! (Homer: Polo!)']",Alive
+1087,,,Unknown,Linguo,Correctional grammar robot,/character/1087.webp,[],Deceased
+1088,,,Male,Fireman Skinner,Unknown,/character/1088.webp,['Just call me Fireman Skinner!'],Alive
+1089,,,Male,Alfred E. Neuman,Mascot for MAD Magazine,/character/1089.webp,[],Alive
+1090,,,Male,Stewie Griffin,Preschool studentSupervillain (formerly)Inventor,/character/1090.webp,"['Hello, Moe? Your sisters being raped!', 'What the Deuce?!']",Alive
+1091,,,Unknown,Butterfly,Unknown,/character/1091.webp,[],Alive
+1092,,,Male,Mr. McIntyre,School guidance counselor,/character/1092.webp,[],Alive
+1093,,,Female,Kako,Conceptual artist,/character/1093.webp,[],Alive
+1094,,,Male,Al Simmons,Springfield Nuclear Power Plant executive,/character/1094.webp,[],Alive
+1095,,,Male,Alex Trebek (character),Jeopardy! host,/character/1095.webp,[],Deceased
+1096,,,Male,Lloyd,Member of the Springfield Preppers,/character/1096.webp,[],Alive
+1097,,,Male,Smilin' Joe Fission,Film Strip Commentator,/character/1097.webp,[],Fictional
+1098,,,Male,Fernando Vidal,Hired killer,/character/1098.webp,[],Alive
+1099,,,Male,Buddy Hodges,Actor,/character/1099.webp,[],Alive
+1100,,,Female,Madison McKenna,Attorney,/character/1100.webp,[],Alive
+1101,,,Male,Chris Christie,55th Governor of New Jersey,/character/1101.webp,[],Alive
+1102,,,Male,Adil Hoxha,StudentSpy,/character/1102.webp,"['Mrs. Simpson, you have been oppressed enough today.  will clear the dishes.']",Alive
+1103,,,Unknown,Lord Evilton,Unknown,/character/1103.webp,[],Alive
+1104,,,Female,Beatrice,Retired,/character/1104.webp,[],Alive
+1105,,,Female,Rosemary Chalmers,Unknown,/character/1105.webp,[],Deceased
+1106,,,Male,Supporting Man,Unknown,/character/1106.webp,[],Unknown
+1107,,,Male,Weird Al Yankovic,Parody singer,/character/1107.webp,[],Alive
+1108,,,Male,Charles Darwin,Scientist,/character/1108.webp,[],Deceased
+1109,,,Female,Unnamed Female with Brown Haired and blue sticker,Unknown,/character/1109.webp,[],Alive
+1110,,,Unknown,Joey Kramer,Unknown,/character/1110.webp,[],Unknown
+1111,18,1956-12-14,Female,Debbie Pinson,Former student,/character/1111.webp,[],Alive
+1112,,,Female,Lisa's Classmate 2’s Grandmother,School,/character/1112.webp,[],Deceased
+1113,,,Female,Faith Crowley,Patriotism Editor of Reading Digest magazine,/character/1113.webp,[],Unknown
+1114,,,Male,Chris,Unknown,/character/1114.webp,[],Alive
+1115,,,Female,Gwen,Waitress,/character/1115.webp,[],Unknown
+1116,,,Unknown,Worker,Unknown,/character/1116.webp,[],Fictional
+1117,,,Female,Kyle's Sister,Student at Springfield Elementary School,/character/1117.webp,[],Alive
+1118,,,Male,Sir Widebottom,Clown,/character/1118.webp,[],Alive
+1119,,,Male,Angry Dad,Unknown,/character/1119.webp,[],Fictional
+1120,,,Female,Yuma Simpson,Housewife,/character/1120.webp,['Abe! Suppers on!'],Deceased
+1121,,,Male,Andy (Bart vs. Australia),Prime Minister of Australia,/character/1121.webp,[],Alive
+1122,,,Male,Black Kid With Bowl Cut,Student at Springfield Elementary,/character/1122.webp,[],Alive
+1123,,,Male,Luigi (Nintendo),Game Character/Plumber,/character/1123.webp,[],Fictional
+1124,,,Female,Female with Brown hair and Pink Hat,Cheery Red Tomatoes,/character/1124.webp,[],Alive
+1125,,,Female,Rachel Krustofsky,Unknown,/character/1125.webp,[],Deceased
+1126,,,Female,Female Teacher,Formerly Teacher at Springfield Elementary School,/character/1126.webp,[],Alive
+1127,,,Male,Nick Fury,Leader of The Dependables,/character/1127.webp,[],Alive
+1128,,,Male,Brendan Beiderbecke,Jazz pianist,/character/1128.webp,[],Alive
+1129,,,Male,Morgan (3rd Grader),Student at Springfield Elementary,/character/1129.webp,[],Alive
+1130,,,Female,Eloise,Homeless,/character/1130.webp,[],Alive
+1131,,,Unknown,Rodan,Unknown,/character/1131.webp,[],Alive
+1132,,,Male,Leaky Pants,ClownEmployee Restaurant,/character/1132.webp,[],Alive
+1133,,,Male,Gulliver Dark,Sapphire Lounge singerBackup singer for Tito Puente's Latin-American jazz band,/character/1133.webp,[],Alive
+1134,,,Male,Yutaka Nakamura,Great salaryman,/character/1134.webp,[],Alive
+1135,,,Unknown,AMC Gremlin,Unknown,/character/1135.webp,[],Unknown
+1136,,,Male,Colonel Leslie Hapablap,Colonel of the U. S. Air Force,/character/1136.webp,[],Alive
+1137,,,Male,Leonard Nimoy,"Actor, film director, poet, photographer, singer, songwriter",/character/1137.webp,[],Deceased
+1138,,,Male,Skippy Simpson,Student,/character/1138.webp,"['Mom, dont make us go to Dads!']",Alive
+1139,,,Male,Smitty,SPNPP employee,/character/1139.webp,['Smitty! Safen up'],Alive
+1140,,,Male,Sauna User 1 (couch gag),Unknown,/character/1140.webp,[],Alive
+1141,,,Male,Spike Lee,"Actor, writer, producer",/character/1141.webp,[],Alive
+1142,,,Female,Strawberry,Unknown,/character/1142.webp,[],Alive
+1143,,,Female,Female Unnamed with brown hair and white science coat,Springfield Nuclear Power Plant,/character/1143.webp,[],Alive
+1144,,,Male,Thelonious,Student at West Springfield Elementary School,/character/1144.webp,['You cant sacrifice grades for romance.'],Alive
+1145,,,Male,Hollis Hurlbut,Head of the Springfield Historical Society,/character/1145.webp,[],Alive
+1146,,,Female,Abbey,Unknown,/character/1146.webp,['Mmm... bacon...'],Alive
+1147,,,Female,Ms. Barr,Springfield Elementary School Physical Education Teacher,/character/1147.webp,[],Alive
+1148,,,Male,Larry Burns,Currently: UnemployedFormerly: SalesmanEmployee at the Springfield Nuclear Power Plant,/character/1148.webp,[],Alive
+1149,,,Male,Billy (actor),Actor,/character/1149.webp,"['Mr. McClure, what does DNA stand for?']",Alive
+1150,,,Male,Mr. Jones,Unknown,/character/1150.webp,['Thats for telling me how to raise my lousy kid!'],Alive
+1151,,,Male,Colin,Student,/character/1151.webp,[],Alive
+1152,,,Female,Adriatica VelJohnson,Political commentator,/character/1152.webp,[],Alive
+1153,,,Male,Candy Store Bandit,Criminal,/character/1153.webp,[],Alive
+1154,,,Male,Michael Jackson,Singer,/character/1154.webp,[],Deceased
+1155,,,Female,Buck-toothed girl,Student,/character/1155.webp,[],Alive
+1156,,,Unknown,Multi-eyed squirrel,Unknown,/character/1156.webp,[],Deceased
+1157,,,Male,Tom Wolfe (character),Writer,/character/1157.webp,[],Deceased
+1158,,,Male,Penn Jillette,Illusionist,/character/1158.webp,[],Alive
+1159,,,Male,David Letterman,Talk Show Host,/character/1159.webp,[],Unknown
+1160,,,Female,Dr. Simpson,Chief of Complicated Surgery at the Imbasic Care Clinic,/character/1160.webp,[],Alive
+1161,,,Female,Female brown hair with a diamond and light blue dress,Bank CEO,/character/1161.webp,[],Alive
+1162,,,Male,Patches,Sympathy Orphan,/character/1162.webp,[],Alive
+1163,,,Male,Devil Flanders,Prince of Darkness (Devil),/character/1163.webp,['Its always the one you least suspect!'],Alive
+1164,,,Male,Count Dracula,Republican Party,/character/1164.webp,[],Alive
+1165,,,Female,Dia-Betty,Obese,/character/1165.webp,[],Alive
+1166,,,Male,Anthony Hopkins,Actor,/character/1166.webp,[],Alive
+1167,,,Male,Just Stamp the Ticket Man,Springfield Nuclear Power Plant employeeNaval Recruiter,/character/1167.webp,[],Alive
+1168,,,Male,Gus Huebner,Student at Springfield Elementary School,/character/1168.webp,[],Alive
+1169,,,Male,Mad Scientist (couch gag),Scientist,/character/1169.webp,[],Unknown
+1170,,,Male,Arnie Pye,Channel 6 helicopter reporter,/character/1170.webp,[],Alive
+1171,,,Female,Cora,Waiter,/character/1171.webp,['What?'],Alive
+1172,,,Female,Frink's Mother,Scientist,/character/1172.webp,[],Alive
+1173,,,Female,Female Unnamed with blonde and green dress,Housewife and Guard at Montgomery Burns State Prison,/character/1173.webp,[],Alive
+1174,,,Male,Kitenge,President of TanzaniaFormer tour guide,/character/1174.webp,[],Alive
+1175,,,Male,Buck-toothed boy,Student,/character/1175.webp,['(Referring to Nelsons birthday party) Is that legal?'],Alive
+1176,,,Unknown,Taquito,Unknown,/character/1176.webp,[],Alive
+1177,,,Female,Mother: Great Grandma Mona,Unknown,/character/1177.webp,[],Deceased
+1178,,,Unknown,Busman,Unknown,/character/1178.webp,[],Unknown
+1179,,,Female,Julia Roberts,Actress,/character/1179.webp,[],Alive
+1180,,,Unknown,R2-D2,Droid/Robot,/character/1180.webp,[],Alive
+1181,,,Male,Boy with shades,Student,/character/1181.webp,[],Alive
+1182,,,Male,Hedonismbot,Robot,/character/1182.webp,[],Alive

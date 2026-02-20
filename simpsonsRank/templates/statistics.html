@@ -1,0 +1,843 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/ranking.css' %}">
+<style>
+  #statsPage .topbar{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:14px;
+    margin: 12px 0 18px;
+  }
+  #statsPage .topbar .left h1{ margin:0; }
+  #statsPage .topbar .left .subtitle{ margin:6px 0 0; }
+  #statsPage .topbar .right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .stats-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:16px;
+    align-items:start;
+    grid-template-areas:
+      "reviews rankings"
+      "topRated most";
+  }
+  #reviewsCard{ grid-area: reviews; }
+  #rankingsCard{ grid-area: rankings; }
+  #topUsersCard{ grid-area: users; }
+  #topRatedCard{ grid-area: topRated; }
+  #mostCard{ grid-area: most; }
+
+  #statsPage.is-global .stats-grid{
+  grid-template-areas:
+    "reviews reviews"
+    "rankings users"
+    "topRated most";
+}
+
+  @media (max-width: 980px){
+    .stats-grid{
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "reviews"
+        "rankings"
+        "topRated"
+        "most";
+    }
+    #statsPage.is-global .stats-grid{
+      grid-template-areas:
+        "reviews"
+        "rankings"
+        "users"
+        "topRated"
+        "most";
+    }
+  }
+
+  .stats-card{
+    background:#fff;
+    border:1px solid rgba(0,0,0,.10);
+    border-radius:18px;
+    padding:16px;
+    box-shadow: 0 12px 28px rgba(0,0,0,.06);
+  }
+  .stats-card-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
+    gap:10px;
+  }
+  .stats-card-head h3{
+    margin:0;
+    font-size:15px;
+    font-weight:900;
+  }
+
+  .pill{
+    padding:6px 10px;
+    border-radius:999px;
+    font-weight:800;
+    font-size:12px;
+    border:1px solid rgba(0,0,0,.10);
+    background:rgba(255, 214, 51, .20);
+    white-space:nowrap;
+  }
+
+  .kpi-hero{
+    display:grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap:14px;
+    padding:14px;
+    border-radius:16px;
+    border:1px solid rgba(0,0,0,.08);
+    background: linear-gradient(180deg, rgba(255,214,51,.18), rgba(255,214,51,.06));
+  }
+  @media (max-width: 980px){
+    .kpi-hero{ grid-template-columns: 1fr; }
+  }
+
+  .kpi-hero-value{
+    font-size:34px;
+    font-weight:1000;
+    line-height:1;
+    display:flex;
+    align-items:flex-end;
+    gap:6px;
+  }
+  .kpi-hero-value .star{
+    font-size:18px;
+    transform: translateY(-3px);
+    opacity:.9;
+  }
+  .kpi-hero-sub{
+    margin-top:8px;
+    font-size:12px;
+    font-weight:800;
+    opacity:.75;
+  }
+  .dist-title{
+    font-size:12px;
+    font-weight:900;
+    opacity:.75;
+    margin-bottom:8px;
+  }
+
+  .dist{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .dist-row{
+    display:grid;
+    grid-template-columns: 34px 1fr 46px;
+    align-items:center;
+    gap:10px;
+    font-size:12px;
+    font-weight:900;
+  }
+  .dist-row .pct{
+    text-align:right;
+    opacity:.75;
+  }
+  .dist-bar{
+    height:10px;
+    border-radius:999px;
+    background: rgba(0,0,0,.08);
+    overflow:hidden;
+  }
+  .dist-bar > span{
+    display:block;
+    height:100%;
+    width:0%;
+    border-radius:999px;
+    background: #ffc107;
+  }
+
+  .kpi-grid{
+    margin-top:12px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:10px;
+  }
+  @media (max-width: 980px){
+    .kpi-grid{ grid-template-columns: 1fr; }
+  }
+
+  .kpi{
+    padding:12px;
+    border-radius:16px;
+    border:1px solid rgba(0,0,0,.08);
+    background:#fff;
+  }
+  .kpi-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .kpi-label{
+    font-size:12px;
+    font-weight:900;
+    opacity:.75;
+  }
+  .kpi-mini{
+    font-weight:1000;
+    font-size:14px;
+  }
+  .kpi-foot{
+    margin-top:6px;
+    font-size:12px;
+    opacity:.65;
+    font-weight:800;
+  }
+
+  .list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:8px;
+  }
+  .row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px;
+    border-radius:16px;
+    border:1px solid rgba(0,0,0,.08);
+    background:#fff;
+  }
+  .row .left{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    min-width:0;
+  }
+  .row .title{
+    font-weight:1000;
+    font-size:13px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .row .sub{
+    font-size:12px;
+    opacity:.65;
+    font-weight:700;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .badge-count{
+    min-width:28px;
+    height:28px;
+    padding:0 10px;
+    border-radius:999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:1000;
+    font-size:12px;
+    border:1px solid rgba(0,0,0,.10);
+    background:rgba(13,110,253,.06);
+    color:#0d6efd;
+  }
+
+  .item-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px;
+    border-radius:16px;
+    border:1px solid rgba(0,0,0,.08);
+    background:#fff;
+  }
+  .item-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+  }
+  .item-img{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    object-fit:cover;
+    background: rgba(0,0,0,.06);
+    flex:0 0 auto;
+  }
+  .item-meta{
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .item-title{
+    font-weight:1000;
+    font-size:13px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .item-sub{
+    font-size:12px;
+    opacity:.65;
+    font-weight:700;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .chips-mini{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex:0 0 auto;
+  }
+  .chip-mini{
+    padding:6px 10px;
+    border-radius:999px;
+    font-weight:1000;
+    font-size:12px;
+    border:1px solid rgba(0,0,0,.10);
+    background:#fff;
+  }
+  .chip-mini--yellow{
+    background: rgba(255,214,51,.22);
+    border-color: rgba(255,214,51,.35);
+  }
+  .chip-mini--blue{
+    background: rgba(13,110,253,.06);
+    border-color: rgba(13,110,253,.18);
+    color:#0d6efd;
+  }
+
+  .section-tabs{
+    display:flex;
+    gap:10px;
+    margin: 10px 0 12px;
+  }
+  .seg-btn{
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(0,0,0,.12);
+    background:#fff;
+    font-weight:900;
+    font-size:12px;
+    opacity:.8;
+  }
+  .seg-btn.active{
+    background: rgba(255,214,51,.22);
+    border-color: rgba(255,214,51,.35);
+    opacity:1;
+  }
+
+  .muted{ opacity:.65; font-weight:700; }
+  .loading{
+    padding:12px;
+    border-radius:14px;
+    background: rgba(0,0,0,.04);
+    border:1px dashed rgba(0,0,0,.10);
+    font-weight:800;
+    opacity:.75;
+  }
+
+  .stats-card .list{
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 6px;
+  }
+  @media (max-width: 980px){
+    .stats-card .list{ max-height: 260px; }
+  }
+  .stats-card .list::-webkit-scrollbar{ width: 8px; }
+  .stats-card .list::-webkit-scrollbar-thumb{
+    background: rgba(0,0,0,.18);
+    border-radius: 999px;
+  }
+  .stats-card .list::-webkit-scrollbar-track{ background: transparent; }
+  .stats-card .item-row{ flex-shrink: 0; }
+
+  #rankingsByCategory .row{ cursor:pointer; }
+  #rankingsByCategory .row:hover{
+    background: rgba(255,214,51,.10);
+    border-color: rgba(255,214,51,.35);
+  }
+</style>
+{% endblock %}
+
+{% block title %}Statistics{% endblock %}
+
+{% block body %}
+<main id="statsPage" class="container">
+
+  <div class="topbar">
+    <div class="left">
+      <h1>Statistics</h1>
+      <p class="subtitle">Resumen de actividad y valoraciones.</p>
+      <p class="muted" id="scopeHint" style="margin:8px 0 0;">Viendo: —</p>
+    </div>
+
+    <div class="right">
+      <select id="scopeSelect" class="form-select" style="border-radius:14px; min-width:180px;">
+        <option value="me">Mi cuenta</option>
+        {% if user.is_authenticated and user.is_staff %}
+          <option value="global">Global (Admin)</option>
+        {% endif %}
+      </select>
+
+      <button id="refreshBtn" class="btn btn-warning" style="border-radius:14px; font-weight:900;">
+        🔁 Refrescar
+      </button>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+
+    <div class="stats-card" id="reviewsCard">
+      <div class="stats-card-head">
+        <h3>Valoraciones</h3>
+        <span class="pill" id="reviewsTotalPill">0 total</span>
+      </div>
+
+      <div class="kpi-hero">
+        <div>
+          <div class="kpi-hero-value">
+            <span id="avgGlobal">0.00</span><span class="star">★</span>
+          </div>
+          <div class="kpi-hero-sub">Media global</div>
+        </div>
+
+        <div>
+          <div class="dist-title">Distribución</div>
+          <div class="dist" id="distBars"></div>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-label">Personajes</span>
+            <span class="kpi-mini" id="avgChar">0.00 ★</span>
+          </div>
+          <div class="kpi-foot" id="countChar">0 valoraciones</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-label">Episodios</span>
+            <span class="kpi-mini" id="avgEp">0.00 ★</span>
+          </div>
+          <div class="kpi-foot" id="countEp">0 valoraciones</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpi-top">
+            <span class="kpi-label">Lugares</span>
+            <span class="kpi-mini" id="avgLoc">0.00 ★</span>
+          </div>
+          <div class="kpi-foot" id="countLoc">0 valoraciones</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-card" id="rankingsCard">
+      <div class="stats-card-head">
+        <h3>Rankings</h3>
+        <span class="pill" id="rankingsTotalPill">0 total</span>
+      </div>
+
+      <div class="muted" style="font-size:12px; font-weight:900;">Rankings por categoría</div>
+      <div class="list" id="rankingsByCategory">
+        <div class="loading">Cargando…</div>
+      </div>
+    </div>
+
+    <div class="stats-card" id="topUsersCard" style="display:none;">
+      <div class="stats-card-head">
+        <h3>Usuarios más activos</h3>
+        <span class="pill">global</span>
+      </div>
+
+      <div class="list" id="topUsersList">
+        <div class="loading">Cargando…</div>
+      </div>
+    </div>
+
+    <div class="stats-card" id="topRatedCard">
+      <div class="stats-card-head">
+        <h3>Top mejor valorados</h3>
+        <span class="pill">avg + count</span>
+      </div>
+
+      <div class="section-tabs" id="topRatedTabs">
+        <button class="seg-btn active" data-type="characters" type="button">Personajes</button>
+        <button class="seg-btn" data-type="episodes" type="button">Episodios</button>
+        <button class="seg-btn" data-type="locations" type="button">Lugares</button>
+      </div>
+
+      <div class="list" id="topRatedList" style="margin-top:6px;"></div>
+    </div>
+
+    <div class="stats-card" id="mostCard">
+      <div class="stats-card-head">
+        <h3>Más valorados (por volumen)</h3>
+        <span class="pill">count</span>
+      </div>
+
+      <div class="section-tabs" id="mostTabs">
+        <button class="seg-btn active" data-type="characters" type="button">Personajes</button>
+        <button class="seg-btn" data-type="episodes" type="button">Episodios</button>
+        <button class="seg-btn" data-type="locations" type="button">Lugares</button>
+      </div>
+
+      <div class="list" id="mostList">
+        <div class="loading">Cargando…</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal fade" id="avgRankingModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius:18px;">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="avgRankingTitle">Ranking promedio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="muted" id="avgRankingMeta" style="margin-bottom:10px;">—</div>
+          <div class="list" id="avgRankingList">
+            <div class="loading">Cargando…</div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const page = document.getElementById("statsPage");
+  if (!page) return;
+
+  const STATS_URL = "{% url 'statistics_data' %}";
+  const AVG_RANKING_URL = "{% url 'category_avg_ranking' 'SLUG_REPLACE' %}";
+
+  const scopeSelect = document.getElementById("scopeSelect");
+  const refreshBtn  = document.getElementById("refreshBtn");
+  const scopeHint   = document.getElementById("scopeHint");
+
+  const reviewsTotalPill = document.getElementById("reviewsTotalPill");
+  const avgGlobal = document.getElementById("avgGlobal");
+  const distBars = document.getElementById("distBars");
+  const avgChar = document.getElementById("avgChar");
+  const avgEp = document.getElementById("avgEp");
+  const avgLoc = document.getElementById("avgLoc");
+  const countChar = document.getElementById("countChar");
+  const countEp = document.getElementById("countEp");
+  const countLoc = document.getElementById("countLoc");
+
+  const rankingsTotalPill = document.getElementById("rankingsTotalPill");
+  const rankingsByCategory = document.getElementById("rankingsByCategory");
+
+  const topUsersCard = document.getElementById("topUsersCard");
+  const topUsersList = document.getElementById("topUsersList");
+
+  const topRatedList = document.getElementById("topRatedList");
+  const mostList = document.getElementById("mostList");
+
+  const topRatedTabs = document.getElementById("topRatedTabs");
+  const mostTabs = document.getElementById("mostTabs");
+
+  const avgModalEl = document.getElementById("avgRankingModal");
+  const avgModal = avgModalEl ? new bootstrap.Modal(avgModalEl) : null;
+  const avgRankingTitle = document.getElementById("avgRankingTitle");
+  const avgRankingMeta  = document.getElementById("avgRankingMeta");
+  const avgRankingList  = document.getElementById("avgRankingList");
+
+  let currentData = null;
+  let topRatedType = "characters";
+  let mostType = "characters";
+
+  function esc(s){
+    return (s ?? "").toString()
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+
+  function setTabs(container, activeType){
+    container.querySelectorAll(".seg-btn").forEach(b => {
+      b.classList.toggle("active", b.dataset.type === activeType);
+    });
+  }
+
+  async function openAvgRankingModal(categorySlug){
+    if (!avgModal) return;
+
+    const scope = scopeSelect?.value || "me";
+    const url = AVG_RANKING_URL.replace("SLUG_REPLACE", encodeURIComponent(categorySlug))
+              + `?scope=${encodeURIComponent(scope)}`;
+
+    avgRankingTitle.textContent = `Ranking promedio · ${categorySlug}`;
+    avgRankingMeta.textContent = "Cargando…";
+    avgRankingList.innerHTML = `<div class="loading">Cargando…</div>`;
+
+    avgModal.show();
+
+    try{
+      const res = await fetch(url);
+      const data = await res.json().catch(()=> ({}));
+      if (!res.ok || data.ok === false) throw new Error(data.error || ("HTTP " + res.status));
+
+      const n = Number(data.rankings_count || 0);
+      avgRankingMeta.textContent = `${n} rankings creados · ordenado por posición media`;
+
+      const items = data.results || [];
+      avgRankingList.innerHTML = "";
+
+      if (!items.length){
+        avgRankingList.innerHTML = `<div class="loading">Sin datos</div>`;
+        return;
+      }
+
+      items.forEach((it, idx) => {
+        const img = it.img ? esc(it.img) : "";
+        const label = esc(it.label || ("ID " + it.id));
+        const sub = esc(it.subtitle || "");
+        const row = document.createElement("div");
+        row.className = "item-row";
+        row.innerHTML = `
+          <div class="item-left">
+            ${img ? `<img class="item-img" src="${img}" alt="">` : `<div class="item-img"></div>`}
+            <div class="item-meta">
+              <div class="item-title">${idx + 1}. ${label}</div>
+              <div class="item-sub">${sub || "&nbsp;"}</div>
+            </div>
+          </div>
+        `;
+        avgRankingList.appendChild(row);
+      });
+
+    }catch(e){
+      console.error(e);
+      avgRankingMeta.textContent = "Error";
+      avgRankingList.innerHTML = `<div class="loading">Error cargando</div>`;
+    }
+  }
+
+  function renderReviewsBlock(data){
+    const rev = data?.reviews || {};
+    const total = Number(rev.total || 0);
+    const avg = Number(rev.avg || 0);
+
+    if (reviewsTotalPill) reviewsTotalPill.textContent = `${total} total`;
+    if (avgGlobal) avgGlobal.textContent = avg.toFixed(2);
+
+    const by = rev.avg_by_type || {};
+    const ch = by.characters || {avg:0,count:0};
+    const ep = by.episodes || {avg:0,count:0};
+    const lo = by.locations || {avg:0,count:0};
+
+    if (avgChar) avgChar.textContent = `${Number(ch.avg||0).toFixed(2)} ★`;
+    if (avgEp)   avgEp.textContent   = `${Number(ep.avg||0).toFixed(2)} ★`;
+    if (avgLoc)  avgLoc.textContent  = `${Number(lo.avg||0).toFixed(2)} ★`;
+
+    if (countChar) countChar.textContent = `${Number(ch.count||0)} valoraciones`;
+    if (countEp)   countEp.textContent   = `${Number(ep.count||0)} valoraciones`;
+    if (countLoc)  countLoc.textContent  = `${Number(lo.count||0)} valoraciones`;
+
+    const dist = rev.dist || {1:0,2:0,3:0,4:0,5:0};
+    if (!distBars) return;
+
+    distBars.innerHTML = "";
+    for (let stars = 5; stars >= 1; stars--){
+      const n = Number(dist[stars] || 0);
+      const pct = total ? Math.round((n/total)*100) : 0;
+
+      const row = document.createElement("div");
+      row.className = "dist-row";
+      row.innerHTML = `
+        <div>${stars}★</div>
+        <div class="dist-bar"><span style="width:${pct}%;"></span></div>
+        <div class="pct">${pct}%</div>
+      `;
+      distBars.appendChild(row);
+    }
+  }
+
+  function renderRankingsBlock(data){
+    const rk = data?.rankings || {};
+    const total = Number(rk.total || 0);
+    if (rankingsTotalPill) rankingsTotalPill.textContent = `${total} total`;
+
+    const arr = rk.by_category || [];
+    rankingsByCategory.innerHTML = "";
+    if (!arr.length){
+      rankingsByCategory.innerHTML = `<div class="loading">Sin datos</div>`;
+    } else {
+      arr.forEach(x => {
+        const row = document.createElement("div");
+        row.className = "row";
+        row.innerHTML = `
+          <div class="left">
+            <div class="title">${esc(x.category || "—")}</div>
+            <div class="sub"><b>Rankings creados</b></div>
+          </div>
+          <div class="badge-count">${Number(x.count||0)}</div>
+        `;
+        row.addEventListener("click", () => {
+          const slug = (x.slug || x.category || "").toString();
+          if (slug) openAvgRankingModal(slug);
+        });
+        rankingsByCategory.appendChild(row);
+      });
+    }
+
+    const users = rk.top_users || [];
+    if (data?.scope === "global" && users.length){
+      topUsersCard.style.display = "";
+      topUsersList.innerHTML = "";
+      users.forEach(u => {
+        const row = document.createElement("div");
+        row.className = "row";
+        row.innerHTML = `
+          <div class="left">
+            <div class="title">@${esc(u.user || "anon")}</div>
+            <div class="sub">Rankings creados</div>
+          </div>
+          <div class="badge-count">${Number(u.count||0)}</div>
+        `;
+        topUsersList.appendChild(row);
+      });
+    } else {
+      topUsersCard.style.display = "none";
+    }
+  }
+
+  function renderItemsList(host, items, mode){
+    host.innerHTML = "";
+    if (!items || !items.length){
+      host.innerHTML = `<div class="loading">Sin datos</div>`;
+      return;
+    }
+
+    items.forEach(it => {
+      const img = it.img ? esc(it.img) : "";
+      const label = esc(it.label || ("ID " + it.id));
+      const sub = esc(it.subtitle || "");
+      const count = Number(it.count || 0);
+      const avg = (it.avg !== undefined && it.avg !== null) ? Number(it.avg) : null;
+
+      const row = document.createElement("div");
+      row.className = "item-row";
+      row.innerHTML = `
+        <div class="item-left">
+          ${img ? `<img class="item-img" src="${img}" alt="">` : `<div class="item-img"></div>`}
+          <div class="item-meta">
+            <div class="item-title">${label}</div>
+            <div class="item-sub">${sub || "&nbsp;"}</div>
+          </div>
+        </div>
+
+        <div class="chips-mini">
+          ${avg !== null && mode === "top"
+            ? `<span class="chip-mini chip-mini--yellow">${avg.toFixed(2)}★</span>`
+            : ``}
+          <span class="chip-mini chip-mini--blue">Votos: ${count}</span>
+        </div>
+      `;
+      host.appendChild(row);
+    });
+  }
+
+  function renderTopRated(data){
+    const items = data?.reviews?.top_rated?.[topRatedType] || [];
+    renderItemsList(topRatedList, items, "top");
+  }
+
+  function renderMost(data){
+    const items = data?.reviews?.most_reviewed?.[mostType] || [];
+    renderItemsList(mostList, items, "most");
+  }
+
+  async function fetchStats(){
+    const scope = scopeSelect?.value || "me";
+    const url = `${STATS_URL}?scope=${encodeURIComponent(scope)}`;
+
+    rankingsByCategory.innerHTML = `<div class="loading">Cargando…</div>`;
+    topRatedList.innerHTML = `<div class="loading">Cargando…</div>`;
+    mostList.innerHTML = `<div class="loading">Cargando…</div>`;
+    distBars.innerHTML = "";
+
+    refreshBtn.disabled = true;
+    const old = refreshBtn.textContent;
+    refreshBtn.textContent = "Cargando…";
+
+    try{
+      const res = await fetch(url);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) throw new Error(data.error || ("HTTP " + res.status));
+
+      currentData = data;
+      scopeHint.textContent = `Viendo: ${data.scope === "global" ? "Global (Admin)" : "Mi cuenta"}`;
+      page.classList.toggle("is-global", data.scope === "global");
+
+      renderReviewsBlock(data);
+      renderRankingsBlock(data);
+      renderTopRated(data);
+      renderMost(data);
+
+    }catch(e){
+      console.error(e);
+      alert("Error cargando estadísticas");
+    }finally{
+      refreshBtn.disabled = false;
+      refreshBtn.textContent = old;
+    }
+  }
+
+  refreshBtn?.addEventListener("click", fetchStats);
+  scopeSelect?.addEventListener("change", fetchStats);
+
+  topRatedTabs?.addEventListener("click", (e) => {
+    const btn = e.target.closest(".seg-btn");
+    if (!btn) return;
+    topRatedType = btn.dataset.type;
+    setTabs(topRatedTabs, topRatedType);
+    if (currentData) renderTopRated(currentData);
+  });
+
+  mostTabs?.addEventListener("click", (e) => {
+    const btn = e.target.closest(".seg-btn");
+    if (!btn) return;
+    mostType = btn.dataset.type;
+    setTabs(mostTabs, mostType);
+    if (currentData) renderMost(currentData);
+  });
+
+  fetchStats();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,707 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+        /* ===== Reviews scroll container ===== */
+        .reviews-scroll {
+            max-height: 360px; /* ajusta a tu gusto */
+            overflow-y: auto;
+            padding-right: 6px;
+        }
+
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* (opcional) modal body no crece infinito */
+        #characterModal .modal-body {
+            max-height: 75vh;
+            overflow: hidden; /* el scroll solo en reviews */
+        }
+
+        /* (opcional) scrollbar fino */
+        .reviews-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .reviews-scroll::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, .18);
+            border-radius: 999px;
+        }
+
+        .reviews-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .review-card {
+            text-align: left;
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        /* Estrellas grandes + color del botón */
+        .star-ui {
+            font-size: 24px;      
+            line-height: 1;
+            letter-spacing: 1px;
+            user-select: none;
+            color: var(--star-color, #0d6efd); /* fallback */
+        }
+
+        .star-ui:hover {
+            transform: scale(1.08);
+            transition: 120ms;
+        }
+
+        .card-rating{
+              margin-top: 6px;
+              display: flex;
+              gap: 2px;
+              justify-content: center;   /* para que quede como en tu marca */
+              align-items: center;
+            }
+
+            .card-rating .stars{
+              font-size: 18px;
+              color: #f3b300;            /* dorado */
+              line-height: 1;
+            }
+
+            .card-rating .count{
+              font-size: 13px;
+              opacity: .7;
+            }
+    </style>
+{% endblock %}
+
+{% block title %}Characters{% endblock %}
+
+{% block body %}
+    <main id="homePage" class="container">
+
+        <h1>Characters</h1>
+        <p class="subtitle">Valora, comenta y crea tus rankings.</p>
+
+        <!-- Toolbar -->
+        <section class="toolbar">
+            <input id="characterSearchInput" type="text" placeholder="Buscar personaje...">
+
+            <select>
+                <option>A–Z</option>
+                <option>Mejor valorados</option>
+                <option>Más valorados</option>
+            </select>
+
+            <a class="btn-primary" href="{% url 'ranking' %}" style="text-decoration: none; color:black;">＋ Crear ranking</a>
+        </section>
+
+        <div class="layout">
+
+            <!-- Grid cards -->
+            <section class="cards" id="charactersGrid">
+                {% for personaje in personajes %}
+                    <article class="card card-trigger"
+                             role="button"
+                             tabindex="0"
+                             data-bs-toggle="modal"
+                             data-bs-target="#characterModal"
+                             data-id="{{ personaje.id }}"
+                             data-search="{{ personaje.nombre|lower }} {{ personaje.rol|default:''|lower }}"
+                             data-name="{{ personaje.nombre|escape }}"
+                             data-role="{{ personaje.rol|default:'Sin información'|escape }}"
+                             data-age="{{ personaje.edad }}"
+                             data-status="{% if personaje.vivo %}Alive{% else %}Dead{% endif %}"
+                             data-img="{{ personaje.imagen_url|escape }}"
+                             data-quote="{{ personaje.frase|default:''|escape }}"
+                             data-desc="{{ personaje.descripcion|default:''|escape }}"
+                             data-avg="{{ personaje.avg_rating|default_if_none:'' }}"
+                             data-count="{{ personaje.reviews_count|default:0 }}">
+
+                        <div class="avatar-frame">
+                            <img src="{{ personaje.imagen_url }}" alt="{{ personaje.nombre }}">
+                        </div>
+
+                        <h3>{{ personaje.nombre }}</h3>
+
+                        <p class="role">{{ personaje.rol|default:"Sin información" }}</p>
+
+                         {# Media en la card (solo si tiene valoraciones) #}
+                        {% if personaje.reviews_count %}
+                          <div class="card-rating" aria-label="rating">
+                            {% with r=personaje.avg_rating %}
+                              <span class="stars">
+                                {% if r >= 1 %}★{% else %}☆{% endif %}
+                                {% if r >= 2 %}★{% else %}☆{% endif %}
+                                {% if r >= 3 %}★{% else %}☆{% endif %}
+                                {% if r >= 4 %}★{% else %}☆{% endif %}
+                                {% if r >= 5 %}★{% else %}☆{% endif %}
+                              </span>
+                              <span class="count">({{ personaje.reviews_count }})</span>
+                            {% endwith %}
+                          </div>
+                        {% endif %}
+
+                        <div class="chips">
+                            {% if personaje.edad %}
+                                <span class="chip">Age: {{ personaje.edad }}</span>
+                            {% endif %}
+                            {% if personaje.vivo %}
+                                <span class="chip alive">Alive</span>
+                            {% else %}
+                                <span class="chip-dead">Dead</span>
+                            {% endif %}
+                        </div>
+
+
+
+                        {% if personaje.frase %}
+                            <p class="quote">"{{ personaje.frase|truncatewords:10 }}"</p>
+                        {% endif %}
+                    </article>
+                {% empty %}
+                    <p>No hay personajes disponibles.</p>
+                {% endfor %}
+            </section>
+
+            <!-- =========================
+      MODAL: CHARACTER
+ ========================= -->
+            <div class="modal fade" id="characterModal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content" style="border-radius:18px;">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cmTitle">Personaje</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body" style="max-height:75vh; overflow:hidden;">
+
+                            <!-- ESTE DIV CONTROLA EL ANCHO DE LAS DOS COLUMNAS  -->
+                            <div style="
+                              display:grid;
+                              grid-template-columns: 1.2fr .8fr;
+                              gap:16px;
+                              align-items:start;
+                            ">
+
+                                <!-- ================= LEFT: CHARACTER INFO ================= -->
+                                <div>
+                                    <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
+                                        <div style="width:140px;">
+                                            <div class="avatar-frame" style="margin:0;">
+                                                <img id="cmImg" src="" alt=""
+                                                     style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                                            </div>
+                                        </div>
+
+                                        <div style="flex:1; min-width:220px;">
+                                            <p class="role" id="cmRole"></p>
+
+                                            <div class="chips" style="justify-content:flex-start;">
+                                                <span class="chip" id="cmAge"></span>
+                                                <span class="chip" id="cmStatus"></span>
+                                            </div>
+
+                                            <p class="quote" id="cmQuote" style="margin-top:8px;"></p>
+
+                                            <hr style="opacity:.15;">
+                                            <p id="cmDesc" style="line-height:1.5;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ================= RIGHT: REVIEWS ================= -->
+                                <div>
+
+                                <div style="display:flex; align-items:center; justify-content: start; gap:10px;">
+                                     <h6 style="margin:0 0 0 0;">Reviews</h6>
+
+                                    {# edia en el modal #}
+                                    <div id="cmAvgWrap" class="modal-rating" style="display:none;">
+                                      <span id="cmStars" class="stars"></span>
+                                      <span id="cmCount" class="count"></span>
+                                    </div>
+                                </div>
+
+
+                                    <div class="reviews-scroll" style="
+                                                                max-height:220px;
+                                                                overflow-y:auto;
+                                                                padding:10px;
+                                                                padding-right:6px;
+                                                                border:1px solid rgba(0,0,0,.15);
+                                                                border-radius:12px;
+                                                                background:#fff;
+                                                              ">
+                                        <div id="reviewsList"
+                                             class="reviews-list"
+                                             style="text-align:left;"></div>
+                                    </div>
+
+                                    {% if user.is_authenticated %}
+                                        <div style="margin-top:10px;">
+                                            <div style="display:flex; align-items:center; gap:6px; font-size:18px;">
+                                                <div id="starPicker"></div>
+                                                <span class="muted" id="ratingLabel"></span>
+                                            </div>
+
+                                            <textarea id="reviewComment"
+                                                      placeholder="Escribe tu comentario..."
+                                                      style="
+                                                            width:100%;
+                                                            margin-top:6px;
+                                                            padding:8px;
+                                                            border-radius:10px;
+                                                            min-height:70px;
+                                                          "></textarea>
+
+                                            <div style="display:flex; justify-content:flex-end; margin-top:8px;">
+                                                <button class="btn btn-warning btn-sm"
+                                                        id="sendReviewBtn"
+                                                        type="button"
+                                                        style="font-weight:bold;">
+                                                    Enviar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <p class="muted" style="margin-top:10px;">
+                                            Inicia sesión para dejar una review.
+                                        </p>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="icon-btn" type="button" data-bs-dismiss="modal">
+                                Cerrar
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Sidebar -->
+<aside class="sidebar">
+
+  <!-- TOP 5 -->
+  <div class="panel">
+    <div class="panel-title">
+      <span class="panel-icon">🏆</span>
+      <h4>Top 5 Personajes</h4>
+    </div>
+
+    {% if top5 %}
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
+        {% for t in top5 %}
+          <div style="display:flex; gap:10px; align-items:center;">
+            <img src="{{ t.img }}" alt="{{ t.name }}"
+                 style="width:38px; height:38px; border-radius:10px; object-fit:cover; background:#fff;">
+            <div style="flex:1;">
+              <div style="font-weight:600; font-size:14px; line-height:1.2;">
+                {{ forloop.counter }}. {{ t.name }}
+              </div>
+
+              <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                {% with r=t.avg %}
+                  <span style="color:#f3b300; letter-spacing:1px;">
+                    {% if r >= 1 %}★{% else %}☆{% endif %}
+                    {% if r >= 2 %}★{% else %}☆{% endif %}
+                    {% if r >= 3 %}★{% else %}☆{% endif %}
+                    {% if r >= 4 %}★{% else %}☆{% endif %}
+                    {% if r >= 5 %}★{% else %}☆{% endif %}
+                  </span>
+                  <span class="muted" style="font-size:12px;">
+                    {{ t.avg|floatformat:1 }}/5 · ({{ t.count }})
+                  </span>
+                {% endwith %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted">Aún no hay valoraciones.</p>
+    {% endif %}
+  </div>
+
+  <!-- ÚLTIMAS VALORACIONES -->
+  <div class="panel">
+    <div class="panel-title">
+      <span class="panel-icon">💬</span>
+      <h4>Últimas Valoraciones</h4>
+    </div>
+
+    {% if latest_reviews %}
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
+        {% for r in latest_reviews %}
+          <div style="display:flex; gap:10px; align-items:flex-start;">
+            <img src="{{ r.character_img }}" alt="{{ r.character_name }}"
+                 style="width:38px; height:38px; border-radius:10px; object-fit:cover; background:#fff;">
+
+            <div style="flex:1;">
+              <div style="display:flex; justify-content:space-between; gap:10px;">
+                <div style="font-weight:600; font-size:13px;">
+                  @{{ r.user }} · {{ r.character_name }}
+                </div>
+
+                <span style="color:#f3b300; letter-spacing:1px; white-space:nowrap;">
+                  {% with s=r.rating %}
+                    {% if s >= 1 %}★{% else %}☆{% endif %}
+                    {% if s >= 2 %}★{% else %}☆{% endif %}
+                    {% if s >= 3 %}★{% else %}☆{% endif %}
+                    {% if s >= 4 %}★{% else %}☆{% endif %}
+                    {% if s >= 5 %}★{% else %}☆{% endif %}
+                  {% endwith %}
+                </span>
+              </div>
+
+              <div class="muted" style="font-size:12px; margin-top:2px;">
+                {{ r.comment|truncatechars:60 }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted">Aún no hay comentarios.</p>
+    {% endif %}
+  </div>
+
+</aside>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="center">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">« Previus</a>
+            {% endif %}
+
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next »</a>
+            {% endif %}
+        </div>
+
+    </main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const cmStars = document.getElementById("cmStars");
+const cmCount = document.getElementById("cmCount");
+
+function renderStars(el, rating) {
+  const r = Number(rating || 0);
+  let html = "";
+  for (let i = 1; i <= 5; i++) html += (r >= i ? "★" : "☆");
+  el.textContent = html;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!document.getElementById("homePage")) return;
+
+  function applyStarColorFromButtons() {
+    const btn = document.querySelector(".btn-warning") || document.querySelector(".btn-primary");
+    if (!btn) return;
+    const color = getComputedStyle(btn).backgroundColor;
+    document.documentElement.style.setProperty("--star-color", color);
+  }
+  applyStarColorFromButtons();
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+
+  function escapeHtml(str) {
+    return (str ?? "").toString()
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  const searchInput = document.getElementById("characterSearchInput");
+  const grid = document.getElementById("charactersGrid");
+  const pager = document.querySelector(".center");
+  const SEARCH_URL = "{% url 'search_attachables' %}";
+  let searchTimer = null;
+
+  async function remoteSearchCharacters(q){
+    const url = `${SEARCH_URL}?type=character&q=${encodeURIComponent(q)}`;
+    const res = await fetch(url);
+    const data = await res.json().catch(() => ({results: []}));
+    return data.results || [];
+  }
+
+  function renderCharacterResults(items){
+    grid.innerHTML = "";
+
+    if (!items.length){
+      grid.innerHTML = `<p class="muted">Sin resultados</p>`;
+      return;
+    }
+
+    items.forEach(it => {
+      const id = it.id ?? "";
+      const name = it.title || "Personaje";
+      const subtitle = it.subtitle || "Sin información";
+      const img = it.image || "";
+      const age = it.age ?? "";
+      const statusRaw = (it.status ?? "").toString().trim();
+      const hasStatus = statusRaw.length > 0;
+      const alive = statusRaw.toLowerCase() === "alive";
+      const quote = it.quote || "";
+      const desc = it.description || "";
+
+      const card = document.createElement("article");
+      card.className = "card card-trigger";
+      card.setAttribute("role","button");
+      card.setAttribute("tabindex","0");
+      card.setAttribute("data-bs-toggle","modal");
+      card.setAttribute("data-bs-target","#characterModal");
+
+      card.dataset.id = id;
+      card.dataset.search = `${name.toLowerCase()} ${subtitle.toLowerCase()}`;
+      card.dataset.name = name;
+      card.dataset.role = subtitle;
+      card.dataset.age = age;
+      card.dataset.status = hasStatus ? (alive ? "Alive" : "Dead") : "";
+      card.dataset.img = img;
+      card.dataset.quote = quote;
+      card.dataset.desc = desc;
+      card.dataset.avg = "";
+      card.dataset.count = "0";
+      card.dataset.__type = "character";
+
+      const chipsHtml = `
+        <div class="chips">
+          ${age !== "" && age !== null && age !== undefined ? `<span class="chip">Age: ${escapeHtml(age)}</span>` : ``}
+          ${hasStatus ? (alive ? `<span class="chip alive">Alive</span>` : `<span class="chip-dead">Dead</span>`) : ``}
+        </div>
+      `;
+
+      card.innerHTML = `
+        <div class="avatar-frame">
+          <img src="${escapeHtml(img)}" alt="${escapeHtml(name)}">
+        </div>
+
+        <h3>${escapeHtml(name)}</h3>
+        <p class="role">${escapeHtml(subtitle)}</p>
+
+        ${chipsHtml}
+
+        ${quote ? `<p class="quote">"${escapeHtml(quote).split(" ").slice(0,10).join(" ")}"</p>` : ``}
+      `;
+
+      grid.appendChild(card);
+    });
+  }
+
+  async function applySearchRemote(){
+    if (!searchInput || !grid) return;
+
+    const q = (searchInput.value || "").trim();
+
+    if (!q){
+      if (pager) pager.style.display = "";
+      window.location.href = window.location.pathname;
+      return;
+    }
+
+    if (pager) pager.style.display = "none";
+    const items = await remoteSearchCharacters(q);
+    renderCharacterResults(items);
+  }
+
+  searchInput?.addEventListener("input", () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(applySearchRemote, 250);
+  });
+
+  const CHARACTER_REVIEWS_URL = "{% url 'character_reviews' 0 %}";
+  const CREATE_REVIEW_URL = "{% url 'create_character_review' 0 %}";
+
+  const modalEl = document.getElementById("characterModal");
+  if (!modalEl) return;
+
+  const cmTitle = document.getElementById("cmTitle");
+  const cmImg = document.getElementById("cmImg");
+  const cmRole = document.getElementById("cmRole");
+  const cmAge = document.getElementById("cmAge");
+  const cmStatus = document.getElementById("cmStatus");
+  const cmQuote = document.getElementById("cmQuote");
+  const cmDesc = document.getElementById("cmDesc");
+
+  const cmAvgWrap = document.getElementById("cmAvgWrap");
+  const reviewsList = document.getElementById("reviewsList");
+  const starPicker = document.getElementById("starPicker");
+  const ratingLabel = document.getElementById("ratingLabel");
+  const sendReviewBtn = document.getElementById("sendReviewBtn");
+  const reviewComment = document.getElementById("reviewComment");
+
+  let currentCharacterId = null;
+  let selectedRating = 5;
+
+  function renderStarPicker() {
+    if (!starPicker) return;
+    starPicker.innerHTML = "";
+    for (let i = 1; i <= 5; i++) {
+      const sp = document.createElement("span");
+      sp.textContent = i <= selectedRating ? "★" : "☆";
+      sp.className = "star-ui";
+      sp.style.cursor = "pointer";
+      sp.addEventListener("click", () => {
+        selectedRating = i;
+        renderStarPicker();
+      });
+      starPicker.appendChild(sp);
+    }
+    if (ratingLabel) ratingLabel.textContent = `Tu puntuación: ${selectedRating}/5`;
+  }
+
+  function starsText(n) {
+    let s = "";
+    for (let i = 1; i <= 5; i++) s += (i <= n ? "★" : "☆");
+    return s;
+  }
+
+  async function loadReviews(characterId) {
+    if (!reviewsList) return;
+    reviewsList.innerHTML = "<p class='muted'>Cargando reviews...</p>";
+    const url = CHARACTER_REVIEWS_URL.replace("/0/", `/${characterId}/`);
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      const rows = data.results || [];
+      if (!rows.length){
+        reviewsList.innerHTML = "<p class='muted'>Aún no hay reviews.</p>";
+        return;
+      }
+      reviewsList.innerHTML = "";
+      rows.forEach(r => {
+        const card = document.createElement("div");
+        card.className = "card review-card";
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between;">
+            <strong>@${escapeHtml(r.user || "anon")}</strong>
+            <span class="star-ui">${starsText(Number(r.rating || 0))}</span>
+          </div>
+          <div>${escapeHtml(r.comment || "")}</div>
+        `;
+        reviewsList.appendChild(card);
+      });
+    } catch (e) {
+      console.error(e);
+      reviewsList.innerHTML = "<p class='text-danger'>Error cargando reviews</p>";
+    }
+  }
+
+  async function sendReview() {
+    if (!currentCharacterId) return;
+    const comment = reviewComment.value.trim();
+    if (comment.length < 2) return;
+
+    const url = CREATE_REVIEW_URL.replace("/0/", `/${currentCharacterId}/`);
+    const form = new FormData();
+    form.append("rating", String(selectedRating));
+    form.append("comment", comment);
+
+    await fetch(url, {
+      method: "POST",
+      headers: {"X-CSRFToken": getCookie("csrftoken")},
+      body: form
+    });
+
+    reviewComment.value = "";
+    selectedRating = 5;
+    renderStarPicker();
+    loadReviews(currentCharacterId);
+  }
+
+  sendReviewBtn?.addEventListener("click", sendReview);
+  renderStarPicker();
+
+  modalEl.addEventListener("show.bs.modal", (event) => {
+    const trigger = event.relatedTarget;
+    if (!trigger) return;
+
+    const type = trigger.dataset.__type || "character";
+    currentCharacterId = (type === "character") ? (Number(trigger.dataset.id || 0) || null) : null;
+
+    const name = trigger.dataset.name || "";
+    const role = trigger.dataset.role || "";
+    const age = trigger.dataset.age || "";
+    const status = trigger.dataset.status || "";
+    const img = trigger.dataset.img || "";
+    const quote = trigger.dataset.quote || "";
+    const desc = trigger.dataset.desc || "";
+
+    cmTitle.textContent = name;
+    cmImg.src = img || "";
+    cmRole.textContent = role;
+
+    if (age) {
+      cmAge.style.display = "";
+      cmAge.textContent = `Age: ${age}`;
+    } else {
+      cmAge.style.display = "none";
+      cmAge.textContent = "";
+    }
+
+    if (status) {
+      cmStatus.style.display = "";
+      cmStatus.textContent = status;
+      cmStatus.className = (status === "Alive") ? "chip alive" : "chip-dead";
+    } else {
+      cmStatus.style.display = "none";
+      cmStatus.textContent = "";
+    }
+
+    if (quote) {
+      cmQuote.style.display = "";
+      cmQuote.textContent = `"${quote}"`;
+    } else {
+      cmQuote.style.display = "none";
+      cmQuote.textContent = "";
+    }
+
+    cmDesc.textContent = desc || "";
+
+    if (currentCharacterId) {
+      if (cmAvgWrap) cmAvgWrap.style.display = "none";
+      loadReviews(currentCharacterId);
+    } else {
+      if (reviewsList) reviewsList.innerHTML = "<p class='muted'>Este elemento no tiene reviews.</p>";
+      if (cmAvgWrap) cmAvgWrap.style.display = "none";
+    }
+  });
+
+  modalEl.addEventListener("hidden.bs.modal", () => {
+    currentCharacterId = null;
+    if (reviewsList) reviewsList.innerHTML = "";
+    if (reviewComment) reviewComment.value = "";
+    selectedRating = 5;
+    renderStarPicker();
+  });
+
+});
+</script>
+{% endblock %}

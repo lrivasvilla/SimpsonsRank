@@ -1,0 +1,478 @@
+id,name,image_path,town,use
+1,742 Evergreen Terrace,/location/1.webp,Springfield,Residential
+2,Springfield Nuclear Power Plant,/location/2.webp,Springfield,Energy Source
+3,Springfield Elementary School,/location/3.webp,Springfield,Education
+4,Kwik-E-Mart,/location/4.webp,Springfield,Convenience Store
+5,Moe's Tavern,/location/5.webp,Springfield,Bar
+6,Springfield General Hospital,/location/6.webp,Springfield,Hospital
+7,Springfield Town Square,/location/7.webp,Springfield,Square
+8,Springfield Police Station,/location/8.webp,Springfield,Law enforcement
+9,Springfield Cemetery,/location/9.webp,Springfield,Cemetery
+10,Springfield Retirement Castle,/location/10.webp,Springfield,Nursing Home
+11,Krusty Burger,/location/11.webp,,Fast food chain
+12,Krustylu Studios,/location/12.webp,Springfield,Media
+13,Springfield Penitentiary,/location/13.webp,Springfield,Prison
+14,Springfield Mall,/location/14.webp,Springfield,Shops and restaurants
+15,Duff Brewery,/location/15.webp,"Springfield, Capital City",Beer factory
+16,First Church of Springfield,/location/16.webp,Springfield,Place of Worship
+17,Springfield City Zoo,/location/17.webp,Springfield,Zoo
+18,The Android's Dungeon & Baseball Card Shop,/location/18.webp,Springfield,Comic shop
+19,Burns Manor,/location/19.webp,,Residential
+20,Capital City,/location/20.webp,,
+21,Shelbyville,/location/21.webp,,
+22,Springfield Union Station,/location/22.webp,Springfield,Train station
+23,Springfield Subway System,/location/23.webp,Springfield,Transportation
+24,Springfield Opera House,/location/24.webp,Springfield,Hosting operas
+25,Bart's Treehouse,/location/25.webp,Springfield,Treehouse
+26,Springfield Gorge,/location/26.webp,Springfield,Natural tourist attraction
+27,744 Evergreen Terrace,/location/27.webp,Springfield,Residential
+28,12th Avenue,/location/28.webp,Springfield,Street
+29,19 Fish Smell Drive,/location/29.webp,Springfield,Residential
+30,27 Rural Route 9,/location/30.webp,Springfield,Residential
+31,316 Pikeland Ave.,/location/31.webp,Springfield,Residential
+32,3rd Street Station,/location/32.webp,Springfield,Subway station
+33,57 Walnut Street,/location/33.webp,Springfield,Residential
+34,725 Evergreen Terrace,/location/34.webp,Springfield,Residential
+35,732 Evergreen Terrace,/location/35.webp,Springfield,Residential
+36,734 Evergreen Terrace,/location/36.webp,Springfield,Residential
+37,740 Evergreen Terrace (Brown House),/location/37.webp,Springfield,Residential
+38,743 Evergreen Terrace,/location/38.webp,Springfield,Residential
+39,754 Evergreen Terrace,/location/39.webp,Springfield,ResidentialLab
+40,82 Evergreen Terrace,/location/40.webp,Springfield,Residential
+41,Abandoned Lighthouse,/location/41.webp,Springfield,Lighthouse
+42,Abercrombie and Rich,/location/42.webp,Springfield,Shop
+43,Adult Education Annex,/location/43.webp,Springfield,Education Facility
+44,Afghanistan,/location/44.webp,,
+45,"Ah, Fudge! Factory",/location/45.webp,Springfield,Fudge making
+46,Alaska,/location/46.webp,,
+47,Albania,/location/47.webp,,
+48,Algeria,/location/48.webp,,
+49,Alkali Flats,/location/49.webp,Springfield,Natural landmark
+50,All Creatures Great and Cheap,/location/50.webp,Springfield,Pet store inside the Springfield Mall
+51,Alley,/location/51.webp,Springfield and Waverly Hills,
+52,Amazon Rainforest,/location/52.webp,None,
+53,Amish Country,/location/53.webp,,Holiday destination
+54,Another Government Highway Project That Will Never End,/location/54.webp,Springfield,Highway Construction Project
+55,Antarctica,/location/55.webp,,
+56,Antiques,/location/56.webp,Springfield,Antiques store
+57,Aphrodite Inn,/location/57.webp,Springfield,Inn
+58,Apu's apartment,/location/58.webp,Springfield,Residential
+59,Arby's,/location/59.webp,Springfield,Fast food restaurant
+60,Argentina,/location/60.webp,,
+61,Australia,/location/61.webp,,
+62,Austria,/location/62.webp,,
+63,Ayn Rand School for Tots,/location/63.webp,Springfield,Daycare Center
+64,Azerbaijan,/location/64.webp,,
+65,Aztec Theater,/location/65.webp,Springfield,Movie theater
+66,Bachelor Arms,/location/66.webp,Springfield,Apartments
+67,Barney's apartment,/location/67.webp,Springfield,Residential
+68,Barney's Bowlarama,/location/68.webp,Springfield,Bowling
+69,Bart Boulevard,/location/69.webp,Springfield,
+70,Beachwear,/location/70.webp,Springfield,Clothing store
+71,Belarus,/location/71.webp,,
+72,Belgium,/location/72.webp,,
+73,Belize,/location/73.webp,,
+74,Berger's Burgers,/location/74.webp,Springfield,Fast food restaurant
+75,Berlin,/location/75.webp,,
+76,Bermuda,/location/76.webp,,
+77,BetterThanTV.com,/location/77.webp,Springfield,Internet animation studio
+78,Big Ben,/location/78.webp,London,Tourist attraction/Clock tower
+79,Birthplace of Jebediah Springfield,/location/79.webp,Springfield,Birthplace where Jebediah Springfield was born
+80,Blarney Castle,/location/80.webp,Blarney,Castle
+81,Bloaters at the Squidport,/location/81.webp,Springfield,Shop
+82,Blocko Store,/location/82.webp,Springfield,Shop
+83,Bob's RV Round-Up,/location/83.webp,Springfield,RV Dealership
+84,Bob's Victorian House,/location/84.webp,Springfield,Home
+85,Bookaccino's,/location/85.webp,Springfield,Bookstore
+86,Books,/location/86.webp,Springfield,Bookstore
+87,Bosnia and Herzegovina,/location/87.webp,,
+88,Brazil,/location/88.webp,,
+89,Brockway,/location/89.webp,,
+90,Broken-Home Chimney Repair,/location/90.webp,Springfield,Repair store
+91,Brunei,/location/91.webp,,
+92,Builders' Barn,/location/92.webp,Springfield,Hardware store
+93,Burns Family Mausoleum,/location/93.webp,"Springfield Cemetery, Springfield",Tomb
+94,Bush House,/location/94.webp,Springfield,Residential
+95,Buzz Cola Dome,/location/95.webp,Springfield,Football stadium
+96,Caesar's Pow-Wow Casino,/location/96.webp,Near Larva Lake,Gambling
+97,California,/location/97.webp,,
+98,Calmwood Mental Hospital,/location/98.webp,Springfield,Mental hospital
+99,Cambodia,/location/99.webp,,
+100,Canada,/location/100.webp,,
+101,Candy Most Dandy,/location/101.webp,Springfield,Candy store
+102,Capital City Convention Center,/location/102.webp,Capital City,Convention Center
+103,Capital City Stadium,/location/103.webp,Capital City,Sporting Events
+104,Capitol Building,/location/104.webp,Capital City,Government Building
+105,Car Wash,/location/105.webp,Springfield,Car Wash
+106,Casino,/location/106.webp,Las Vegas,Casino
+107,Center for Geriatric Medicine,/location/107.webp,Springfield,Medical Center
+108,Chicago,/location/108.webp,,
+109,Cinnabun,/location/109.webp,Springfield,Restaurant
+110,Clay Jars,/location/110.webp,Springfield,Clay jar store
+111,Coffee Shop (Bowlarama),/location/111.webp,Springfield,Coffeehouse
+112,Coffee Shop (Springfield Heights),/location/112.webp,Springfield,Coffee shop
+113,The Copy Jalopy,/location/113.webp,Springfield,Copying center
+114,Costington's,/location/114.webp,Springfield,Department store
+115,The Creamatorium,/location/115.webp,Springfield,Ice cream parlor
+116,Croatia,/location/116.webp,,
+117,Cypress Creek Elementary School,/location/117.webp,Cypress Creek,School
+118,Cyprus,/location/118.webp,,
+119,D Street,/location/119.webp,Springfield,Road
+120,D'Errico's Market,/location/120.webp,Springfield,market
+121,Denmark,/location/121.webp,,
+122,Department of Motor Vehicles,/location/122.webp,Springfield,Department of Motor Vehicles
+123,Dimwillie's,/location/123.webp,Springfield,Fast Food Restaurant
+124,Diz-Nee Land,/location/124.webp,Springfield,Amusement Park
+125,Donny's Discount Gas,/location/125.webp,Springfield,Gas station
+126,Downtown Springfield,/location/126.webp,,District
+127,"Dr. Julius Hibbert, M.D. Family Practice",/location/127.webp,Springfield,Medical office
+128,Duff Center Arena,/location/128.webp,Springfield,Events
+129,Duff Gardens,/location/129.webp,Springfield,Theme Park
+130,Duff Stadium,/location/130.webp,Springfield,Baseball stadium
+131,Earth,/location/131.webp,,Planet
+132,East Oak Street,/location/132.webp,Springfield,Street
+133,Egypt,/location/133.webp,,
+134,Eiffel Tower,/location/134.webp,Paris,"Observation/radio broadcasting tower, tourist attraction"
+135,Ethiopia,/location/135.webp,,
+136,Evergreen Terrace,/location/136.webp,Springfield,birds eye view of Pressboard Estates
+137,Fat Tony's house,/location/137.webp,Springfield,Residential
+138,Female bought with brown Hair,/location/138.webp,,
+139,Female Teacher,/location/139.webp,,
+140,Female with front seen brown haired petty,/location/140.webp,,
+141,Fiesta Terraces,/location/141.webp,Springfield,Residental
+142,Fiji,/location/142.webp,,
+143,Finland,/location/143.webp,,
+144,First Bank of Springfield,/location/144.webp,Springfield,Bank
+145,Five Corners,/location/145.webp,,Tourist attraction
+146,Florida,/location/146.webp,,
+147,Food Court,/location/147.webp,Springfield,Food court
+148,Fort Fragg,/location/148.webp,Springfield,U.S. Army Base
+149,Fort Springfield,/location/149.webp,Springfield,Military compound
+150,Fortune Megastore,/location/150.webp,Springfield,Department Store
+151,Four Seasons,/location/151.webp,Springfield  Capital City,Hotel
+152,France,/location/152.webp,,
+153,French Polynesia,/location/153.webp,,
+154,The Frying Dutchman,/location/154.webp,Springfield,Seafood restaurant
+155,Gavelby's Auction House,/location/155.webp,Springfield,Auction house
+156,Gay Neighborhood,/location/156.webp,Springfield,District
+157,General Store,/location/157.webp,Springfield,Store
+158,Georgia,/location/158.webp,,
+159,Germany,/location/159.webp,,
+160,Ghana,/location/160.webp,,
+161,Girdles N' Such,/location/161.webp,Springfield,Lingerie
+162,Globex Corporation,/location/162.webp,,
+163,Gold House,/location/163.webp,Springfield,Residential
+164,Grandma's World,/location/164.webp,,Shop
+165,Great Wall of China,/location/165.webp,,Tourist attraction
+166,Greenland,/location/166.webp,,
+167,Grocery Store,/location/167.webp,Springfield,Grocery store
+168,Guinea Pig Rescue Center,/location/168.webp,Springfield,Guinea pig rescue center
+169,Guitar Central,/location/169.webp,Springfield,Musical instrument store
+170,Gulp 'n' Blow,/location/170.webp,Springfield,Fast food restaurant
+171,Gum for Less,/location/171.webp,,Retail
+172,Guyana,/location/172.webp,,
+173,Hailstone's,/location/173.webp,Springfield,Department Store
+174,Hairy Shearers,/location/174.webp,Springfield,Barber shop
+175,Haiti,/location/175.webp,,
+176,Hal's Liquor,/location/176.webp,,Liquor Store
+177,Halloween Headquarters,/location/177.webp,Springfield,Halloween store
+178,Halloween Stage,/location/178.webp,,Stage for introductions
+179,The Happy Sailor Tattoo Parlor,/location/179.webp,Springfield,Tattoo Parlor
+180,The Happy Sumo,/location/180.webp,Springfield,Restaurant
+181,Heaven,/location/181.webp,,
+182,Heavenly Hills Mall,/location/182.webp,Springfield,Shops and restaurants
+183,Heinrich's Monocle Shop,/location/183.webp,,
+184,Hell,/location/184.webp,,Punishment for sinners
+185,Herman's Military Antiques,/location/185.webp,Springfield,Antiques store
+186,Hollywood,/location/186.webp,Los Angeles,District
+187,Hong Kong,/location/187.webp,,
+188,Hooters,/location/188.webp,Springfield,Strip club
+189,Hotel,/location/189.webp,Springfield,Hotel
+190,Hotenhoffer Pharmaceuticals,/location/190.webp,Springfield,Pharmaceuticals
+191,Howard's Flowers,/location/191.webp,Springfield,Shop
+192,Hungary,/location/192.webp,,
+193,The Hungry Hun,/location/193.webp,Springfield,Restaurant
+194,I Can't Believe It's A Law Firm!,/location/194.webp,,
+195,Iceland,/location/195.webp,,
+196,India,/location/196.webp,,
+197,Indonesia,/location/197.webp,,
+198,Industrial Road,/location/198.webp,Springfield,Street
+199,Inspiration Point,/location/199.webp,Springfield,Teenage Makeout Park
+200,Internal Revenue Service,/location/200.webp,,Revenue Service of United States
+201,International Court of Justice,/location/201.webp,The Hague,Court
+202,Iraq,/location/202.webp,,
+203,Ireland,/location/203.webp,,
+204,Italy,/location/204.webp,,
+205,Itchy & Scratchy International,/location/205.webp,Springfield,Cartoon studio
+206,Itchy & Scratchy Land (Theme Park),/location/206.webp,Springfield,Amusement park
+207,Izzy's Deli,/location/207.webp,Springfield,Deli / restaurant
+208,Jake's Unisex Hair Palace,/location/208.webp,Springfield,Hairdressing
+209,Japan,/location/209.webp,,
+210,The Jazz Hole,/location/210.webp,Springfield,Jazz club
+211,Jebediah Springfield Park,/location/211.webp,Springfield,Park
+212,The Jerky Hut,/location/212.webp,,
+213,Jordan (country),/location/213.webp,,
+214,Kamp Krusty (location),/location/214.webp,Springfield,Summer Camp
+215,Kent Brockman's mansion,/location/215.webp,Springfield,Residential
+216,Kentucky Fried Panda,/location/216.webp,Springfield,Fast food restaurant
+217,King Toot's Music Store,/location/217.webp,Springfield,Instrument Store
+218,Krusty's Mansion,/location/218.webp,Springfield,Residential
+219,Krustyland,/location/219.webp,Springfield,Theme park
+220,La Belle Frottage Casino,/location/220.webp,Springfield,Casino
+221,La Maison Derrière,/location/221.webp,Springfield,Burlesque House
+222,Lake Springfield,/location/222.webp,Springfield,Water sportsFormerly: Discarding pollution
+223,The Land of Chocolate,/location/223.webp,,Imaginary land for Homer
+224,Las Vegas,/location/224.webp,,
+225,Lebanon,/location/225.webp,,
+226,Legitimate Businessman's Social Club,/location/226.webp,Springfield,Springfield Mafia hangout / money launder front
+227,LEGOLAND,/location/227.webp,,Theme Park
+228,Lenny Leonard's house,/location/228.webp,,Residential
+229,Little Italy,/location/229.webp,Springfield,District
+230,Little Lisa Recycling Plant,/location/230.webp,Springfield,Recycling Plant
+231,London,/location/231.webp,,
+232,London Eye,/location/232.webp,London,Tourist attraction
+233,Los Angeles,/location/233.webp,,
+234,Lugash's Gym,/location/234.webp,Springfield,Gym
+235,Luigi's,/location/235.webp,Springfield,Restaurant
+236,Magic Palace,/location/236.webp,Springfield,Restaurant
+237,Main Street,/location/237.webp,Springfield,Road
+238,Malaysia,/location/238.webp,,
+239,Mapple,/location/239.webp,,
+240,Mapple Store,/location/240.webp,,
+241,Marine World,/location/241.webp,Springfield,Aquarium
+242,Market,/location/242.webp,Springfield,Market
+243,Marrakech,/location/243.webp,,
+244,Maryland,/location/244.webp,,
+245,Mattress King,/location/245.webp,Springfield,Mattress store
+246,Mayor Quimby's mansion,/location/246.webp,Springfield,Residential
+247,McMahon and Tate Advertising,/location/247.webp,Springfield,Advertising
+248,Merry Widow Insurance Co.,/location/248.webp,Springfield,Life insurance agency
+249,Mexico,/location/249.webp,,
+250,Micronesia,/location/250.webp,,
+251,Moe's Apartment,/location/251.webp,Springfield,Accomodation
+252,Moe's Express,/location/252.webp,Springfield,Bar
+253,Monaco,/location/253.webp,,
+254,Mongolia,/location/254.webp,,
+255,Morocco,/location/255.webp,,
+256,The Murderhorn,/location/256.webp,Springfield,Climbing
+257,National Bank of Springfield,/location/257.webp,Springfield,Bank
+258,Neat & Tidy Piano Movers,/location/258.webp,Springfield,Service/Shop
+259,Netherlands,/location/259.webp,,
+260,New Bedlam Rest Home for the Emotionally Interesting,/location/260.webp,Springfield,Mental hospital
+261,New South Wales,/location/261.webp,,
+262,New York City,/location/262.webp,,
+263,New Zealand,/location/263.webp,,
+264,Nighthawk Diner,/location/264.webp,Springfield,Diner
+265,Noise Land Video Arcade,/location/265.webp,,Arcade
+266,North Haverbrook,/location/266.webp,,
+267,North Korea,/location/267.webp,,
+268,Norway,/location/268.webp,,
+269,Ogdenville,/location/269.webp,,
+270,Old Fishin' Hole,/location/270.webp,Springfield,Fishing
+271,Old Simpson Farm,/location/271.webp,Spittle County,Farm
+272,Old Springfield Library,/location/272.webp,Springfield,Library
+273,Olde Springfield Towne,/location/273.webp,Springfield,Historical site
+274,One Night Stan's,/location/274.webp,Springfield,Night club
+275,One Size Fits All Lingerie,/location/275.webp,Springfield,Lingerie store
+276,Origami Designs,/location/276.webp,Springfield,Origami designs store
+277,Page's Pharmacy,/location/277.webp,Springfield,Pharmacy
+278,Paraguay,/location/278.webp,,
+279,Paris,/location/279.webp,,
+280,Pawn Shop,/location/280.webp,Springfield,Pawning Objects
+281,Pay & Park & Pay,/location/281.webp,Springfield,Parking garage
+282,The Peak Inn,/location/282.webp,Springfield,
+283,Peanut Street Hotel,/location/283.webp,Springfield,Hotel
+284,The Penny Loafer,/location/284.webp,Capital City,Restaurant
+285,People's Republic of China,/location/285.webp,,
+286,Peru,/location/286.webp,,
+287,Pest Bye,/location/287.webp,Shelbyville,Shop
+288,Pharm-Er John’s Pharmaceuticals,/location/288.webp,Springfield,Pharmaceutical manufacturing company
+289,Philippines,/location/289.webp,,
+290,Phineas Q. Butterfat's 5600 Flavors Ice Cream Parlor,/location/290.webp,,
+291,Pillow Factory,/location/291.webp,Springfield,Factory
+292,Planet Hype,/location/292.webp,Springfield,Hollywood-themed restaurant
+293,Plastic Surgery Center,/location/293.webp,Springfield,Plastic surgery clinic
+294,Plato's Republic Casino,/location/294.webp,,Casino
+295,Poland,/location/295.webp,,
+296,Polo Field House,/location/296.webp,Springfield,Polo barn
+297,Poppa Wheelie's,/location/297.webp,"Bakersfield, USA",Bar for bikers
+298,Portugal,/location/298.webp,,
+299,Praiseland,/location/299.webp,Springfield,Theme park
+300,Prince House,/location/300.webp,Springfield,Residential
+301,Psychiatry Row,/location/301.webp,Springfield,Springfield District
+302,Quimbebunkport Estates,/location/302.webp,Springfield,Residential
+303,Repo Depot,/location/303.webp,Springfield,Repossession company
+304,Republican Party Headquarters,/location/304.webp,Springfield,Springfield Republican Party headquarters
+305,Rigel 7,/location/305.webp,,Planet
+306,Rolling Rock,/location/306.webp,Shelbyville,Tourist attraction
+307,Ronald Reagan Reeducation Center,/location/307.webp,San Francisco,Prison
+308,Royal King Trailer Park,/location/308.webp,Spittle County,Trailer park
+309,Royal Majesty for the Obese or Gangly Gentleman,/location/309.webp,Springfield,Tailor shop
+310,Rural Route 9,/location/310.webp,Springfield andSpittle County,Bus Stop
+311,The Rusty Barnacle,/location/311.webp,Springfield,Restaurant
+312,Sabertooth Meadow,/location/312.webp,Springfield,Site of the Heavenly Hills Mall
+313,Santa School,/location/313.webp,Springfield,Teaching mall Santas
+314,Santa's Village,/location/314.webp,Springfield,Theme park
+315,Satan's Anvil,/location/315.webp,Springfield,Desert/Rock Formation
+316,Scrap City,/location/316.webp,Springfield,Processing metal
+317,Second-Best Western Hotel,/location/317.webp,Capital CityNiagara Falls,Hotel
+318,Semi-Painless Dentistry,/location/318.webp,Springfield,Dentist
+319,Sha-Boom Ka-Boom! Cafe,/location/319.webp,Springfield,Restaurant
+320,Shelbyville Orphanage,/location/320.webp,Shelbyville,Orphanage
+321,Shotgun Pete's,/location/321.webp,Springfield,Wedding chapel
+322,Shøp,/location/322.webp,Springfield,Furniture shop
+323,Simply Shoes,/location/323.webp,Springfield,Shoe shop
+324,Simpson House Boat,/location/324.webp,Terror Lake,Houseboat
+325,The Singing Sirloin,/location/325.webp,Springfield,
+326,Sir Putt-A-Lot's Merrie Olde Fun Centre,/location/326.webp,Springfield,Miniature golf course
+327,Sit-N-Rotate,/location/327.webp,Springfield,Restaurant
+328,Skid Row,/location/328.webp,Springfield,Poor district of Springfield
+329,Skinner's House,/location/329.webp,Springfield,Residential
+330,Skip's Diner,/location/330.webp,Springfield,Diner
+331,Skobo's,/location/331.webp,,Restaurant
+332,Slaughter House,/location/332.webp,Springfield,Slaughter house
+333,Sleep-Eazy Motel,/location/333.webp,Springfield,Lodge
+334,Smooches On The Beach,/location/334.webp,Springfield,Resort
+335,South Africa,/location/335.webp,,
+336,South Street Squidport,/location/336.webp,Springfield,Pedestrian mall
+337,Southern Cracker,/location/337.webp,Springfield,Cracker factory
+338,Spain,/location/338.webp,,
+339,Spiffany's,/location/339.webp,Springfield  Aspen,Store
+340,Spinster City Apartments,/location/340.webp,Springfield,Residential
+341,Spittle County,/location/341.webp,,
+342,Sportacus,/location/342.webp,Springfield,Sports equipment store
+343,Sprawl-Mart,/location/343.webp,Springfield,Shopping
+344,Springfield A&M,/location/344.webp,Springfield,Education facility
+345,Springfield Amphitheater,/location/345.webp,Springfield,Arena
+346,Springfield Animal Hospital,/location/346.webp,Springfield,Animal hospital
+347,Springfield Animal Shelter,/location/347.webp,Springfield,Animal shelter
+348,Springfield Arms,/location/348.webp,Springfield,
+349,Springfield Atoms Stadium,/location/349.webp,Springfield,Sporting Events
+350,Springfield Beach,/location/350.webp,Springfield,Beach
+351,Springfield Botanical Gardens,/location/351.webp,Springfield,Botanical garden
+352,Springfield Bowl,/location/352.webp,Springfield,Amphitheater
+353,Springfield Box Factory,/location/353.webp,Springfield,Box factory
+354,Springfield Bridge,/location/354.webp,Springfield,Bridge
+355,Springfield Bus Station,/location/355.webp,Springfield,Transportation
+356,Springfield Children's Hospital,/location/356.webp,Springfield,Hospital
+357,Springfield Civic Center,/location/357.webp,Springfield,Entertainment
+358,Springfield Clamphitheater,/location/358.webp,Springfield,Theater
+359,Springfield Coliseum,/location/359.webp,Springfield,Arena
+360,Springfield Community Center,/location/360.webp,Springfield,Community center
+361,Springfield Community College,/location/361.webp,Springfield,Community college
+362,Springfield Convention Center,/location/362.webp,Springfield,Convention center
+363,Springfield Costume Shop,/location/363.webp,Springfield,Costume shop
+364,Springfield County Court House,/location/364.webp,Springfield,Court house
+365,Springfield County Fair,/location/365.webp,Springfield,Fair
+366,Springfield Dam,/location/366.webp,Springfield,Electricity
+367,Springfield Dinner Theater,/location/367.webp,Springfield,Dinner theater
+368,Springfield Dog Park,/location/368.webp,Springfield,Dog Park
+369,Springfield Downs,/location/369.webp,Springfield,Dog & Horse Racing
+370,Springfield Drive-In,/location/370.webp,Springfield,Drive-in theater
+371,Springfield Dump,/location/371.webp,Springfield,Dump
+372,Springfield Episcopal Church,/location/372.webp,Springfield,Place of Worship
+373,Springfield Fire Department,/location/373.webp,Springfield,Fire Station
+374,Springfield Forest,/location/374.webp,Springfield,"Wildlife refuge, camping, nature reserve"
+375,Springfield Four Seasons,/location/375.webp,Springfield,Luxury Hotel
+376,Springfield Funeral Home,/location/376.webp,Springfield,Funeral parlor
+377,Springfield Glen Country Club,/location/377.webp,Springfield,Country club
+378,Springfield Googolplex Theatres,/location/378.webp,Springfield,Movies
+379,Springfield Harbor,/location/379.webp,Springfield,
+380,Springfield Heights,/location/380.webp,Springfield,
+381,Springfield Heights Institute of Technology,/location/381.webp,Springfield,
+382,Springfield High School,/location/382.webp,Springfield,School
+383,Springfield International Airport,/location/383.webp,Springfield,Transportation
+384,Springfield Martial Arts Academy,/location/384.webp,Springfield,Academy
+385,Springfield Monorail,/location/385.webp,Springfield,Transport
+386,Springfield Museum of Natural History,/location/386.webp,Springfield,Historical
+387,Springfield Mystery Spot,/location/387.webp,Springfield,Tourist attraction
+388,Springfield National Forest,/location/388.webp,Springfield,"Wildlife refuge, camping"
+389,Springfield Observatory,/location/389.webp,Springfield,Observatory
+390,Springfield Office of Unemployment,/location/390.webp,Springfield,Office for unemployed people
+391,Springfield Orphanage,/location/391.webp,Springfield,Orphanage
+392,Springfield Palace of Fine Arts,/location/392.webp,,Art Museum
+393,Springfield Park,/location/393.webp,Springfield,natural grounds
+394,Springfield Pet Cemetery,/location/394.webp,Springfield,Pet cemetery
+395,Springfield Pet Shop,/location/395.webp,Springfield,Pet shop
+396,Springfield Planetarium,/location/396.webp,Springfield,Planetarium
+397,Springfield Plasma Center,/location/397.webp,Springfield,Blood Donation
+398,Springfield Playhouse,/location/398.webp,Springfield,Theater
+399,Springfield Public Library,/location/399.webp,Springfield,Library
+400,Springfield Sign,/location/400.webp,Springfield,Landmark
+401,Springfield Soccer Stadium,/location/401.webp,Springfield,Sports stadium
+402,Springfield Speedway,/location/402.webp,Springfield,Speedway
+403,Springfield Squidport,/location/403.webp,Springfield,
+404,Springfield Stadium,/location/404.webp,Springfield,Sport
+405,Springfield State Prison,/location/405.webp,Springfield,Prison
+406,Springfield Station,/location/406.webp,Springfield,Train station
+407,Springfield Tire Yard,/location/407.webp,Springfield,Tire Dumping
+408,Springfield University,/location/408.webp,Springfield,University
+409,Springfield War Memorial Stadium,/location/409.webp,Springfield,Sport
+410,Springfield Wax Museum,/location/410.webp,Springfield,Wax museum
+411,Springfield YMCA,/location/411.webp,Springfield,Recreation
+412,Springfield's Best And Seattle's Worst Coffee,/location/412.webp,Springfield,Coffee Shop
+413,Springfield's State,/location/413.webp,,
+414,Springsonian Museum,/location/414.webp,Springfield,Museum
+415,Springwarts School of Magicry,/location/415.webp,Springfield,School
+416,Springwood Minimum Security Prison,/location/416.webp,Springfield,Prison
+417,Spuckler Home,/location/417.webp,Springfield,Home/Farm
+418,St. Louis,/location/418.webp,,
+419,Stagnant Springs Health Spa,/location/419.webp,Springfield,Health Spa
+420,Statue of Jebediah Springfield,/location/420.webp,Springfield,Statue
+421,Stonecutter's Daycare Center,/location/421.webp,Springfield,Daycare Center
+422,Stonecutters Lodge,/location/422.webp,Springfield,Headquarters for the Stonecutters
+423,Storytown Village,/location/423.webp,Springfield,Children's theme park
+424,Stu's Disco,/location/424.webp,Springfield,Disco
+425,Suicidal Moron Pass,/location/425.webp,Springfield,Route
+426,Suriname,/location/426.webp,,
+427,Swapper Jack's,/location/427.webp,Springfield,Superstore
+428,Swimming Pool,/location/428.webp,Springfield,Swimming pool
+429,Sydney,/location/429.webp,,
+430,Tahiti,/location/430.webp,,
+431,Taj Mahal,/location/431.webp,Agra,Mausoleum
+432,Tavern on the Scream,/location/432.webp,,Restaurant
+433,Temple Beth Springfield,/location/433.webp,Springfield,Synagogue
+434,The League of Extra Horny Gentlemen,/location/434.webp,Springfield,Gay Bar
+435,The Leftorium,/location/435.webp,,
+436,The Lofts at Springfield Elementary,/location/436.webp,,Residential
+437,The Pimento Grove,/location/437.webp,Springfield,Restaurant
+438,The Seething Sisters,/location/438.webp,Springfield,Restaurant & gas station
+439,The Springfield Shopper Building,/location/439.webp,Springfield,Newspaper publishing
+440,The Tam O'Shanter Connection,/location/440.webp,Springfield,Shop
+441,Tibet,/location/441.webp,,
+442,Tokyo,/location/442.webp,,City
+443,Top It Off,/location/443.webp,Springfield,Store
+444,Towne Centre at Springfielde Glenne,/location/444.webp,Springfield,Shopping Centre
+445,Try-N-Save,/location/445.webp,Springfield,Store
+446,Tunisia,/location/446.webp,,
+447,Turkey,/location/447.webp,,
+448,Uganda,/location/448.webp,,
+449,Ukraine,/location/449.webp,,
+450,Uruguay,/location/450.webp,,
+451,Venezuela,/location/451.webp,,
+452,VHS Village,/location/452.webp,Springfield,Video store
+453,Vietnam,/location/453.webp,,
+454,Vulgari,/location/454.webp,SpringfieldAspen,Jewelry store
+455,Wall E. Weasel's,/location/455.webp,Springfield,Family entertainment center
+456,Washington D.C.,/location/456.webp,,
+457,Waterfront,/location/457.webp,Springfield,Boardwalk
+458,Waverly Hills,/location/458.webp,Springfield,
+459,Waverly Hills Elementary School,/location/459.webp,Waverly Hills,Education
+460,Waynesport,/location/460.webp,,
+461,Wee Monsieur,/location/461.webp,Springfield,Clothing store
+462,West Oak Street,/location/462.webp,Springfield,Street
+463,West Springfield,/location/463.webp,Springfield,Region
+464,White House,/location/464.webp,Washington D.C,"Office for the President, his Cabinet, and the private quarters of the Presidential family"
+465,Willie's shack,/location/465.webp,Springfield,Home
+466,World Trade Center,/location/466.webp,New York City,Buildings
+467,X-Mas Trees Slightly Irregular,/location/467.webp,Springfield,Christmas tree lot
+468,Yale University,/location/468.webp,"New Haven, Connecticut",University
+469,Ye Olde Anchor Shoppe,/location/469.webp,Springfield,
+470,Ye Olde Chocolate Shoppe,/location/470.webp,The Land of Chocolate,Chocolate shop
+471,Ye Olde Off-Ramp Inn,/location/471.webp,Springfield,Inn
+472,Yemen,/location/472.webp,,
+473,Yogurt Nook,/location/473.webp,Springfield,Yogurt store
+474,Yuk-ingham Palace,/location/474.webp,,Joke Shop
+475,Zesty's,/location/475.webp,Springfield,Restaurant
+476,Ziffcorp,/location/476.webp,,
+477,Zip Zap and 'Za Pizza Arcade,/location/477.webp,Springfield,RestaurantArcade

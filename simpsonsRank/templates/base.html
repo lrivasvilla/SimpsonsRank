@@ -1,0 +1,698 @@
+{% load django_bootstrap5 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}The Simpsons Rank{% endblock %}</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon_io/favicon.ico' %}">
+
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+  <!-- CSS propio -->
+  <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    {% block navbar %}
+        {% include "navbar.html" %}
+    {% endblock %}
+
+  {% if messages %}
+    <div class="flash-messages">
+      <div class="container">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% block body %}{% endblock %}
+
+  <!-- =========================
+       MODAL: UPLOAD JSON
+  ========================= -->
+  <div class="modal fade" id="uploadJsonModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="border-radius:18px;">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Upload JSON</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <form method="post" action="{% url 'upload_json' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="modal-body">
+            <p class="text-muted mb-3" style="font-size:14px;">
+              Sube un archivo <strong>.json</strong> para importar datos en MongoDB.
+            </p>
+
+            <label class="form-label">Colección destino</label>
+            <select class="form-select mb-3" name="collection" required>
+              <option value="characters">characters</option>
+              <option value="episodes">episodes</option>
+              <option value="locations">locations</option>
+            </select>
+
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" name="reset" id="id_reset" checked>
+              <label class="form-check-label" for="id_reset">Reset collection (borrar antes de insertar)</label>
+            </div>
+
+            <label for="jsonFile" class="form-label">Archivo JSON</label>
+            <input class="form-control" type="file" id="jsonFile" name="json_file" accept="application/json,.json" required>
+
+            <div class="form-text">Solo se aceptan archivos .json con una lista de documentos</div>
+
+            <div id="uploadError" class="alert alert-danger mt-3" style="display:none; border-radius:14px;"></div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="icon-btn" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-warning">Subir</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       MODAL: CREATE CATEGORY
+  ========================= -->
+  <div class="modal fade" id="createCategoryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content" style="border-radius:18px; overflow:hidden;">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Create category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <form method="post" action="{% url 'create_category' %}" id="createCategoryForm">
+          {% csrf_token %}
+
+          <div class="modal-body">
+            <div class="row g-4">
+
+              <!-- LEFT -->
+              <div class="col-lg-6">
+                <p class="text-muted mb-3" style="font-size:14px;">
+                  Crea una categoría que los usuarios podrán usar al crear sus rankings.
+                </p>
+
+                <label for="catName" class="form-label">Nombre</label>
+                <input type="text" class="form-control mb-2" id="catName" name="name"
+                       placeholder="Ej: Mejores series" maxlength="60" required>
+                <div class="form-text mb-3">
+                  Evita nombres duplicados (si ya existe, puedes renombrarla).
+                </div>
+
+                <label for="catSlug" class="form-label">Slug (opcional)</label>
+                <input type="text" class="form-control mb-3" id="catSlug" name="slug"
+                       placeholder="ej: mejores-series" maxlength="80">
+
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" name="is_active" id="catActive" checked>
+                  <label class="form-check-label" for="catActive">Activa (visible para usuarios)</label>
+                </div>
+
+                <label for="catDesc" class="form-label">Descripción (opcional)</label>
+                <textarea class="form-control" id="catDesc" name="description"
+                          rows="3" placeholder="Breve descripción de la categoría..."></textarea>
+
+                <div id="catError" class="alert alert-danger mt-3" style="display:none; border-radius:14px;"></div>
+              </div>
+
+              <!-- RIGHT -->
+              <div class="col-lg-6">
+                <div class="p-3" style="border:1px solid rgba(0,0,0,.08); border-radius:16px; background:rgba(0,0,0,.02); min-height:420px;">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h6 class="mb-0">Adjuntar contenido</h6>
+                  </div>
+
+                  <ul class="nav nav-pills gap-2 mb-3" id="attachTabs">
+                    <li class="nav-item"><button class="nav-link active" type="button" data-type="character">Personajes</button></li>
+                    <li class="nav-item"><button class="nav-link" type="button" data-type="location">Lugares</button></li>
+                    <li class="nav-item"><button class="nav-link" type="button" data-type="episode">Episodios</button></li>
+                  </ul>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">🔎</span>
+                    <input type="text" class="form-control" id="attachSearch" placeholder="Buscar..." autocomplete="off">
+                  </div>
+
+                  <!-- IMPORTANTE: class attach-grid -->
+                  <div id="attachResults" class="attach-grid"></div>
+
+                  <div class="mt-3">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                      <strong>Seleccionados</strong>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" id="clearSelectedBtn">Limpiar</button>
+                    </div>
+                    <div id="selectedList" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+                  </div>
+
+                  <div id="hiddenInputs"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="icon-btn" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-warning">Create</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       MODAL: CREATE RANKING
+  ========================= -->
+  <div class="modal fade" id="createRankingModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content cr-modal">
+
+        <div class="modal-header cr-header">
+          <h5 class="modal-title">Create Ranking</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <form method="post" action="{% url 'create_ranking' %}" id="createRankingForm">
+          {% csrf_token %}
+
+          <div class="modal-body">
+
+            <label class="form-label">Category</label>
+            <select class="form-select mb-3" name="category" id="rkCategory" required>
+              {% if categories %}
+                {% for c in categories %}
+                  <option value="{{ c.slug }}">{{ c.name }}</option>
+                {% endfor %}
+              {% else %}
+                <option value="general">General</option>
+              {% endif %}
+            </select>
+
+            <label class="form-label">Title</label>
+            <input class="form-control mb-3" type="text" name="title" id="rkTitle"
+                   placeholder="My top..." maxlength="70" required>
+
+            <label class="form-label">Description (optional)</label>
+            <input class="form-control mb-3" type="text" name="description" id="rkDesc"
+                   placeholder="Short description..." maxlength="160">
+
+            <label class="form-label">Items source</label>
+            <select class="form-select mb-3" name="item_type" id="rkType" required>
+              <option value="characters">Characters</option>
+              <option value="episodes">Episodes</option>
+              <option value="locations">Locations</option>
+            </select>
+
+            <label class="form-label">Add item</label>
+            <div class="cr-addrow">
+              <div class="cr-autocomplete">
+                <input class="form-control" type="text" id="rkItemInput" placeholder="Type to search...">
+                <div class="cr-suggest" id="rkSuggest" style="display:none;"></div>
+              </div>
+              <button type="button" class="btn cr-addbtn" id="rkAddBtn">Add</button>
+            </div>
+            <div class="form-text mb-2">Busca y añade elementos. Luego podrás reordenarlos.</div>
+
+            <div class="cr-chips" id="rkChips"></div>
+
+            <div id="rkError" class="alert alert-danger mt-3" style="display:none; border-radius:14px;"></div>
+
+            <input type="hidden" name="items_json" id="rkItemsJson" value="[]">
+
+            <div class="form-check mt-3">
+              <input class="form-check-input" type="checkbox" name="is_public" id="rkPublic" checked>
+              <label class="form-check-label" for="rkPublic">Make ranking public so others can view it</label>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="icon-btn" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-warning">Save Ranking</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  {% block extra_js %}
+
+  <!-- =========================
+       Upload JSON modal validate
+  ========================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const modalEl = document.getElementById("uploadJsonModal");
+      if (!modalEl) return;
+
+      const input = document.getElementById("jsonFile");
+      const errorBox = document.getElementById("uploadError");
+
+      modalEl.addEventListener("shown.bs.modal", () => {
+        if (input) input.value = "";
+        if (errorBox) {
+          errorBox.style.display = "none";
+          errorBox.textContent = "";
+        }
+      });
+
+      input?.addEventListener("change", () => {
+        const file = input.files?.[0];
+        if (!file) return;
+
+        const ok = file.name.toLowerCase().endsWith(".json");
+        if (!ok) {
+          errorBox.textContent = "El archivo debe ser .json";
+          errorBox.style.display = "block";
+          input.value = "";
+        } else {
+          errorBox.style.display = "none";
+          errorBox.textContent = "";
+        }
+      });
+    });
+  </script>
+
+
+  <!-- =========================
+       Auto-close alerts
+  ========================= -->
+  <script>
+    setTimeout(() => {
+      document.querySelectorAll('.alert').forEach(a => {
+        const alert = bootstrap.Alert.getOrCreateInstance(a);
+        alert.close();
+      });
+    }, 4000);
+  </script>
+
+  <!-- =========================
+       Tabs (solo UNA vez, quitamos duplicado)
+  ========================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab)?.classList.add('active');
+        });
+      });
+    });
+  </script>
+
+  <!-- =========================
+       Create Ranking (tu script)
+  ========================= -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const modalEl = document.getElementById("createRankingModal");
+  if (!modalEl) return;
+
+  const typeSel  = document.getElementById("rkType");
+  const inputEl  = document.getElementById("rkItemInput");
+  const suggest  = document.getElementById("rkSuggest");
+  const chipsEl  = document.getElementById("rkChips");
+  const itemsJsonEl = document.getElementById("rkItemsJson");
+  const errorBox = document.getElementById("rkError");
+  const addBtn   = document.getElementById("rkAddBtn");
+
+  let items = []; // {type, id, label}
+  let lastSuggestions = [];
+
+  const showError = (msg) => {
+    errorBox.textContent = msg;
+    errorBox.style.display = "block";
+  };
+  const clearError = () => {
+    errorBox.textContent = "";
+    errorBox.style.display = "none";
+  };
+
+  const syncHidden = () => {
+    itemsJsonEl.value = JSON.stringify(items);
+  };
+
+  const renderChips = () => {
+    chipsEl.innerHTML = "";
+    items.forEach((it, idx) => {
+      const chip = document.createElement("div");
+      chip.className = "cr-chip";
+      chip.innerHTML = `
+        <span>${it.label}</span>
+        <span class="x" title="Remove">×</span>
+      `;
+      chip.querySelector(".x").addEventListener("click", () => {
+        items.splice(idx, 1);
+        syncHidden();
+        renderChips();
+      });
+      chipsEl.appendChild(chip);
+    });
+  };
+
+  const closeSuggest = () => {
+    suggest.style.display = "none";
+    suggest.innerHTML = "";
+    lastSuggestions = [];
+  };
+
+  const openSuggest = (list) => {
+    suggest.innerHTML = "";
+    list.forEach(row => {
+      const div = document.createElement("div");
+      div.className = "cr-suggest-item";
+      div.innerHTML = `
+        <span>${row.label}</span>
+        <span class="cr-suggest-muted">#${row.id}</span>
+      `;
+      div.addEventListener("click", () => {
+        addItem(row);
+        closeSuggest();
+        inputEl.value = "";
+        inputEl.focus();
+      });
+      suggest.appendChild(div);
+    });
+    suggest.style.display = list.length ? "block" : "none";
+    lastSuggestions = list;
+  };
+
+  const addItem = (row) => {
+    clearError();
+    const type = typeSel.value;
+
+    if (items.some(x => x.type === type && String(x.id) === String(row.id))) {
+      showError("Ese item ya está añadido.");
+      return;
+    }
+
+    items.push({ type, id: row.id, label: row.label });
+    syncHidden();
+    renderChips();
+  };
+
+  let t = null;
+  const debounceSearch = (q) => {
+    if (t) clearTimeout(t);
+    t = setTimeout(async () => {
+      const query = (q || "").trim();
+      if (query.length < 2) { closeSuggest(); return; }
+
+      const type = typeSel.value;
+
+      try {
+        const res = await fetch(`/api/search-items/?type=${encodeURIComponent(type)}&q=${encodeURIComponent(query)}`, {
+          headers: {"X-Requested-With": "XMLHttpRequest"}
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        openSuggest(data.results || []);
+      } catch (e) {
+        closeSuggest();
+      }
+    }, 250);
+  };
+
+  addBtn.addEventListener("click", () => {
+    clearError();
+    if (lastSuggestions.length) {
+      addItem(lastSuggestions[0]);
+      inputEl.value = "";
+      closeSuggest();
+      inputEl.focus();
+    } else {
+      showError("Busca y selecciona un item de la lista.");
+    }
+  });
+
+  inputEl.addEventListener("input", (e) => debounceSearch(e.target.value));
+
+  document.addEventListener("click", (e) => {
+    if (!suggest.contains(e.target) && e.target !== inputEl) closeSuggest();
+  });
+
+  modalEl.addEventListener("shown.bs.modal", () => {
+    items = [];
+    syncHidden();
+    renderChips();
+    inputEl.value = "";
+    closeSuggest();
+    clearError();
+    inputEl.focus();
+  });
+
+  typeSel.addEventListener("change", () => {
+    inputEl.value = "";
+    closeSuggest();
+    clearError();
+  });
+
+  document.getElementById("createRankingForm")?.addEventListener("submit", (e) => {
+    const title = (document.getElementById("rkTitle").value || "").trim();
+    if (title.length < 3) {
+      e.preventDefault();
+      showError("El título debe tener al menos 3 caracteres.");
+      return;
+    }
+    if (items.length < 3) {
+      e.preventDefault();
+      showError("Añade al menos 3 items al ranking.");
+      return;
+    }
+  });
+});
+</script>
+
+<!-- =========================
+     SCRIPT: ATTACH SELECTOR (CARDS)
+========================= -->
+<script>
+(function(){
+  const searchUrl = "{% url 'search_attachables' %}";
+  const resultsEl = document.getElementById("attachResults");
+  const searchEl = document.getElementById("attachSearch");
+  const tabsEl = document.getElementById("attachTabs");
+  const selectedEl = document.getElementById("selectedList");
+  const hiddenInputsEl = document.getElementById("hiddenInputs");
+  const clearBtn = document.getElementById("clearSelectedBtn");
+
+  if (!resultsEl || !searchEl || !tabsEl || !selectedEl || !hiddenInputsEl || !clearBtn) return;
+
+  let activeType = "character";
+
+  const selected = {
+    character: new Map(),
+    location: new Map(),
+    episode: new Map(),
+  };
+
+  function labelType(t){
+    if(t==="character") return "personajes";
+    if(t==="location") return "lugares";
+    return "episodios";
+  }
+
+  function escapeHtml(s){
+    return (s||"")
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;");
+  }
+
+  function setActiveTab(type){
+    activeType = type;
+    [...tabsEl.querySelectorAll(".nav-link")].forEach(btn=>{
+      btn.classList.toggle("active", btn.dataset.type === type);
+    });
+    searchEl.value = "";
+    resultsEl.innerHTML = `<div class="text-muted" style="font-size:13px;">Escribe para buscar ${labelType(type)}...</div>`;
+  }
+
+  function renderResults(items){
+    if(!items.length){
+      resultsEl.innerHTML = `<div class="text-muted" style="font-size:13px;">Sin resultados</div>`;
+      return;
+    }
+
+    resultsEl.innerHTML = items.map(it=>{
+      const id = String(it.id);
+
+      // compat backend: title/image/subtitle
+      const name = it.name || it.title || it.label || "";
+      const img  = it.img || it.image || it.photo || "";
+      const subtitle = it.subtitle || it.role || it.meta || it.type_label || "";
+
+      const isAdded = selected[activeType].has(id);
+      const fallbackSub =
+        activeType==="character" ? "Personaje" :
+        activeType==="location" ? "Lugar" : "Episodio";
+
+      const btnClass = isAdded ? "btn-secondary" : "btn-warning";
+      const btnText  = isAdded ? "Añadido" : "Añadir";
+
+      return `
+        <div class="attach-card padbtn">
+          <div class="attach-imgbox">
+            ${img ? `<img src="${escapeHtml(img)}" alt="">` : "—"}
+          </div>
+
+          <p class="attach-name text-truncate">${escapeHtml(name)}</p>
+          <p class="attach-role text-truncate">${escapeHtml(subtitle || fallbackSub)}</p>
+
+          <button type="button"
+            class="btn ${btnClass} attach-btn"
+            data-action="add"
+            data-id="${id}"
+            data-title="${escapeHtml(name)}"
+            data-subtitle="${escapeHtml(subtitle || "")}"
+            data-image="${escapeHtml(img)}">
+            ${btnText}
+          </button>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function renderSelected(){
+    const chips = [];
+    for(const t of ["character","location","episode"]){
+      for(const [id, obj] of selected[t].entries()){
+        chips.push({t, id, ...obj});
+      }
+    }
+
+    if(!chips.length){
+      selectedEl.innerHTML = `<div class="text-muted" style="font-size:13px;">No has seleccionado nada.</div>`;
+    } else {
+      selectedEl.innerHTML = chips.map(c=>{
+        const badge = c.t==="character" ? "P" : (c.t==="location" ? "L" : "E");
+        return `
+          <div class="selected-chip" data-type="${c.t}" data-id="${c.id}">
+            <span class="badge bg-dark">${badge}</span>
+            <span>${escapeHtml(c.title)}</span>
+            <button type="button" aria-label="Quitar" data-action="remove">✕</button>
+          </div>
+        `;
+      }).join("");
+    }
+
+    hiddenInputsEl.innerHTML = "";
+    const mapping = {
+      character: "character_ids[]",
+      location: "location_ids[]",
+      episode: "episode_ids[]",
+    };
+    for(const t of ["character","location","episode"]){
+      for(const id of selected[t].keys()){
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = mapping[t];
+        input.value = id;
+        hiddenInputsEl.appendChild(input);
+      }
+    }
+  }
+
+  async function doSearch(q){
+    if(!q){
+      resultsEl.innerHTML = `<div class="text-muted" style="font-size:13px;">Escribe para buscar ${labelType(activeType)}...</div>`;
+      return;
+    }
+    const url = `${searchUrl}?type=${encodeURIComponent(activeType)}&q=${encodeURIComponent(q)}`;
+    const res = await fetch(url, { headers: {"X-Requested-With":"XMLHttpRequest"} });
+    const data = await res.json();
+    renderResults(data.results || []);
+  }
+
+  // debounce
+  let tmr = null;
+  searchEl.addEventListener("input", ()=>{
+    clearTimeout(tmr);
+    tmr = setTimeout(()=> doSearch(searchEl.value.trim()), 250);
+  });
+
+  tabsEl.addEventListener("click", (e)=>{
+    const btn = e.target.closest(".nav-link");
+    if(!btn) return;
+    setActiveTab(btn.dataset.type);
+  });
+
+  resultsEl.addEventListener("click", (e)=>{
+    const btn = e.target.closest("button[data-action='add']");
+    if(!btn) return;
+
+    const id = String(btn.dataset.id);
+    if(selected[activeType].has(id)) return;
+
+    selected[activeType].set(id, {
+      title: btn.dataset.title,
+      subtitle: btn.dataset.subtitle,
+      image: btn.dataset.image
+    });
+
+    renderSelected();
+
+    btn.classList.remove("btn-warning");
+    btn.classList.add("btn-secondary");
+    btn.textContent = "Añadido";
+  });
+
+  selectedEl.addEventListener("click", (e)=>{
+    const rm = e.target.closest("button[data-action='remove']");
+    if(!rm) return;
+    const chip = e.target.closest(".selected-chip");
+    const type = chip.dataset.type;
+    const id = String(chip.dataset.id);
+
+    selected[type].delete(id);
+    renderSelected();
+
+    if(type === activeType && searchEl.value.trim()){
+      doSearch(searchEl.value.trim());
+    }
+  });
+
+  clearBtn.addEventListener("click", ()=>{
+    selected.character.clear();
+    selected.location.clear();
+    selected.episode.clear();
+    renderSelected();
+    if(searchEl.value.trim()) doSearch(searchEl.value.trim());
+  });
+
+  // init
+  setActiveTab(activeType);
+  renderSelected();
+})();
+</script>
+
+{% endblock %}
+</body>
+</html>

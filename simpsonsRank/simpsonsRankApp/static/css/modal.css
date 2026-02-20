@@ -1,0 +1,87 @@
+.attach-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:18px;
+  max-height: 360px;
+  overflow:auto;
+  padding-right:6px;
+}
+
+.attach-card{
+  background:#fff;
+  border-radius:22px;
+  box-shadow:0 14px 32px rgba(0,0,0,.08);
+  border:1px solid rgba(0,0,0,.06);
+  padding:22px 18px 18px;
+  text-align:center;
+  position:relative;
+  cursor:pointer;
+}
+
+.attach-imgbox{
+  width:150px;
+  height:150px;
+  margin:0 auto 14px;
+  border-radius:22px;
+  background:rgba(0,0,0,.03);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.attach-imgbox img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.attach-name{
+  font-weight:800;
+  font-size:18px;
+  margin:0;
+}
+
+.attach-role{
+  margin:6px 0 14px;
+  font-size:13px;
+  opacity:.7;
+}
+
+.attach-btn{
+  border-radius:12px !important;
+  font-weight:600;
+}
+
+/* chips seleccionados */
+.selected-chip{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  padding:6px 10px;
+  font-size:13px;
+}
+
+.selected-chip button{
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  opacity:.65;
+}
+
+.selected-chip button:hover{
+  opacity:1;
+}
+
+p.page-title{
+  margin-bottom:0;
+}
+
+@media (max-width: 992px){
+  .attach-grid{
+    grid-template-columns:1fr;
+  }
+}

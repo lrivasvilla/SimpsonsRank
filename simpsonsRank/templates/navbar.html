@@ -1,0 +1,297 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <div class="logo">
+        <a class="page-title" href="{% url 'home' %}">The Simpsons rank</a>
+    </div>
+    <nav>
+      <a href="{% url 'home' %}"
+         class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+         Characters
+      </a>
+
+      <a href="{% url 'episodes' %}"
+         class="{% if request.resolver_match.url_name == 'episodes' %}active{% endif %}">
+         Episodes
+      </a>
+        <a href="{% url 'locations' %}"
+         class="{% if request.resolver_match.url_name == 'locations' %}active{% endif %}">
+         Locations
+      </a>
+       <a href="{% url 'ranking' %}"
+         class="{% if request.resolver_match.url_name == 'ranking' %}active{% endif %}">
+         Rankings & Categories
+      </a>
+      <a href="{% url 'statistics_page' %}"
+      class="{% if request.resolver_match.url_name == 'statistics' %}active{% endif %}">
+          Statistics</a>
+    </nav>
+  </div>
+  <div class="nav-right">
+    
+    <div class="dropdown">
+      <button class="dropdown-toggle icon-btn user-btn"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false">
+        👤 {{ user.username }}
+      </button>
+
+
+      <ul class="dropdown-menu dropdown-menu-end">
+          {% if user.is_authenticated and user.is_staff %}
+            <li>
+                <button type="button"
+                        class="dropdown-item"
+                        data-bs-toggle="modal"
+                        data-bs-target="#createCategoryModal">
+                  Create Category
+                </button>
+            </li>
+            {% if user.is_authenticated and user.is_staff %}
+              <li>
+                <button type="button"
+                        class="dropdown-item"
+                        data-bs-toggle="modal"
+                        data-bs-target="#uploadJsonModal">
+                  Upload document
+                </button>
+              </li>
+            {% endif %}
+
+            <li><hr class="dropdown-divider"></li>
+          {% endif %}
+
+          {% if user.is_authenticated %}
+            <li><a class="dropdown-item" href="{% url 'logout_user' %}">Logout</a></li>
+          {% else %}
+            <li><a class="dropdown-item" href="{% url 'do_login' %}">Login</a></li>
+          {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+{% block extra_js %}
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const modalEl = document.getElementById("createCategoryModal");
+  if (!modalEl) return;
+
+  const searchUrl = "{% url 'search_attachables' %}";
+
+  const resultsEl = document.getElementById("attachResults");
+  const searchEl = document.getElementById("attachSearch");
+  const tabsEl = document.getElementById("attachTabs");
+  const selectedEl = document.getElementById("selectedList");
+  const hiddenInputsEl = document.getElementById("hiddenInputs");
+  const clearBtn = document.getElementById("clearSelectedBtn");
+
+  // Si falta algo, no hacemos nada (no rompemos la página)
+  if (!resultsEl || !searchEl || !tabsEl || !selectedEl || !hiddenInputsEl || !clearBtn) return;
+
+  let activeType = "character";
+
+  const selected = {
+    character: new Map(),
+    location: new Map(),
+    episode: new Map(),
+  };
+
+  function labelType(t){
+    if(t==="character") return "personajes";
+    if(t==="location") return "lugares";
+    return "episodios";
+  }
+
+  function escapeHtml(s){
+    return (s||"")
+      .toString()
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+
+  function resetUI(){
+    activeType = "character";
+    selected.character.clear();
+    selected.location.clear();
+    selected.episode.clear();
+    searchEl.value = "";
+    setActiveTab(activeType);
+    renderSelected();
+    resultsEl.innerHTML = `<div class="text-muted" style="font-size:13px;">Escribe para buscar ${labelType(activeType)}...</div>`;
+  }
+
+  function setActiveTab(type){
+    activeType = type;
+    [...tabsEl.querySelectorAll(".nav-link")].forEach(btn=>{
+      btn.classList.toggle("active", btn.dataset.type === type);
+    });
+    searchEl.value = "";
+    resultsEl.innerHTML = `<div class="text-muted" style="font-size:13px;">Escribe para buscar ${labelType(type)}...</div>`;
+  }
+
+  function renderResults(items){
+    if(!items.length){
+      resultsEl.innerHTML = `<div class="text-muted" style="font-size:13px;">Sin resultados</div>`;
+      return;
+    }
+
+    resultsEl.innerHTML = items.map(it=>{
+      const id = String(it.id);
+      const name = it.name || it.title || it.label || "";
+      const img  = it.img || it.image || it.photo || "";
+      const subtitle = it.subtitle || it.role || it.meta || "";
+
+      const isAdded = selected[activeType].has(id);
+      const btnClass = isAdded ? "btn-secondary" : "btn-warning";
+      const btnText  = isAdded ? "Añadido" : "Añadir";
+
+      return `
+        <div class="attach-card">
+          <div class="attach-imgbox">
+            ${img ? `<img src="${escapeHtml(img)}" alt="">` : "—"}
+          </div>
+          <p class="attach-name text-truncate">${escapeHtml(name)}</p>
+          <p class="attach-role text-truncate">${escapeHtml(subtitle)}</p>
+
+          <button type="button"
+            class="btn ${btnClass} attach-btn"
+            data-action="add"
+            data-id="${id}"
+            data-title="${escapeHtml(name)}"
+            data-subtitle="${escapeHtml(subtitle)}"
+            data-image="${escapeHtml(img)}">
+            ${btnText}
+          </button>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function renderSelected(){
+    const chips = [];
+    for(const t of ["character","location","episode"]){
+      for(const [id, obj] of selected[t].entries()){
+        chips.push({t, id, ...obj});
+      }
+    }
+
+    if(!chips.length){
+      selectedEl.innerHTML = `<div class="text-muted" style="font-size:13px;">No has seleccionado nada.</div>`;
+    } else {
+      selectedEl.innerHTML = chips.map(c=>{
+        const badge = c.t==="character" ? "P" : (c.t==="location" ? "L" : "E");
+        return `
+          <div class="selected-chip" data-type="${c.t}" data-id="${c.id}">
+            <span class="badge bg-dark">${badge}</span>
+            <span>${escapeHtml(c.title)}</span>
+            <button type="button" aria-label="Quitar" data-action="remove">✕</button>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // hidden inputs para el POST
+    hiddenInputsEl.innerHTML = "";
+    const mapping = {
+      character: "character_ids[]",
+      location: "location_ids[]",
+      episode: "episode_ids[]",
+    };
+    for(const t of ["character","location","episode"]){
+      for(const id of selected[t].keys()){
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = mapping[t];
+        input.value = id;
+        hiddenInputsEl.appendChild(input);
+      }
+    }
+  }
+
+  async function doSearch(q){
+    if(!q){
+      resultsEl.innerHTML = `<div class="text-muted" style="font-size:13px;">Escribe para buscar ${labelType(activeType)}...</div>`;
+      return;
+    }
+    const url = `${searchUrl}?type=${encodeURIComponent(activeType)}&q=${encodeURIComponent(q)}`;
+    const res = await fetch(url, { headers: {"X-Requested-With":"XMLHttpRequest"} });
+    const data = await res.json();
+    renderResults(data.results || []);
+  }
+
+  // debounce
+  let tmr = null;
+  searchEl.addEventListener("input", ()=>{
+    clearTimeout(tmr);
+    tmr = setTimeout(()=> doSearch(searchEl.value.trim()), 250);
+  });
+
+  tabsEl.addEventListener("click", (e)=>{
+    const btn = e.target.closest(".nav-link");
+    if(!btn) return;
+    setActiveTab(btn.dataset.type);
+  });
+
+  resultsEl.addEventListener("click", (e)=>{
+    const btn = e.target.closest("button[data-action='add']");
+    if(!btn) return;
+
+    const id = String(btn.dataset.id);
+    if(selected[activeType].has(id)) return;
+
+    selected[activeType].set(id, {
+      title: btn.dataset.title,
+      subtitle: btn.dataset.subtitle,
+      image: btn.dataset.image
+    });
+
+    renderSelected();
+
+    btn.classList.remove("btn-warning");
+    btn.classList.add("btn-secondary");
+    btn.textContent = "Añadido";
+  });
+
+  selectedEl.addEventListener("click", (e)=>{
+    const rm = e.target.closest("button[data-action='remove']");
+    if(!rm) return;
+
+    const chip = e.target.closest(".selected-chip");
+    const type = chip.dataset.type;
+    const id = String(chip.dataset.id);
+
+    selected[type].delete(id);
+    renderSelected();
+
+    // si estás buscando, refresca resultados
+    if(type === activeType && searchEl.value.trim()){
+      doSearch(searchEl.value.trim());
+    }
+  });
+
+  clearBtn.addEventListener("click", ()=>{
+    selected.character.clear();
+    selected.location.clear();
+    selected.episode.clear();
+    renderSelected();
+    if(searchEl.value.trim()) doSearch(searchEl.value.trim());
+  });
+
+  // IMPORTANTÍSIMO: reset cada vez que se abre el modal
+  modalEl.addEventListener("shown.bs.modal", () => {
+    resetUI();
+    searchEl.focus();
+  });
+
+  // init base (por si abre sin shown)
+  setActiveTab(activeType);
+  renderSelected();
+});
+</script>
+
+
+{% endblock %}

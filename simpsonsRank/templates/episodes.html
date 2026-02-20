@@ -1,0 +1,672 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<style>
+  /* ===== Reviews scroll container ===== */
+  .reviews-scroll{
+    max-height: 220px;
+    overflow-y:auto;
+    padding:10px;
+    padding-right:6px;
+    border:1px solid rgba(0,0,0,15);
+    border-radius:12px;
+    background:#fff;
+  }
+  .reviews-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .reviews-scroll::-webkit-scrollbar{ width:8px; }
+  .reviews-scroll::-webkit-scrollbar-thumb{
+    background: rgba(0,0,0,18);
+    border-radius:999px;
+  }
+  .reviews-scroll::-webkit-scrollbar-track{ background:transparent; }
+
+  /* Stars: grandes + color del botón */
+  .star-ui{
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: 1px;
+    user-select: none;
+    color: var(--star-color, #0d6efd);
+  }
+  .star-ui:hover{
+    transform: scale(1.08);
+    transition: 120ms;
+  }
+
+  /* Media en CARD (estrellas + count) */
+  .card-rating{
+    margin-top: 6px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-rating .stars{
+    font-size: 18px;
+    color: #f3b300;
+    line-height: 1;
+  }
+  .card-rating .count{
+    font-size: 13px;
+    opacity: .7;
+  }
+
+  /* Media en MODAL (estrellas + count) */
+  .modal-rating{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 0 0;
+  }
+  .modal-rating .stars{
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #f3b300;
+    line-height: 1;
+  }
+  .modal-rating .count{
+    font-size: 13px;
+    opacity: .7;
+  }
+</style>
+{% endblock %}
+
+{% block title %}Episodes{% endblock %}
+
+{% block body %}
+
+<main id="episodesPage" class="container">
+
+  <h1>Episodes</h1>
+  <p class="subtitle">Valora, comenta y crea tus rankings.</p>
+
+  <!-- Toolbar -->
+  <section class="toolbar">
+    <input id="episodeSearchInput" type="text" placeholder="Buscar episodios.">
+
+    <select>
+      <option>A–Z</option>
+      <option>Mejor valorados</option>
+      <option>Más valorados</option>
+    </select>
+
+    <a class="btn-primary" href="{% url 'ranking' %}" style="text-decoration: none; color:black;">＋ Crear ranking</a>
+  </section>
+
+  <div class="layout">
+
+    <!-- Grid cards -->
+    <section class="cards" id="episodesGrid">
+
+      {% for ep in episodios %}
+      <article class="card episode-trigger"
+               role="button"
+               tabindex="0"
+               data-bs-toggle="modal"
+               data-bs-target="#episodeModal"
+               data-id="{{ ep.id }}"
+               data-search="{{ ep.nombre|lower }} season {{ ep.temporada }} ep {{ ep.numero }}"
+               data-name="{{ ep.nombre|escape }}"
+               data-season="{{ ep.temporada }}"
+               data-ep="{{ ep.numero }}"
+               data-year="{% if ep.fecha %}{{ ep.fecha|date:'Y' }}{% endif %}"
+               data-img="{{ ep.imagen_url|escape }}"
+               data-synopsis="{{ ep.sinopsis|default:''|escape }}"
+               data-avg="{{ ep.avg_rating|default_if_none:'' }}"
+               data-count="{{ ep.reviews_count|default:0 }}">
+
+        <div class="avatar-frame">
+          <img src="{{ ep.imagen_url }}" alt="{{ ep.nombre }}">
+        </div>
+
+        <h3>{{ ep.nombre|truncatewords:6 }}</h3>
+
+        <p class="role">
+          Season {{ ep.temporada }} · Ep {{ ep.numero }}<br>
+          {% if ep.fecha %}
+            <span class="muted">{{ ep.fecha }}</span>
+          {% endif %}
+        </p>
+
+        {# Media en la CARD (solo si tiene reviews) #}
+        {% if ep.reviews_count %}
+          <div class="card-rating" aria-label="rating">
+            {% with r=ep.avg_rating %}
+              <span class="stars">
+                {% if r >= 1 %}★{% else %}☆{% endif %}
+                {% if r >= 2 %}★{% else %}☆{% endif %}
+                {% if r >= 3 %}★{% else %}☆{% endif %}
+                {% if r >= 4 %}★{% else %}☆{% endif %}
+                {% if r >= 5 %}★{% else %}☆{% endif %}
+              </span>
+              <span class="count">({{ ep.reviews_count }})</span>
+            {% endwith %}
+          </div>
+        {% endif %}
+
+        <p class="quote">
+          "{{ ep.sinopsis|truncatewords:18 }}"
+        </p>
+      </article>
+      {% empty %}
+        <p>No hay episodios disponibles.</p>
+      {% endfor %}
+
+    </section>
+
+    <!-- MODAL: EPISODE + REVIEWS -->
+    <div class="modal fade" id="episodeModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content" style="border-radius:18px;">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="emTitle">Episodio</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body" style="max-height:75vh; overflow:hidden;">
+            <!-- 2 columnas -->
+            <div style="display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; align-items:start;">
+
+              <!-- LEFT: EPISODE INFO -->
+              <div>
+                <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
+                  <div style="width:180px;">
+                    <div class="avatar-frame" style="margin:0;">
+                      <img id="emImg" src="" alt=""
+                           style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                    </div>
+                  </div>
+
+                  <div style="flex:1; min-width:240px;">
+                    <p class="role" id="emMeta" style="min-height:auto;"></p>
+                    <hr style="opacity:.15;">
+                    <p id="emSynopsis" style="line-height:1.55; margin-top:10px;"></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RIGHT: REVIEWS -->
+              <div>
+
+                <div style="display:flex; justify-content:start; align-items:center; gap:10px;">
+                  <h6 style="margin:0 0 0 0;">Reviews</h6>
+
+                  {# Media en el MODAL (estrellas + count) #}
+                  <div id="emAvgWrap" class="modal-rating" style="display:none;">
+                    <span id="emStars" class="stars"></span>
+                    <span id="emCount" class="count"></span>
+                  </div>
+                </div>
+
+                <div class="reviews-scroll" style="margin-top:8px;">
+                  <div id="episodeReviewsList" class="reviews-list" style="text-align:left;"></div>
+                </div>
+
+                {% if user.is_authenticated %}
+                <div style="margin-top:10px;">
+                  <div style="display:flex; align-items:center; gap:6px; font-size:18px;">
+                    <div id="episodeStarPicker"></div>
+                    <span class="muted" id="episodeRatingLabel"></span>
+                  </div>
+
+                  <textarea id="episodeReviewComment"
+                            placeholder="Escribe tu comentario."
+                            style="width:100%; margin-top:6px; padding:8px; border-radius:10px; min-height:70px;"></textarea>
+
+                  <div style="display:flex; justify-content:flex-end; margin-top:8px;">
+                    <button class="btn btn-warning btn-sm"
+                            id="sendEpisodeReviewBtn"
+                            type="button"
+                            style="font-weight:bold;">
+                      Enviar
+                    </button>
+                  </div>
+                </div>
+                {% else %}
+                  <p class="muted" style="margin-top:10px;">Inicia sesión para dejar una review.</p>
+                {% endif %}
+              </div>
+
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="icon-btn" type="button" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+  <!-- TOP 5 EPISODES -->
+  <div class="panel">
+    <div class="panel-title">
+      <span class="panel-icon">🏆</span>
+      <h4>Top 5 Episodios</h4>
+    </div>
+
+    {% if top5_episodes %}
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
+        {% for e in top5_episodes %}
+          <div style="display:flex; gap:10px; align-items:center;">
+            <img src="{{ e.img }}" alt="{{ e.name }}"
+                 style="width:38px; height:38px; border-radius:10px; object-fit:cover; background:#fff;">
+            <div style="flex:1;">
+              <div style="font-weight:600; font-size:14px;">
+                {{ forloop.counter }}. {{ e.name }}
+              </div>
+
+              <div style="display:flex; align-items:center; gap:8px;">
+                {% with r=e.avg %}
+                  <span style="color:#f3b300;">
+                    {% if r >= 1 %}★{% else %}☆{% endif %}
+                    {% if r >= 2 %}★{% else %}☆{% endif %}
+                    {% if r >= 3 %}★{% else %}☆{% endif %}
+                    {% if r >= 4 %}★{% else %}☆{% endif %}
+                    {% if r >= 5 %}★{% else %}☆{% endif %}
+                  </span>
+                  <span class="muted" style="font-size:12px;">
+                    {{ e.avg|floatformat:1 }}/5 · ({{ e.count }})
+                  </span>
+                {% endwith %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted">Aún no hay valoraciones.</p>
+    {% endif %}
+  </div>
+
+  <!-- ÚLTIMOS COMENTARIOS -->
+  <div class="panel">
+    <div class="panel-title">
+      <span class="panel-icon">💬</span>
+      <h4>Últimos Comentarios</h4>
+    </div>
+
+    {% if latest_episode_comments %}
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
+        {% for r in latest_episode_comments %}
+          <div style="display:flex; gap:10px; align-items:flex-start;">
+            <img src="{{ r.episode_img }}" alt="{{ r.episode_name }}"
+                 style="width:38px; height:38px; border-radius:10px; object-fit:cover; background:#fff;">
+
+            <div style="flex:1;">
+              <div style="display:flex; justify-content:space-between; gap:10px;">
+                <div style="font-weight:600; font-size:13px;">
+                  @{{ r.user }} · {{ r.episode_name }}
+                </div>
+
+                <span style="color:#f3b300; white-space:nowrap;">
+                  {% with s=r.rating %}
+                    {% if s >= 1 %}★{% else %}☆{% endif %}
+                    {% if s >= 2 %}★{% else %}☆{% endif %}
+                    {% if s >= 3 %}★{% else %}☆{% endif %}
+                    {% if s >= 4 %}★{% else %}☆{% endif %}
+                    {% if s >= 5 %}★{% else %}☆{% endif %}
+                  {% endwith %}
+                </span>
+              </div>
+
+              <div class="muted" style="font-size:12px;">
+                {{ r.comment|truncatechars:60 }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted">Aún no hay comentarios.</p>
+    {% endif %}
+  </div>
+
+</aside>
+
+  </div>
+
+  <!-- Pagination -->
+  <div class="center">
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">« Previus</a>
+    {% endif %}
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">Next »</a>
+    {% endif %}
+  </div>
+
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (!document.getElementById("episodesPage")) return;
+
+  function applyStarColorFromButtons(){
+    const btn = document.querySelector(".btn-warning") || document.querySelector(".btn-primary");
+    if (!btn) return;
+    const color = getComputedStyle(btn).backgroundColor;
+    document.documentElement.style.setProperty("--star-color", color);
+  }
+  applyStarColorFromButtons();
+
+  function getCookie(name){
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
+
+  function escapeHtml(str){
+    return (str ?? "").toString()
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+
+  const searchInput = document.getElementById("episodeSearchInput");
+  const grid = document.getElementById("episodesGrid");
+  const pager = document.querySelector(".center");
+  const SEARCH_URL = "{% url 'search_attachables' %}";
+  let searchTimer = null;
+
+  async function remoteSearchEpisodes(q){
+    const url = `${SEARCH_URL}?type=episode&q=${encodeURIComponent(q)}`;
+    const res = await fetch(url);
+    const data = await res.json().catch(() => ({results: []}));
+    return data.results || [];
+  }
+
+  function renderEpisodeResults(items){
+    grid.innerHTML = "";
+
+    if (!items.length){
+      grid.innerHTML = `<p class="muted">Sin resultados</p>`;
+      return;
+    }
+
+    items.forEach(it => {
+      const id = it.id ?? "";
+      const name = it.title || "Episodio";
+      const subtitle = it.subtitle || "";
+      const img = it.image || "";
+
+      const seasonMatch = subtitle.match(/S(\d+)/i);
+      const epMatch = subtitle.match(/E(\d+)/i);
+      const season = seasonMatch ? seasonMatch[1] : "";
+      const ep = epMatch ? epMatch[1] : "";
+
+      const card = document.createElement("article");
+      card.className = "card card-trigger";
+      card.setAttribute("role","button");
+      card.setAttribute("tabindex","0");
+      card.setAttribute("data-bs-toggle","modal");
+      card.setAttribute("data-bs-target","#episodeModal");
+
+      card.dataset.id = id;
+      card.dataset.search = `${name.toLowerCase()} ${subtitle.toLowerCase()}`;
+      card.dataset.name = name;
+      card.dataset.season = season;
+      card.dataset.ep = ep;
+      card.dataset.year = "";
+      card.dataset.img = img;
+      card.dataset.synopsis = it.synopsis || it.description || "";
+      card.dataset.avg = "";
+      card.dataset.count = "0";
+
+      card.innerHTML = `
+        <div class="avatar-frame">
+          <img src="${escapeHtml(img)}" alt="${escapeHtml(name)}">
+        </div>
+
+        <h3>${escapeHtml(name)}</h3>
+        <p class="role">${escapeHtml(subtitle || "Sin información")}</p>
+
+        <div class="chips">
+          <span class="chip">Episodio</span>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+  }
+
+  async function applySearchRemote(){
+    if (!searchInput || !grid) return;
+
+    const q = (searchInput.value || "").trim();
+
+    if (!q){
+      if (pager) pager.style.display = "";
+      window.location.href = window.location.pathname;
+      return;
+    }
+
+    if (pager) pager.style.display = "none";
+    const items = await remoteSearchEpisodes(q);
+    renderEpisodeResults(items);
+  }
+
+  searchInput?.addEventListener("input", () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(applySearchRemote, 250);
+  });
+
+  const EPISODE_REVIEWS_URL = "/api/episodes/0/reviews/";
+  const CREATE_EPISODE_REVIEW_URL = "/api/episodes/0/reviews/create/";
+
+  const modalEl = document.getElementById("episodeModal");
+  if (!modalEl) return;
+
+  const emTitle = document.getElementById("emTitle");
+  const emImg = document.getElementById("emImg");
+  const emMeta = document.getElementById("emMeta");
+  const emSynopsis = document.getElementById("emSynopsis");
+
+  const emAvgWrap = document.getElementById("emAvgWrap");
+  const emStars = document.getElementById("emStars");
+  const emCount = document.getElementById("emCount");
+
+  const reviewsList = document.getElementById("episodeReviewsList");
+  const starPicker = document.getElementById("episodeStarPicker");
+  const ratingLabel = document.getElementById("episodeRatingLabel");
+  const sendBtn = document.getElementById("sendEpisodeReviewBtn");
+  const commentEl = document.getElementById("episodeReviewComment");
+
+  let currentEpisodeId = null;
+  let selectedRating = 5;
+
+  function starsText(n){
+    let s = "";
+    for(let i=1;i<=5;i++) s += (i<=n ? "★" : "☆");
+    return s;
+  }
+
+  function renderStars(el, rating){
+    if (!el) return;
+    const r = Number(rating || 0);
+    let s = "";
+    for (let i=1;i<=5;i++) s += (r >= i ? "★" : "☆");
+    el.textContent = s;
+  }
+
+  function setModalAvgStars(avg, count){
+    if (!emAvgWrap || !emStars || !emCount) return;
+    const c = Number(count || 0);
+    const a = Number(avg || 0);
+    if (c > 0){
+      emAvgWrap.style.display = "";
+      renderStars(emStars, a);
+      emCount.textContent = `(${c})`;
+    } else {
+      emAvgWrap.style.display = "none";
+      emStars.textContent = "";
+      emCount.textContent = "";
+    }
+  }
+
+  function renderStarPicker(){
+    if (!starPicker) return;
+    starPicker.innerHTML = "";
+
+    for(let i=1;i<=5;i++){
+      const sp = document.createElement("span");
+      sp.textContent = i <= selectedRating ? "★" : "☆";
+      sp.className = "star-ui";
+      sp.style.cursor = "pointer";
+      sp.addEventListener("click", () => {
+        selectedRating = i;
+        renderStarPicker();
+      });
+      starPicker.appendChild(sp);
+    }
+
+    if (ratingLabel) ratingLabel.textContent = `Tu puntuación: ${selectedRating}/5`;
+  }
+
+  async function loadReviews(episodeId){
+    if (!reviewsList) return;
+    reviewsList.innerHTML = "<p class='muted'>Cargando reviews...</p>";
+
+    const url = EPISODE_REVIEWS_URL.replace("/0/", `/${episodeId}/`);
+    try{
+      const res = await fetch(url);
+      if(!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      const rows = data.results || [];
+
+      if (rows.length){
+        const sum = rows.reduce((acc, r) => acc + Number(r.rating || 0), 0);
+        const avg = sum / rows.length;
+        setModalAvgStars(avg, rows.length);
+      } else {
+        setModalAvgStars(0, 0);
+      }
+
+      if(!rows.length){
+        reviewsList.innerHTML = "<p class='muted'>Aún no hay reviews. Sé el primero 🙂</p>";
+        return;
+      }
+
+      reviewsList.innerHTML = "";
+      rows.forEach(r => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.style.padding = "12px";
+        card.style.textAlign = "left";
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between; gap:10px; align-items:center;">
+            <strong>@${escapeHtml(r.user || "anon")}</strong>
+            <span class="star-ui">${starsText(Number(r.rating || 0))}</span>
+          </div>
+          <div style="margin-top:6px; text-align:left;">${escapeHtml(r.comment || "")}</div>
+        `;
+        reviewsList.appendChild(card);
+      });
+    }catch(e){
+      console.error(e);
+      reviewsList.innerHTML = "<p class='text-danger'>Error cargando reviews</p>";
+      setModalAvgStars(0, 0);
+    }
+  }
+
+  async function sendReview(){
+    if (!sendBtn || !commentEl) return;
+    if (!currentEpisodeId) return;
+
+    const comment = commentEl.value.trim();
+    if (comment.length < 2){
+      alert("Comentario demasiado corto.");
+      return;
+    }
+
+    const url = CREATE_EPISODE_REVIEW_URL.replace("/0/", `/${currentEpisodeId}/`);
+    const form = new FormData();
+    form.append("rating", String(selectedRating));
+    form.append("comment", comment);
+
+    sendBtn.disabled = true;
+    const old = sendBtn.textContent;
+    sendBtn.textContent = "Enviando...";
+
+    try{
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {"X-CSRFToken": getCookie("csrftoken")},
+        body: form,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) throw new Error(data.error || ("HTTP " + res.status));
+
+      commentEl.value = "";
+      selectedRating = 5;
+      renderStarPicker();
+      await loadReviews(currentEpisodeId);
+    }catch(e){
+      console.error(e);
+      alert("Error enviando review");
+    }finally{
+      sendBtn.disabled = false;
+      sendBtn.textContent = old;
+    }
+  }
+
+  sendBtn?.addEventListener("click", sendReview);
+  renderStarPicker();
+
+  modalEl.addEventListener("show.bs.modal", (event) => {
+    const t = event.relatedTarget;
+    if (!t) return;
+
+    currentEpisodeId = Number(t.dataset.id || 0) || null;
+
+    const name = t.dataset.name || "Episodio";
+    const season = t.dataset.season || "—";
+    const ep = t.dataset.ep || "—";
+    const year = t.dataset.year || "";
+    const img = t.dataset.img || "";
+    const synopsis = t.dataset.synopsis || "Sin sinopsis.";
+
+    const avg = t.dataset.avg || 0;
+    const count = Number(t.dataset.count || 0);
+    setModalAvgStars(avg, count);
+
+    emTitle.textContent = name;
+    emImg.src = img;
+    emImg.alt = name;
+    emMeta.textContent = `Season ${season} · Ep ${ep}` + (year ? ` · ${year}` : "");
+    emSynopsis.textContent = synopsis;
+
+    if (currentEpisodeId) loadReviews(currentEpisodeId);
+    else {
+      reviewsList && (reviewsList.innerHTML = "<p class='muted'>No hay ID de episodio (data-id).</p>");
+      setModalAvgStars(0, 0);
+    }
+  });
+
+  modalEl.addEventListener("hidden.bs.modal", () => {
+    currentEpisodeId = null;
+    if (reviewsList) reviewsList.innerHTML = "";
+    if (commentEl) commentEl.value = "";
+    selectedRating = 5;
+    renderStarPicker();
+    setModalAvgStars(0, 0);
+  });
+});
+</script>
+{% endblock %}

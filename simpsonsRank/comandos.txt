@@ -1,0 +1,33 @@
+cd "C:\Users\DAM\Desktop\GitHub -2DAM\Acceso a datos\simpsonsRank"
+.\.venv\Scripts\Activate.ps1
+pip install django requests
+
+python manage.py startapp simpsonsRankApp
+
+"MovieRank/settings.py (la carpeta interior que tiene settings). Busca INSTALLED_APPS y añade "movieRankApp",:"
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django_mongodb_backend',
+        'HOST': 'mongodb://localhost:27017/',
+        'NAME': 'rankingsafa'
+    }
+}
+
+pip install requests
+python export_simpsons_csv.py
+
+pip install django-bootstrap5
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver 8000
+deactivate
+
+python -m pip install pymongo pandas
+
+pip install pymongo
+
+
+pip install django-mongodb-backend

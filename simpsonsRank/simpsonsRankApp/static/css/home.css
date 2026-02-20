@@ -1,0 +1,546 @@
+:root{
+  --bg:#f5f8ff;
+  --card:#ffffff;
+  --border:rgba(0,0,0,.08);
+  --text:#0f172a;
+  --muted:#64748b;
+  --brand:#f2c100;
+}
+
+/* RESET */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+.muted{
+  color: var(--muted);
+  font-size: 12px;
+}
+/* =========================
+   NAVBAR
+========================= */
+.navbar{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  padding:14px 28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.logo{
+  font-weight:800;
+  font-size:18px;
+    margin:0;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--muted);
+  margin-right:16px;
+  font-weight:600;
+}
+
+nav a.active{
+  color:#7a5d00;
+}
+
+.nav-right{
+  display:flex;
+  gap:10px;
+}
+
+.icon-btn{
+  align-items: center;
+  color:black;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:8px 10px;
+  cursor:pointer;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:32px auto;
+}
+
+h1{
+  font-size:32px;
+}
+
+.subtitle{
+  color:var(--muted);
+  margin-top:6px;
+}
+
+/* =========================
+   TOOLBAR
+========================= */
+.toolbar{
+  display:flex;
+  gap:12px;
+  margin:26px 0;
+}
+
+.toolbar input,
+.toolbar select{
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#fff;
+  font-size:14px;
+  flex:1;
+}
+
+.btn-primary{
+  background:var(--brand);
+  border:none;
+  border-radius:14px;
+  padding:12px 18px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+.layout{
+  display:grid;
+  grid-template-columns: 3fr 1fr;
+  gap:24px;
+}
+
+/* =========================
+   CARDS
+========================= */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap:22px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  transition:.2s ease;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 35px rgba(0,0,0,.14);
+}
+
+.avatar-frame{
+  background:#fff;
+  border-radius:16px;
+  padding:10px;
+  width:120px;
+  height:120px;
+  margin:0 auto 14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.avatar-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+.card h3{
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+.role{
+  color:var(--muted);
+  font-size:14px;
+  min-height:36px;
+}
+
+.chips{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:12px 0;
+}
+
+.chip{
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  font-size:12px;
+  font-weight:700;
+  background: rgb(250, 250, 250);
+}
+
+.chip.alive{
+  background:#dcfce7;
+  color:#166534;
+  border-color:#bbf7d0;
+}
+.chip-dead{
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  font-size:12px;
+  font-weight:700;
+  background: #ffdee2;
+}
+.quote{
+  font-style:italic;
+  color:#6b7280;
+  font-size:13px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.panel{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+}
+
+/* Panel title */
+.panel-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.panel-title h4{
+  font-size:16px;
+}
+
+/* =========================
+   TOP 5
+========================= */
+.top5{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.top5-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.medal{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+  font-size:12px;
+  color:#fff;
+}
+
+.medal-1{ background:#f2c100; }
+.medal-2{ background:#6b7280; }
+.medal-3{ background:#f97316; }
+.medal-4{ background:#d1d5db; color:#6b7280; }
+.medal-5{ background:#e5e7eb; color:#6b7280; }
+
+.top5-name{
+  font-weight:700;
+  font-size:14px;
+  flex:1;
+}
+
+.top5-score{
+  font-weight:800;
+  font-size:13px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.star{
+  color:var(--brand);
+}
+
+/* =========================
+   REVIEWS
+========================= */
+.reviews{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.review-card{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:14px;
+  padding:12px;
+}
+
+.review-header{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.review-user{
+  display:flex;
+  gap:10px;
+}
+.user-btn {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: #000;
+}
+.flash-messages {
+  position: sticky;
+  top: 0;
+  z-index: 1050; /* por encima del contenido */
+}
+
+.avatar{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#2563eb;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  line-height:1;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+
+.user-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.time{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.about{
+  font-size:12px;
+  color:var(--muted);
+}
+
+.review-score{
+  font-weight:800;
+  font-size:13px;
+  display:flex;
+  gap:6px;
+  white-space:nowrap;
+}
+
+.review-text{
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.4;
+  color:#111827;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 5px;
+}
+
+@font-face {
+  font-family: 'SimpsonsFont';
+  src: url('../fonts/Simpsonfont.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.page-title {
+  font-family: 'SimpsonsFont', cursive;
+  font-size: 1.8rem;
+  color: #f7d10a;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+.font-name{
+    color: black !important;
+    font-size: 50px;
+}
+
+
+.result-card{
+    display:flex; gap:10px; align-items:center;
+    border-radius:14px;
+    border: 1px solid rgba(0,0,0,.08);
+    background:#fff;
+    padding:10px;
+}
+.result-thumb{
+    width:44px; height:44px; border-radius:12px;
+    background: rgba(0,0,0,.06);
+    flex: 0 0 44px;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px;
+}
+.result-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.result-meta{ flex:1; min-width:0; }
+.result-title{ font-weight:600; margin:0; line-height:1.2; }
+.result-sub{ margin:0; font-size:12px; opacity:.7; }
+
+.selected-chip{
+    display:flex; align-items:center; gap:8px;
+    border-radius:999px;
+    border:1px solid rgba(0,0,0,.12);
+    background:#fff;
+    padding:6px 10px;
+    font-size:13px;
+}
+.selected-chip button{
+    border:none; background:transparent; cursor:pointer;
+    opacity:.65;
+}
+.selected-chip button:hover{ opacity:1; }
+
+/* Columna derecha del modal */
+.reviews-scroll{
+  max-height: 360px;          /* ajusta a tu gusto */
+  overflow-y: auto;
+  padding-right: 6px;         /* para que no tape el scroll */
+}
+
+/* Opcional: separa mejor las cards */
+.reviews-list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Opcional: scrollbar más fino (Chrome/Edge) */
+.reviews-scroll::-webkit-scrollbar{
+  width: 8px;
+}
+.reviews-scroll::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.18);
+  border-radius: 999px;
+}
+.reviews-scroll::-webkit-scrollbar-track{
+  background: transparent;
+}
+#characterModal .modal-body{
+  max-height: 75vh;
+  overflow: hidden; /* el scroll solo en reviews */
+}
+.review-card{
+  text-align:left;
+  padding:8px 10px;
+  border-radius:10px;
+  font-size:14px;
+}
+/* =========================
+   Characters modal + reviews
+========================= */
+
+#characterModal .modal-body{
+  max-height: 75vh;
+  overflow: hidden; /* el scroll solo en reviews */
+}
+
+/* Columna derecha del modal */
+.reviews-scroll{
+  max-height: 360px;          /* ajusta a tu gusto */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.reviews-list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reviews-scroll::-webkit-scrollbar{
+  width: 8px;
+}
+.reviews-scroll::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.18);
+  border-radius: 999px;
+}
+.reviews-scroll::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+/* Card de review dentro del modal */
+.review-card{
+  text-align:left;
+  padding:8px 10px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+/* Stars */
+.star-ui{
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 1px;
+  user-select: none;
+  color: var(--star-color, var(--brand));
+}
+.star-ui:hover{
+  transform: scale(1.08);
+  transition: 120ms;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+
+@media (max-width: 900px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+}

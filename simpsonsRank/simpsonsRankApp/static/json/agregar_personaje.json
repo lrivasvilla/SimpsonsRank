@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1183,
+    "age": 40,
+    "birthdate": "1984-03-15",
+    "gender": "Male",
+    "name": "Jhonny Pruebas 2",
+    "occupation": "Nuclear Power Plant Worker",
+    "portrait_path": "/character/999.webp",
+    "phrases": [
+      "Not Lenny!",
+      "Ow, my eye!",
+      "Hey Homer!",
+      "Carl, did you see that?",
+      "This cant be good..."
+    ],
+    "status": "Alive",
+    "description": "Personaje de prueba para verificar la importación. Trabaja en la planta nuclear de Springfield y suele aparecer en escenas con Homer."
+  }
+]

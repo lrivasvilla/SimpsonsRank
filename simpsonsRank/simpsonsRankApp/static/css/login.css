@@ -1,0 +1,126 @@
+/* ============================
+   FORMULARIO DJANGO (as_p)
+   ============================ */
+.img-fondo {
+  background-image: url("../image/springfield.jpg") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.filter{
+   backdrop-filter: blur(1px)
+}
+
+.form-container p {
+  margin-bottom: 1.5rem;
+}
+
+.form-container label {
+  font-weight: 100;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-container input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+.card{ position: relative; }
+.card-trigger{
+  position:absolute;
+  inset:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+}
+
+.row-card{
+    display: block;
+    height: 70%;
+}
+
+/* ============================
+   TIPOGRAFIA SIMPSONS
+   ============================ */
+@font-face {
+  font-family: 'SimpsonsFont';
+  src: url('../fonts/Simpsonfont.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.page-title {
+  font-family: 'SimpsonsFont', cursive;
+  font-size: 2.5rem;
+  color: #f7d10a;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow:
+     -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+/* ============================
+   CARD PRINCIPAL
+   ============================ */
+.main-card {
+  border-radius: 25px;
+  background-color: rgba(234, 234, 234, 0.9);
+}
+
+
+/* ============================
+   IMAGEN LATERAL
+   ============================ */
+.img-lateral {
+  width: 60% !important;
+  height: 60% !important;
+  object-fit: contain;
+}
+.form-check-input{
+  width: 20px !important;
+  height: 20px !important;
+  padding: 0 !important;
+}
+
+/* ============================
+   BLOQUEO TOTAL DESDE 1200px
+   ============================ */
+@media (min-width: 1200px) {
+
+  /* Contenedor general NO crece */
+  .login-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Row NO se apila */
+  .layout-row {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  /* Columna del formulario fija */
+  .form-col {
+    flex: 0 0 460px;
+    max-width: 460px;
+  }
+
+  /* Formulario interior fijo */
+  .login-form {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Imagen NO empuja */
+  .img-lateral {
+    max-width: 400px;
+    max-height: 700px;
+  }
+}

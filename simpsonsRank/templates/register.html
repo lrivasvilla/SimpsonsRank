@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% block navbar %}{% endblock %}
+
+{% block body %}
+
+<section class="vh-100 img-fondo">
+
+  <div class="container h-100 login-wrapper">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+
+        <div class="card text-black main-card filter">
+          <div class="card-body p-2">
+            <div class="row justify-content-center layout-row">
+
+              <!-- LEFT: FORM -->
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 form-col">
+
+                <p class="text-center mb-3 mt-2 page-title">
+                  The Simpsons rank
+                </p>
+
+                <form class="mx-1 mx-md-4 mt-2 login-form" method="post">
+                  {% csrf_token %}
+
+                  <div class="form-container">
+
+                  <!-- Username -->
+                  <div class="mb-2">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                  </div>
+
+                  <!-- Email -->
+                  <div class="mb-2">
+                    {{ form.mail.label_tag }}
+                    {{ form.mail }}
+                  </div>
+
+                  <!-- Password -->
+                  <div class="mb-2">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                  </div>
+
+                      <!-- Password repeat -->
+                  <div class="mb-2">
+                    {{ form.password.label_tag }}
+                    {{ form.repeat_password }}
+                  </div>
+
+                  <!-- CHECKBOX ADMIN -->
+                  <div class="form-check mt-3">
+                    <input class="form-check-input"
+                           type="checkbox"
+                           name="is_admin"
+                           id="id_is_admin">
+                    <label class="form-check-label" for="id_is_admin">
+                      Register as admin
+                    </label>
+                  </div>
+
+                </div>
+
+
+                  <div class="d-flex justify-content-center mt-2">
+                    <span>
+                      Back to 
+                      <a href="{% url 'do_login' %}">Login</a>
+                    </span>
+                  </div>
+
+                  <div class="d-flex justify-content-center mt-3 mb-1">
+                    <button type="submit" class="btn btn-warning btn-lg w-100">
+                      Register
+                    </button>
+                  </div>
+                </form>
+
+              </div>
+
+              <!-- RIGHT: IMAGE -->
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex justify-content-center align-items-center order-1 order-lg-2 img-col">
+
+                <!-- DESKTOP IMAGE -->
+                <img src="{% static 'image/portada.jpg' %}"
+                     class="img-fluid rounded-5 d-none d-lg-block img-lateral"
+                     alt="desktop image">
+
+                <!-- MOBILE IMAGE -->
+                <img src="{% static 'image/all-characters.jpg' %}"
+                     class="img-fluid rounded-4 d-block d-lg-none img-lateral"
+                     alt="mobile image">
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% endblock %}

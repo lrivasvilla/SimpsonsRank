@@ -1,0 +1,589 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<style>
+  .reviews-scroll{
+    max-height: 220px;
+    overflow-y:auto;
+    padding:10px;
+    border:1px solid rgba(0,0,0,.15);
+    border-radius:12px;
+    background:#fff;
+  }
+  .reviews-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .reviews-scroll::-webkit-scrollbar{ width:8px; }
+  .reviews-scroll::-webkit-scrollbar-thumb{
+    background: rgba(0,0,0,.18);
+    border-radius:999px;
+  }
+  .reviews-scroll::-webkit-scrollbar-track{ background:transparent; }
+
+  .star-ui{
+    font-size:24px;
+    letter-spacing:1px;
+    color:var(--star-color,#f3b300);
+    cursor:pointer;
+    user-select:none;
+  }
+
+  .card-rating{
+    margin-top:6px;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    align-items:center;
+  }
+  .card-rating .stars{
+    font-size:18px;
+    color:#f3b300;
+  }
+  .card-rating .count{
+    font-size:13px;
+    opacity:.7;
+  }
+
+  .modal-rating{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .modal-rating .stars{
+    font-size:18px;
+    color:#f3b300;
+  }
+  .modal-rating .count{
+    font-size:13px;
+    opacity:.7;
+  }
+
+  .review-card{
+    text-align:left;
+    padding:10px 12px;
+    border-radius:12px;
+    font-size:14px;
+  }
+</style>
+{% endblock %}
+
+{% block title %}Locations{% endblock %}
+
+{% block body %}
+<main id="locationsPage" class="container">
+
+  <h1>Locations</h1>
+  <p class="subtitle">Valora y comenta las localizaciones de Springfield.</p>
+
+  <section class="toolbar">
+    <input id="locationSearchInput" type="text" placeholder="Buscar localización...">
+
+    <select>
+      <option>A–Z</option>
+      <option>Mejor valorados</option>
+      <option>Más valorados</option>
+    </select>
+
+    <a class="btn-primary" href="{% url 'ranking' %}" style="text-decoration:none;color:black;">
+      ＋ Crear ranking
+    </a>
+  </section>
+
+  <div class="layout">
+
+    <!-- CARDS -->
+    <section class="cards" id="locationsGrid">
+      {% for loc in locations %}
+      <article class="card location-trigger"
+        role="button"
+        tabindex="0"
+        data-bs-toggle="modal"
+        data-bs-target="#locationModal"
+        data-id="{{ loc.id }}"
+        data-search="{{ loc.nombre|lower }} {{ loc.pueblo|default:''|lower }} {{ loc.uso|default:''|lower }}"
+        data-name="{{ loc.nombre|escape }}"
+        data-town="{{ loc.pueblo|default:''|escape }}"
+        data-use="{{ loc.uso|default:''|escape }}"
+        data-img="{{ loc.imagen_url|escape }}"
+        data-avg="{{ loc.avg_rating|default_if_none:0 }}"
+        data-count="{{ loc.reviews_count|default:0 }}">
+
+        <div class="avatar-frame">
+          <img src="{{ loc.imagen_url }}" alt="{{ loc.nombre }}">
+        </div>
+
+        <h3>{{ loc.nombre }}</h3>
+        <p class="role">{{ loc.pueblo }} · {{ loc.uso }}</p>
+
+        {% if loc.reviews_count %}
+        <div class="card-rating">
+          {% with r=loc.avg_rating %}
+          <span class="stars">
+            {% if r >= 1 %}★{% else %}☆{% endif %}
+            {% if r >= 2 %}★{% else %}☆{% endif %}
+            {% if r >= 3 %}★{% else %}☆{% endif %}
+            {% if r >= 4 %}★{% else %}☆{% endif %}
+            {% if r >= 5 %}★{% else %}☆{% endif %}
+          </span>
+          <span class="count">({{ loc.reviews_count }})</span>
+          {% endwith %}
+        </div>
+        {% endif %}
+      </article>
+      {% empty %}
+        <p class="muted">No hay localizaciones disponibles.</p>
+      {% endfor %}
+    </section>
+
+    <!-- SIDEBAR (si la usas) -->
+    <aside class="sidebar">
+      <div class="panel">
+        <div class="panel-title">
+          <span class="panel-icon">🏆</span>
+          <h4>Top 5 Lugares</h4>
+        </div>
+
+        {% if top5_locations %}
+          <div style="display:flex; flex-direction:column; gap:12px; margin-top:12px;">
+            {% for l in top5_locations %}
+              <div style="display:flex; gap:12px; align-items:center;">
+                <img src="{{ l.img }}" alt="{{ l.name }}"
+                     style="width:44px;height:44px;border-radius:12px;object-fit:cover;background:#fff;flex:0 0 auto;">
+                <div style="flex:1; min-width:0;">
+                  <div style="font-weight:800; font-size:14px; line-height:1.2;">
+                    {{ forloop.counter }}. {{ l.name }}
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
+                    {% with r=l.avg %}
+                      <span style="color:#f3b300; letter-spacing:1px; line-height:1;">
+                        {% if r >= 1 %}★{% else %}☆{% endif %}
+                        {% if r >= 2 %}★{% else %}☆{% endif %}
+                        {% if r >= 3 %}★{% else %}☆{% endif %}
+                        {% if r >= 4 %}★{% else %}☆{% endif %}
+                        {% if r >= 5 %}★{% else %}☆{% endif %}
+                      </span>
+                      <span class="muted" style="font-size:12px;">
+                        {{ l.avg|floatformat:1 }}/5 · ({{ l.count }})
+                      </span>
+                    {% endwith %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="muted">Aún no hay valoraciones.</p>
+        {% endif %}
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <span class="panel-icon">💬</span>
+          <h4>Últimos Comentarios</h4>
+        </div>
+
+        {% if latest_location_comments %}
+          <div style="display:flex; flex-direction:column; gap:14px; margin-top:12px;">
+            {% for r in latest_location_comments %}
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <img src="{{ r.location_img }}" alt="{{ r.location_name }}"
+                     style="width:44px;height:44px;border-radius:12px;object-fit:cover;background:#fff;flex:0 0 auto;">
+                <div style="flex:1; min-width:0;">
+                  <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
+                    <div style="font-weight:800; font-size:13px; line-height:1.2;">
+                      @{{ r.user }} · {{ r.location_name }}
+                    </div>
+                    <span style="color:#f3b300; letter-spacing:1px; white-space:nowrap; line-height:1;">
+                      {% with s=r.rating %}
+                        {% if s >= 1 %}★{% else %}☆{% endif %}
+                        {% if s >= 2 %}★{% else %}☆{% endif %}
+                        {% if s >= 3 %}★{% else %}☆{% endif %}
+                        {% if s >= 4 %}★{% else %}☆{% endif %}
+                        {% if s >= 5 %}★{% else %}☆{% endif %}
+                      {% endwith %}
+                    </span>
+                  </div>
+                  <div class="muted" style="font-size:12px; margin-top:4px;">
+                    {{ r.comment|truncatechars:60 }}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="muted">Aún no hay comentarios.</p>
+        {% endif %}
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- MODAL COMPLETO -->
+  <div class="modal fade" id="locationModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content" style="border-radius:18px;">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="lmTitle">Lugar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body" style="max-height:75vh; overflow:hidden;">
+          <div style="display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; align-items:start;">
+
+            <!-- LEFT -->
+            <div>
+              <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
+                <div style="width:180px;">
+                  <div class="avatar-frame" style="margin:0;">
+                    <img id="lmImg" src="" alt=""
+                         style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+                  </div>
+                </div>
+
+                <div style="flex:1; min-width:240px;">
+                  <p class="role" id="lmMeta" style="min-height:auto;"></p>
+
+                  <div class="modal-rating" id="lmAvgWrap" style="display:none; margin:8px 0 0 0;">
+                    <span class="stars" id="lmStars"></span>
+                    <span class="count" id="lmCount"></span>
+                  </div>
+
+                  <hr style="opacity:.15;">
+                  <p id="lmDesc" class="muted" style="line-height:1.55; margin-top:10px;">
+                    <!-- si luego quieres descripción real -->
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: REVIEWS -->
+            <div>
+              <h6 style="margin:0 0 8px 0;">Reviews</h6>
+
+              <div class="reviews-scroll">
+                <div id="locationReviewsList" class="reviews-list" style="text-align:left;"></div>
+              </div>
+
+              {% if user.is_authenticated %}
+              <div style="margin-top:10px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div id="locationStarPicker"></div>
+                  <span class="muted" id="locationRatingLabel"></span>
+                </div>
+
+                <textarea id="locationReviewComment"
+                          placeholder="Escribe tu comentario..."
+                          style="width:100%; margin-top:6px; padding:8px; border-radius:10px; min-height:70px;"></textarea>
+
+                <div style="display:flex; justify-content:flex-end; margin-top:8px;">
+                  <button class="btn btn-warning btn-sm"
+                          id="sendLocationReviewBtn"
+                          type="button"
+                          style="font-weight:bold;">
+                    Enviar
+                  </button>
+                </div>
+              </div>
+              {% else %}
+                <p class="muted" style="margin-top:10px;">Inicia sesión para dejar una review.</p>
+              {% endif %}
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="icon-btn" type="button" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (!document.getElementById("locationsPage")) return;
+
+  function getCookie(name){
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return "";
+  }
+
+  function escapeHtml(str){
+    return (str ?? "").toString()
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+
+  const searchInput = document.getElementById("locationSearchInput");
+  const grid = document.getElementById("locationsGrid");
+  const pager = document.querySelector(".center");
+  const SEARCH_URL = "{% url 'search_attachables' %}";
+  let searchTimer = null;
+
+  async function remoteSearchLocations(q){
+    const url = `${SEARCH_URL}?type=location&q=${encodeURIComponent(q)}`;
+    const res = await fetch(url);
+    const data = await res.json().catch(() => ({results: []}));
+    return data.results || [];
+  }
+
+  function renderLocationResults(items){
+    grid.innerHTML = "";
+
+    if (!items.length){
+      grid.innerHTML = `<p class="muted">Sin resultados</p>`;
+      return;
+    }
+
+    items.forEach(it => {
+      const id = it.id ?? "";
+      const name = it.title || "Lugar";
+      const subtitle = it.subtitle || "";
+      const img = it.image || "";
+
+      const town = subtitle || "";
+      const use = it.use || it.purpose || "";
+
+      const card = document.createElement("article");
+      card.className = "card card-trigger";
+      card.setAttribute("role","button");
+      card.setAttribute("tabindex","0");
+      card.setAttribute("data-bs-toggle","modal");
+      card.setAttribute("data-bs-target","#locationModal");
+
+      card.dataset.id = id;
+      card.dataset.search = `${name.toLowerCase()} ${town.toLowerCase()} ${use.toLowerCase()}`;
+      card.dataset.name = name;
+      card.dataset.town = town;
+      card.dataset.use = use;
+      card.dataset.img = img;
+      card.dataset.avg = "";
+      card.dataset.count = "0";
+
+      card.innerHTML = `
+        <div class="avatar-frame">
+          <img src="${escapeHtml(img)}" alt="${escapeHtml(name)}">
+        </div>
+
+        <h3>${escapeHtml(name)}</h3>
+        <p class="role">${escapeHtml(town || use || "Sin información")}</p>
+
+        <div class="chips">
+          <span class="chip">Lugar</span>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+  }
+
+  async function applySearchRemote(){
+    if (!searchInput || !grid) return;
+
+    const q = (searchInput.value || "").trim();
+
+    if (!q){
+      if (pager) pager.style.display = "";
+      window.location.href = window.location.pathname;
+      return;
+    }
+
+    if (pager) pager.style.display = "none";
+    const items = await remoteSearchLocations(q);
+    renderLocationResults(items);
+  }
+
+  searchInput?.addEventListener("input", () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(applySearchRemote, 250);
+  });
+
+  const LOCATION_REVIEWS_URL = "{% url 'location_reviews' 0 %}";
+  const CREATE_LOCATION_REVIEW_URL = "{% url 'create_location_review' 0 %}";
+
+  const modalEl = document.getElementById("locationModal");
+  if (!modalEl) return;
+
+  const lmTitle = document.getElementById("lmTitle");
+  const lmImg = document.getElementById("lmImg");
+  const lmMeta = document.getElementById("lmMeta");
+  const lmDesc = document.getElementById("lmDesc");
+
+  const lmAvgWrap = document.getElementById("lmAvgWrap");
+  const lmStars = document.getElementById("lmStars");
+  const lmCount = document.getElementById("lmCount");
+
+  const reviewsList = document.getElementById("locationReviewsList");
+  const starPicker = document.getElementById("locationStarPicker");
+  const ratingLabel = document.getElementById("locationRatingLabel");
+  const commentEl = document.getElementById("locationReviewComment");
+  const sendBtn = document.getElementById("sendLocationReviewBtn");
+
+  let currentLocationId = null;
+  let selectedRating = 5;
+
+  function renderStarsText(rating){
+    rating = Number(rating || 0);
+    let s = "";
+    for(let i=1;i<=5;i++) s += (rating >= i ? "★" : "☆");
+    return s;
+  }
+
+  function setAvg(avg, count){
+    const c = Number(count || 0);
+    const a = Number(avg || 0);
+    if (c > 0){
+      lmAvgWrap.style.display = "";
+      lmStars.textContent = renderStarsText(a);
+      lmCount.textContent = `(${c})`;
+    } else {
+      lmAvgWrap.style.display = "none";
+      lmStars.textContent = "";
+      lmCount.textContent = "";
+    }
+  }
+
+  function renderPicker(){
+    if (!starPicker) return;
+    starPicker.innerHTML = "";
+    for(let i=1;i<=5;i++){
+      const s = document.createElement("span");
+      s.textContent = i <= selectedRating ? "★" : "☆";
+      s.className = "star-ui";
+      s.addEventListener("click", () => {
+        selectedRating = i;
+        renderPicker();
+      });
+      starPicker.appendChild(s);
+    }
+    if (ratingLabel) ratingLabel.textContent = `Tu puntuación: ${selectedRating}/5`;
+  }
+
+  async function loadReviews(id){
+    if (!reviewsList) return;
+    reviewsList.innerHTML = "<p class='muted'>Cargando reviews...</p>";
+
+    const url = LOCATION_REVIEWS_URL.replace("/0/", `/${id}/`);
+    try{
+      const res = await fetch(url);
+      if(!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      const rows = data.results || [];
+
+      if(!rows.length){
+        setAvg(0,0);
+        reviewsList.innerHTML = "<p class='muted'>Aún no hay reviews. Sé el primero 🙂</p>";
+        return;
+      }
+
+      const avg = rows.reduce((a,r)=>a+Number(r.rating||0),0)/rows.length;
+      setAvg(avg, rows.length);
+
+      reviewsList.innerHTML = "";
+      rows.forEach(r=>{
+        const card = document.createElement("div");
+        card.className = "card review-card";
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between; gap:10px; align-items:center;">
+            <strong>@${escapeHtml(r.user || "anon")}</strong>
+            <span style="color:#f3b300; letter-spacing:1px;">${renderStarsText(Number(r.rating||0))}</span>
+          </div>
+          <div style="margin-top:6px;">${escapeHtml(r.comment || "")}</div>
+        `;
+        reviewsList.appendChild(card);
+      });
+
+    }catch(e){
+      console.error(e);
+      reviewsList.innerHTML = "<p class='text-danger'>Error cargando reviews</p>";
+    }
+  }
+
+  sendBtn?.addEventListener("click", async () => {
+    if (!currentLocationId) return;
+
+    const comment = (commentEl?.value || "").trim();
+    if (comment.length < 2){
+      alert("Comentario demasiado corto.");
+      return;
+    }
+
+    const url = CREATE_LOCATION_REVIEW_URL.replace("/0/", `/${currentLocationId}/`);
+    const fd = new FormData();
+    fd.append("rating", String(selectedRating));
+    fd.append("comment", comment);
+
+    sendBtn.disabled = true;
+    const old = sendBtn.textContent;
+    sendBtn.textContent = "Enviando...";
+
+    try{
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {"X-CSRFToken": getCookie("csrftoken")},
+        body: fd
+      });
+      const data = await res.json().catch(()=> ({}));
+      if(!res.ok || data.ok === false) throw new Error(data.error || ("HTTP " + res.status));
+
+      commentEl.value = "";
+      selectedRating = 5;
+      renderPicker();
+      await loadReviews(currentLocationId);
+
+    }catch(e){
+      console.error(e);
+      alert("Error enviando review");
+    }finally{
+      sendBtn.disabled = false;
+      sendBtn.textContent = old;
+    }
+  });
+
+  renderPicker();
+
+  modalEl.addEventListener("show.bs.modal", (e) => {
+    const t = e.relatedTarget;
+    if (!t) return;
+
+    currentLocationId = Number(t.dataset.id || 0) || null;
+
+    lmTitle.textContent = t.dataset.name || "Lugar";
+    lmImg.src = t.dataset.img || "";
+    lmImg.alt = t.dataset.name || "Lugar";
+    lmMeta.textContent = `${t.dataset.town || ""}${(t.dataset.town && t.dataset.use) ? " · " : ""}${t.dataset.use || ""}`;
+    if (lmDesc) lmDesc.textContent = "";
+
+    setAvg(Number(t.dataset.avg || 0), Number(t.dataset.count || 0));
+
+    if (currentLocationId) loadReviews(currentLocationId);
+    else reviewsList.innerHTML = "<p class='muted'>No hay ID de location (data-id).</p>";
+  });
+
+  modalEl.addEventListener("hidden.bs.modal", () => {
+    currentLocationId = null;
+    if (reviewsList) reviewsList.innerHTML = "";
+    if (commentEl) commentEl.value = "";
+    selectedRating = 5;
+    renderPicker();
+    setAvg(0,0);
+  });
+});
+</script>
+{% endblock %}
